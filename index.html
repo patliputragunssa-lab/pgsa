@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patliputra Guns Shooting Academy</title>
   <link rel="icon" href="assets/pgsa-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Patliputra Guns Shooting Academy home">
@@ -16,17 +23,30 @@
         <small>SHOOTING ACADEMY</small>
       </span>
     </a>
-    <nav aria-label="Primary navigation">
+    <nav aria-label="Primary navigation" id="primary-nav">
       <a class="active" href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#training">Training</a>
+      <a href="#hall-of-fame">🏆 Hall of Fame</a>
+      <a href="#medals">Medal Archive</a>
       <a href="#coaches">Coaches</a>
-      <a href="#achievements">Achievements</a>
       <a href="#khojj">Project Khojj</a>
+      <a href="#alerts">News &amp; Alerts</a>
       <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="header-cta" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a>
+    <div class="header-right">
+      <a class="header-whatsapp-cta"
+        href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20have%20an%20enquiry%20regarding%20training%2C%20fees%2C%20and%20batches."
+        target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a class="header-cta" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="primary-nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
   </header>
 
   <main id="home">
@@ -35,10 +55,14 @@
         <p class="eyebrow">Bihar, Jharkhand</p>
         <h1>Patliputra Guns <span>Shooting Academy</span></h1>
         <p class="hero-lede">Precision. Discipline. Excellence.</p>
-        <p>Bihar's premier academy for 10m air rifle and air pistol training, built to guide young shooters from first practice to competitive performance.</p>
+        <p>Bihar's premier academy for 10m air rifle and air pistol training, built to guide young shooters from first
+          practice to competitive performance.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#training">Explore Academy <span aria-hidden="true">→</span></a>
-          <a class="button secondary" href="#enquiry">Contact Us</a>
+          <a class="button primary" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a>
+          <a class="button whatsapp"
+            href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20have%20an%20enquiry%20regarding%20shooting%20training%2C%20fees%2C%20and%20batches."
+            target="_blank" rel="noopener"><span class="btn-icon">💬</span> WhatsApp Us</a>
+          <a class="button outline" href="tel:+917070499494"><span class="btn-icon">📞</span> Call Us</a>
         </div>
       </div>
       <aside class="hero-values" aria-label="Academy values">
@@ -63,7 +87,8 @@
     <section class="feature-strip" aria-label="Academy highlights">
       <article>
         <span class="strip-icon">👥</span>
-        <div><strong>Professional Coaching</strong><small>Structured guidance for beginners and competitors</small></div>
+        <div><strong>Professional Coaching</strong><small>Structured guidance for beginners and competitors</small>
+        </div>
       </article>
       <article>
         <span class="strip-icon">🛡</span>
@@ -71,7 +96,8 @@
       </article>
       <article>
         <span class="strip-icon">▰</span>
-        <div><strong>Two Patna Branches</strong><small>Digha and Kankarbagh training centres</small></div>
+        <div><strong>Training Centres</strong><small>Digha — Patna · Kankarbagh — Patna · Ranchi — Coming Soon</small>
+        </div>
       </article>
       <article>
         <span class="strip-icon">★</span>
@@ -83,22 +109,39 @@
       <div class="section-copy">
         <p class="eyebrow">About Us</p>
         <h2>Patliputra Guns Shooting Academy</h2>
-        <p>Founded on February 24, 2022 by Chetan Anand with support from the Bihar State Rifle Association, Patliputra Guns Shooting Academy has grown into a leading shooting institution in Bihar. With branches in Digha and Kankarbagh, PGSA trains budding and seasoned shooters through disciplined coaching, safe range practices, and Olympic-standard digital target systems.</p>
+        <p>Founded on February 24, 2022 by Chetan Anand with support from the Bihar State Rifle Association, Patliputra
+          Guns Shooting Academy has grown into a leading shooting institution in Bihar. With training centres in Digha —
+          Patna, Kankarbagh — Patna, and Ranchi — Coming Soon, PGSA trains budding and seasoned shooters through
+          disciplined coaching, safe range practices, and Olympic-standard digital target systems.</p>
         <a class="button primary compact" href="#enquiry">Know More <span aria-hidden="true">→</span></a>
       </div>
       <img src="assets/range-detail.jpeg" alt="PGSA indoor shooting range">
       <div class="mission-panel">
         <article>
           <span>◉</span>
+<<<<<<< HEAD
           <div><strong>Our Vision</strong><p>Build Bihar & Jharkhand's next generation of competitive shooters.</p></div>
+=======
+          <div><strong>Our Vision</strong>
+            <p>Build Bihar's next generation of competitive shooters.</p>
+          </div>
+>>>>>>> b837bfd (init)
         </article>
         <article>
           <span>★</span>
-          <div><strong>Our Mission</strong><p>Provide the guidance, facilities, and pathway young athletes need to reach state and national levels.</p></div>
+          <div><strong>Our Mission</strong>
+            <p>Provide the guidance, facilities, and pathway young athletes need to reach state and national levels.</p>
+          </div>
         </article>
         <article>
           <span>👥</span>
+<<<<<<< HEAD
           <div><strong>Our Facilities</strong><p>Digha, Kankarbagh and Ranchi branches with SIUS digital targets for air rifle and air pistol training.</p></div>
+=======
+          <div><strong>Our Facilities</strong>
+            <p>Digha — Patna and Kankarbagh — Patna ranges with SIUS digital targets; Ranchi — Coming Soon.</p>
+          </div>
+>>>>>>> b837bfd (init)
         </article>
       </div>
     </section>
@@ -109,7 +152,8 @@
           <p class="eyebrow">Our Training</p>
           <h2>Shooting Disciplines</h2>
         </div>
-        <p>Structured programs in Olympic shooting disciplines with a focus on safety, technique, consistency, electronic scoring feedback, and competition readiness.</p>
+        <p>Structured programs in Olympic shooting disciplines with a focus on safety, technique, consistency,
+          electronic scoring feedback, and competition readiness.</p>
       </div>
       <div class="discipline-grid">
         <article>
@@ -134,16 +178,781 @@
         </article>
         <article>
           <img src="assets/discipline-competition-v3.png" alt="Shooting competition medals and match equipment">
-          <h3><button class="discipline-link" type="button" data-discipline="competition">Competition Preparation</button></h3>
+          <h3><button class="discipline-link" type="button" data-discipline="competition">Competition
+              Preparation</button></h3>
           <p>Preparation for district, state, national trials, and higher-level competitive pathways.</p>
         </article>
       </div>
       <div class="discipline-detail" id="discipline-detail" aria-live="polite">
         <p class="detail-kicker">Select a discipline</p>
         <h3>Choose a training area above</h3>
-        <p>Click any subheading to see a brief introduction and the basic-to-advanced development path followed at PGSA.</p>
+        <p>Click any subheading to see a brief introduction and the basic-to-advanced development path followed at PGSA.
+        </p>
       </div>
     </section>
+
+    <section class="fame-section dark-section" id="hall-of-fame">
+      <div class="fame-heading section-heading split">
+        <div>
+          <p class="eyebrow">PGSA Elite Wall</p>
+          <h2>Hall of Fame — Star Performers</h2>
+        </div>
+        <p>Honouring the standout champions who achieved landmark milestones across State, East Zone, Nationals, and
+          National Defense selections.</p>
+      </div>
+
+      <!-- Slideshow Carousel Wrapper -->
+      <div class="fame-slider-wrapper" id="fame-slider-wrapper">
+        <button class="fame-slider-btn prev" id="fame-prev" aria-label="Previous performer" type="button">❮</button>
+
+        <div class="fame-slider-viewport">
+          <div class="fame-slider-track" id="fame-slider-track">
+
+            <!-- Slide 1: Rishika Raj -->
+            <div class="fame-slide" data-index="0">
+              <article class="fame-card floating-card" tabindex="0">
+                <div class="fame-card-inner">
+                  <div class="fame-photo-wrap">
+                    <img class="fame-photo" src="assets/fame-rishika.jpg" alt="Rishika Raj (AI Athlete Portrait - Female)" loading="lazy">
+                    <span class="fame-badge">🥇 East Zone Record Holder</span>
+                  </div>
+                  <div class="fame-body">
+                    <div class="fame-title-group">
+                      <h3 class="fame-name">Rishika Raj</h3>
+                      <p class="fame-discipline">10m Air Pistol &amp; 25m Sports Pistol</p>
+                    </div>
+                    <div class="fame-stats-row">
+                      <div class="fame-stat">
+                        <strong>East Zone</strong>
+                        <small>Highest Medalist</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>Goa 2023</strong>
+                        <small>Nationals</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>Multi-Gold</strong>
+                        <small>Bihar State</small>
+                      </div>
+                    </div>
+                    <p class="fame-quote">“Highest medal winner for Bihar in East Zone and represented Bihar at the
+                      National Championship in Goa.”</p>
+                    <div class="fame-highlights">
+                      <span>🥇 Highest Medal Winner (East Zone)</span>
+                      <span>🇮🇳 Represented Nationals in Goa</span>
+                      <span>🎯 10m &amp; 25m Pistol Ace</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Slide 2: Rudra Pratap Singh -->
+            <div class="fame-slide" data-index="1">
+              <article class="fame-card floating-card" tabindex="0">
+                <div class="fame-card-inner">
+                  <div class="fame-photo-wrap">
+                    <img class="fame-photo" src="assets/fame-rudra.jpg" alt="Rudra Pratap Singh (AI Athlete Portrait - Male)" loading="lazy">
+                    <span class="fame-badge">🏆 4x Gold Clean Sweep</span>
+                  </div>
+                  <div class="fame-body">
+                    <div class="fame-title-group">
+                      <h3 class="fame-name">Rudra Pratap Singh</h3>
+                      <p class="fame-discipline">10m Air Rifle (Peep Sight &amp; ISSF)</p>
+                    </div>
+                    <div class="fame-stats-row">
+                      <div class="fame-stat">
+                        <strong>4x Gold</strong>
+                        <small>35th BSSCC</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>Silver &amp; Bronze</strong>
+                        <small>East Zone</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>Clean Sweep</strong>
+                        <small>State Record</small>
+                      </div>
+                    </div>
+                    <p class="fame-quote">“Delivered a historic 4x Gold clean sweep at the 35th BSSCC 2025 across all
+                      rifle categories, establishing new benchmarks for Bihar.”</p>
+                    <div class="fame-highlights">
+                      <span>🥇 4x Gold Clean Sweep (2025)</span>
+                      <span>🥈 East Zone Pre-National Silver</span>
+                      <span>🎯 Triple Category Champion</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Slide 3: Ankit -->
+            <div class="fame-slide" data-index="2">
+              <article class="fame-card floating-card" tabindex="0">
+                <div class="fame-card-inner">
+                  <div class="fame-photo-wrap">
+                    <img class="fame-photo" src="assets/fame-ankit.jpg" alt="Ankit (AI Athlete Portrait - Male)" loading="lazy">
+                    <span class="fame-badge">🥈 G.V. Mavlankar Silver Medalist</span>
+                  </div>
+                  <div class="fame-body">
+                    <div class="fame-title-group">
+                      <h3 class="fame-name">Ankit</h3>
+                      <p class="fame-discipline">Competitive Air Weapon Championship</p>
+                    </div>
+                    <div class="fame-stats-row">
+                      <div class="fame-stat">
+                        <strong>Silver 🥈</strong>
+                        <small>G.V. Mavlankar</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>All-India</strong>
+                        <small>National Stage</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>National</strong>
+                        <small>Qualified</small>
+                      </div>
+                    </div>
+                    <p class="fame-quote">“Silver in G.V. Mavlankar — clinching the prestigious Silver Medal at the All
+                      India G.V. Mavlankar Shooting Championship.”</p>
+                    <div class="fame-highlights">
+                      <span>🥈 Silver in G.V. Mavlankar</span>
+                      <span>🎯 All India National Trials</span>
+                      <span>🌟 PGSA Star Performer</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Slide 4: Priya Rani -->
+            <div class="fame-slide" data-index="3">
+              <article class="fame-card floating-card" tabindex="0">
+                <div class="fame-card-inner">
+                  <div class="fame-photo-wrap">
+                    <img class="fame-photo" src="assets/fame-priya.jpg" alt="Priya Rani (AI Athlete Portrait - Female)" loading="lazy">
+                    <span class="fame-badge">🥇 India Open Paralympic Gold</span>
+                  </div>
+                  <div class="fame-body">
+                    <div class="fame-title-group">
+                      <h3 class="fame-name">Priya Rani</h3>
+                      <p class="fame-discipline">Para Shooting · 10m Air Weapons</p>
+                    </div>
+                    <div class="fame-stats-row">
+                      <div class="fame-stat">
+                        <strong>Gold 🥇</strong>
+                        <small>India Open</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>Paralympic</strong>
+                        <small>Category</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>National</strong>
+                        <small>Inspiration</small>
+                      </div>
+                    </div>
+                    <p class="fame-quote">“Gold in India Open in Paralympics category — triumphing with inspiring
+                      accuracy and supreme mental composure on the national stage.”</p>
+                    <div class="fame-highlights">
+                      <span>🥇 Gold in India Open (Paralympic)</span>
+                      <span>🎯 Bihar Para Shooting Pioneer</span>
+                      <span>🌟 National Gold Champion</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Slide 5: Prince -->
+            <div class="fame-slide" data-index="4">
+              <article class="fame-card floating-card" tabindex="0">
+                <div class="fame-card-inner">
+                  <div class="fame-photo-wrap">
+                    <img class="fame-photo" src="assets/fame-prince.jpg" alt="Prince (AI Athlete Portrait - Male)" loading="lazy">
+                    <span class="fame-badge">🇮🇳 Selected in Indian Army</span>
+                  </div>
+                  <div class="fame-body">
+                    <div class="fame-title-group">
+                      <h3 class="fame-name">Prince</h3>
+                      <p class="fame-discipline">10m Air Rifle · Indian Army Selection</p>
+                    </div>
+                    <div class="fame-stats-row">
+                      <div class="fame-stat">
+                        <strong>Selected</strong>
+                        <small>Indian Army</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>Sports Quota</strong>
+                        <small>Shooting</small>
+                      </div>
+                      <div class="fame-stat">
+                        <strong>Gold Medalist</strong>
+                        <small>State Team</small>
+                      </div>
+                    </div>
+                    <p class="fame-quote">“Got selected in Indian Army through shooting sports quota — proving that
+                      precision training and dedication open pathways to national service.”</p>
+                    <div class="fame-highlights">
+                      <span>🇮🇳 Selected in Indian Army (Sports Quota)</span>
+                      <span>🥇 State Team Gold Champion</span>
+                      <span>🎖️ Defense Services Pathway</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="fame-slider-btn next" id="fame-next" aria-label="Next performer" type="button">❯</button>
+      </div>
+
+      <!-- Slideshow Navigation Dots -->
+      <div class="fame-dots" id="fame-dots" role="tablist" aria-label="Performer slide dots">
+        <button class="fame-dot active" data-slide="0" role="tab" aria-selected="true"
+          aria-label="Slide 1: Rishika Raj"></button>
+        <button class="fame-dot" data-slide="1" role="tab" aria-selected="false"
+          aria-label="Slide 2: Rudra Pratap Singh"></button>
+        <button class="fame-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3: Ankit"></button>
+        <button class="fame-dot" data-slide="3" role="tab" aria-selected="false"
+          aria-label="Slide 4: Priya Rani"></button>
+        <button class="fame-dot" data-slide="4" role="tab" aria-selected="false" aria-label="Slide 5: Prince"></button>
+      </div>
+    </section>
+
+    <!-- ===== MEDAL ARCHIVE & CHAMPIONSHIP RECORDS ===== -->
+    <section class="medals-section dark-section" id="medals">
+      <div class="medals-heading section-heading split">
+        <div>
+          <p class="eyebrow">Pride of PGSA</p>
+          <h2>Medal Winners &amp; Achievements</h2>
+        </div>
+        <p>Our athletes have competed and won across Bihar State Championships and East Zone Pre-National events. Here
+          is the complete year-wise record.</p>
+      </div>
+
+      <!-- Year tabs -->
+      <div class="medal-year-tabs" role="tablist" aria-label="Year">
+        <button class="my-tab active" role="tab" data-year="2022" aria-selected="true">2022</button>
+        <button class="my-tab" role="tab" data-year="2023" aria-selected="false">2023</button>
+        <button class="my-tab" role="tab" data-year="2024" aria-selected="false">2024</button>
+        <button class="my-tab" role="tab" data-year="2025" aria-selected="false">2025</button>
+      </div>
+
+      <!-- Championship filter pills -->
+      <div class="medal-filter-row" id="medal-filter-row">
+        <button class="mf-pill active" data-filter="all">All</button>
+        <button class="mf-pill" data-filter="state">State</button>
+        <button class="mf-pill" data-filter="zone">East Zone</button>
+      </div>
+
+      <!-- ============ 2022 ============ -->
+      <div class="medal-year-panel active" data-year="2022">
+
+        <!-- Bihar State 2022 – Air Weapons -->
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>32nd BSSCC 2022 — Air Weapons</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rudra P. Singh</span><span class="ath-event">Rifle
+                OS</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Ayush Sinha</span><span class="ath-event">Rifle OS</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span><span
+                  class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Akanchha Saraf</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Sawan Kumar</span><span class="ath-event">Rifle OS</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Kulsum Tazeen</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Aman Sinha</span><span class="ath-event">Rifle OS</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Arav, Saurabh, Prince</span><span class="ath-event">Rifle
+                PS Team</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Amaya Abhishek</span><span class="ath-event">Rifle
+                OS</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bihar State 2022 – Fire Arms -->
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>32nd BSSCC 2022 — Fire Arms</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">Pistol 25m</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Shalu Gupta</span><span class="ath-event">Rifle
+                PS/3P</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Sudhiksha Kumari</span><span class="ath-event">Pistol
+                25m</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Akanchha Saraf</span><span class="ath-event">Pistol
+                25m</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Standard Pistol Team<br><small>Hemant, Chetan Sir,
+                  Aman</small></span><span class="ath-event">Pistol 25m Team</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Abhijeet Singh</span><span class="ath-event">Standard
+                Pistol 25m</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- East Zone 2022 -->
+        <div class="championship-block" data-type="zone">
+          <div class="champ-header">
+            <span class="champ-badge zone">East Zone</span>
+            <h3>6th East Zone Shooting Championship 2022 (Pre National)</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">Air Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span><span class="pip silver">🥈</span><span class="pip silver">🥈</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Aarav Singh</span><span class="ath-event">Air Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip bronze">🥉</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Akanchha Saraf</span><span class="ath-event">Air
+                Pistol</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 2023 ============ -->
+      <div class="medal-year-panel" data-year="2023">
+
+        <!-- State 2023 Air Weapons -->
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>33rd BSSCC 2023 — Air Weapons (Individual)</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Aarav Singh</span><span class="ath-event">PS Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Bhavya Agarwal</span><span class="ath-event">PS
+                Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rudra Pratap Singh Rajput</span><span class="ath-event">PS
+                Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">K N Thakur</span><span class="ath-event">OS Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Manjari Kumari</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Ayush Sinha</span><span class="ath-event">OS Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Kulsum Tazeen</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Prince Kumar</span><span class="ath-event">PS Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Tanvi Agarwal</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Shivansh Narayan</span><span class="ath-event">OS
+                Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Arpit Kumar</span><span class="ath-event">OS Rifle</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Navya Mehrotra</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Simran Bharti</span><span class="ath-event">PS Rifle</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- State 2023 Team -->
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>33rd BSSCC 2023 — Air Weapons (Team)</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">PS Rifle Senior Men Team<br><small>Aarav Singh, Prince
+                  Kumar, Rudra Pratap Singh Rajput</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">PS Rifle Junior Men Team<br><small>Aarav Singh, Prince
+                  Kumar, Rudra Pratap Singh Rajput</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">PS Rifle Youth Men Team<br><small>Aarav Singh, Prince
+                  Kumar, Rudra Pratap Singh Rajput</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Senior Women Pistol Team 1<br><small>Rishika Raj, Kulsum
+                  Tajeen, Khusboo Kumari</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">OS Rifle Junior Men Team<br><small>Ayush Sinha, Shivansh
+                  Narayan, Arpit Kumar</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Senior Women Pistol Team 2<br><small>Tanvi Agarwal, Navya
+                  Mehrotra, Shagun Gupta</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">OS Rifle Senior Men Team 1<br><small>K N Thakur, Sunil
+                  Kumar Sahani, Shivansh Narayan</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Sub-Youth Men Pistol Team<br><small>Ayush Kumar, Ashish
+                  Kumar, Adhyan Kumar</small></span><span class="ath-event">Team</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- State 2023 Fire Arms -->
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>33rd BSSCC 2023 — Fire Arms</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Kulsum Tazeen</span><span class="ath-event">25m Sports
+                Pistol Sr./Jr. Women</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Nusrat Ali Khan</span><span class="ath-event">3p 50m OS
+                Rifle Sr. Men</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Chetan Anand</span><span class="ath-event">MP/MLA</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Sushant Kumar</span><span class="ath-event">25m Standard
+                Pistol Sr. Men</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Imran Alam</span><span class="ath-event">3p 50m Peep Sight
+                Sr. Men</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rudra Pratap Singh Rajput</span><span class="ath-event">50m
+                Prone Jr. Men</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">25m Sports Pistol
+                Sr./Jr. Women</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip bronze">🥉</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- East Zone 2023 -->
+        <div class="championship-block" data-type="zone">
+          <div class="champ-header">
+            <span class="champ-badge zone">East Zone</span>
+            <h3>7th East Zone Shooting Championship 2023 (Pre National)</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Samarth Vatsal</span><span class="ath-event">10m Air
+                Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rudra Pratap Singh Rajput</span><span class="ath-event">10m
+                Air Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip bronze">🥉</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Kulsum Tazeen</span><span class="ath-event">25m Sports
+                Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Manish Kumar</span><span class="ath-event">50m Free
+                Pistol</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 2024 ============ -->
+      <div class="medal-year-panel" data-year="2024">
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>34th BSSCC 2024 — Air Weapons (Individual)</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Bhavya Agarwal</span><span class="ath-event">PS
+                Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Shristi Shreya</span><span class="ath-event">OS
+                Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Kaashvi</span><span class="ath-event">OS Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Pratham Chakraborty</span><span class="ath-event">OS
+                Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip silver">🥈</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rudra Pratap Singh Rajput</span><span class="ath-event">PS
+                Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Tanvi Agarwal</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip silver">🥈</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Kulsum Tazeen</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Aarav Singh</span><span class="ath-event">PS Air
+                Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Abhijeet Pratap Singh Rajput</span><span
+                class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Simran Bharti</span><span class="ath-event">PS Air
+                Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Shaswat Dev</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>34th BSSCC 2024 — Air Weapons (Team) &amp; Fire Arms</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">OS Rifle Sr. Women Team<br><small>Shristi Shreya, Kaashvi,
+                  Arya Sidodia</small></span><span class="ath-event">Team · Gold</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">PS Rifle Junior &amp; Youth Teams<br><small>Aarav Singh,
+                  Prince Kumar, Rudra Pratap Singh Rajput</small></span><span class="ath-event">Team · Gold</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Chetan Anand</span><span class="ath-event">Fire Arms ·
+                MP/MLA 25m Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Khushboo Kumari</span><span class="ath-event">Fire Arms ·
+                25m Sports Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">25m Pistol Women Team<br><small>Khushboo Kumari, Kaashvi,
+                  Rishika Raj</small></span><span class="ath-event">Team · Silver</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 2025 ============ -->
+      <div class="medal-year-panel" data-year="2025">
+
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>35th BSSCC 2025 (Kalyan Bigha &amp; Patna) — ISSF Individual</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Rudra Pratap Singh</span><span
+                class="ath-event">Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Bhavya Agarwal</span><span class="ath-event">Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Shagun Gupta</span><span class="ath-event">Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Ansh Kumar</span><span class="ath-event">Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Lavanya Shrivastav</span><span class="ath-event">NR ·
+                Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Anshu Raj</span><span class="ath-event">NR · Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Shaswat Dev</span><span class="ath-event">NR ·
+                Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Kashvi Bhartiya</span><span class="ath-event">NR ·
+                Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Pratham Chakraborty</span><span class="ath-event">NR ·
+                Rifle</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span><span
+                  class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Khushboo Kumari</span><span class="ath-event">NR ·
+                Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Sunidhi Kumari</span><span class="ath-event">Rifle</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Subham Mishra</span><span class="ath-event">NR ·
+                Rifle</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="championship-block" data-type="state">
+          <div class="champ-header">
+            <span class="champ-badge state">Bihar State</span>
+            <h3>35th BSSCC 2025 — Fire Arms Events</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Kashvi</span><span class="ath-event">25m Sports Pistol ·
+                50m Free Pistol</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Khushboo Kumari</span><span class="ath-event">50m Free
+                Pistol · 25m Sports Pistol</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Nilesh Sankrit</span><span class="ath-event">50m Free
+                Pistol · 25m Standard Pistol</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Rishika Raj</span><span class="ath-event">25m Sports
+                Pistol</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">50m Free Pistol Sr. Men Team<br><small>Bablu Kumar, Ambuj
+                  Kumar, Manish Kumar</small></span><span class="ath-event">Team · Gold</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="championship-block" data-type="zone">
+          <div class="champ-header">
+            <span class="champ-badge zone">East Zone</span>
+            <h3>9th East Zone Shooting Championship 2025 (Kalyan Bhigha &amp; Patna)</h3>
+          </div>
+          <div class="athlete-cards">
+            <div class="athlete-card"><span class="ath-name">Anshu Raj</span><span class="ath-event">Senior, Junior,
+                Youth</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span><span class="pip silver">🥈</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Ashy Priya</span><span class="ath-event">Youth, Junior,
+                Senior</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span><span class="pip bronze">🥉</span><span
+                  class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Lavanya Shrivastav</span><span class="ath-event">Deaf
+                Category</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Arya Sisodia</span><span class="ath-event">1st in Foreign
+                National Players</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Khushboo Kumari</span><span class="ath-event">50m Senior
+                Women</span>
+              <div class="medal-pips"><span class="pip gold">🥇</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Bablu Kumar</span><span class="ath-event">50m Senior
+                Men</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Bicky</span><span class="ath-event">50m Junior Men</span>
+              <div class="medal-pips"><span class="pip silver">🥈</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Nilesh Sankrit</span><span class="ath-event">50m Junior
+                Men</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+            <div class="athlete-card"><span class="ath-name">Kashvi Bhartiya</span><span class="ath-event">25m SP Senior
+                Women</span>
+              <div class="medal-pips"><span class="pip bronze">🥉</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- ===== END MEDAL HALL OF FAME ===== -->
 
     <section class="coaches section-light" id="coaches">
       <div class="section-heading row">
@@ -158,7 +967,12 @@
           <img class="coach-photo" src="assets/chetan-anand.png" alt="Chetan Anand">
           <div>
             <h3>Chetan Anand</h3>
+<<<<<<< HEAD
             <p>MLA & Deputy Minister(Bihar), (Founder & Former national level Pistol Shooter) Patliputra Guns Shooting Academy</p>
+=======
+            <p>Hon'ble MLA & Deputy Minister, Government of Bihar<br>Founder, Patliputra Guns Shooting Academy<br>Former
+              National-Level Pistol Shooter</p>
+>>>>>>> b837bfd (init)
             <small>Launched PGSA in 2022 to expand quality shooting facilities for Bihar.</small>
           </div>
         </article>
@@ -205,25 +1019,34 @@
       </div>
     </section>
 
-    <section class="achievements dark-section" id="achievements">
+    <section class="achievements dark-section" id="stats">
       <div>
         <p class="eyebrow">Our Achievements</p>
         <h2>Making Our Mark in Shooting Sports</h2>
       </div>
       <div class="stats">
-        <article><span>🏆</span><strong>3 Years</strong><p>Leading Bihar State Championship medal tallies</p></article>
-        <article><span>▣</span><strong>SIUS</strong><p>Olympic-standard electronic target systems</p></article>
-        <article><span>▥</span><strong>2 Branches</strong><p>Digha and Kankarbagh, with Ranchi planned</p></article>
+        <article><span>🏆</span><strong>3 Years</strong>
+          <p>Leading Bihar State Championship medal tallies</p>
+        </article>
+        <article><span>▣</span><strong>SIUS</strong>
+          <p>Olympic-standard electronic target systems</p>
+        </article>
+        <article><span>▥</span><strong>Training Centres</strong>
+          <p>Digha — Patna<br>Kankarbagh — Patna<br>Ranchi — Coming Soon</p>
+        </article>
       </div>
     </section>
 
+    <!-- ===== NEWS & TOURNAMENT ALERTS ===== -->
     <section class="khojj section-light" id="khojj">
       <div class="section-heading split light-copy">
         <div>
           <p class="eyebrow">Project Khojj</p>
           <h2>A Talent Hunt for Bihar's Future Shooters</h2>
         </div>
-        <p>Project Khojj is PGSA's awareness and talent-identification mission for young athletes. It introduces shooting as an Olympic discipline, builds confidence and discipline, and creates a pathway for promising students to receive structured training.</p>
+        <p>Project Khojj is PGSA's awareness and talent-identification mission for young athletes. It introduces
+          shooting as an Olympic discipline, builds confidence and discipline, and creates a pathway for promising
+          students to receive structured training.</p>
       </div>
       <div class="khojj-grid">
         <article>
@@ -239,10 +1062,192 @@
         <article>
           <span>03</span>
           <h3>Athlete Development</h3>
-          <p>Selected athletes can progress into disciplined coaching, competition readiness, and long-term performance support.</p>
+          <p>Selected athletes can progress into disciplined coaching, competition readiness, and long-term performance
+            support.</p>
         </article>
       </div>
-      <p class="partner-note">Ganguly Consultancy supports PGSA through coaching expertise and Project Khojj execution, while PGSA remains the academy and primary training destination for shooters.</p>
+      <p class="partner-note">Ganguly Consultancy supports PGSA through coaching expertise and Project Khojj execution,
+        while PGSA remains the academy and primary training destination for shooters.</p>
+    </section>
+
+    <section class="alerts-section section-light" id="alerts">
+      <div class="section-heading split light-copy">
+        <div>
+          <p class="eyebrow">Shooter Noticeboard</p>
+          <h2>News &amp; Tournament Alerts</h2>
+        </div>
+        <p>Official announcements, upcoming State &amp; Zonal championships, internal PGSA ranking trials, and NRAI
+          national selection notices for academy athletes.</p>
+      </div>
+
+      <!-- Urgent alert banner ticker -->
+      <div class="alert-ticker" role="alert">
+        <span class="ticker-tag">🔔 URGENT NOTICE</span>
+        <div class="ticker-content">
+          <strong>36th Bihar State Shooting Championship 2026:</strong> Academy shooter entry portal &amp; weapon
+          documentation are now live. Internal SIUS selection trials scheduled for Oct 25–26 at Digha Range.
+        </div>
+        <a class="ticker-link" href="#enquiry">Contact Range Desk →</a>
+      </div>
+
+      <!-- Tournament category filters -->
+      <div class="tournament-filters" role="tablist" aria-label="Tournament filters">
+        <button class="t-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Tournaments &amp;
+          Notices</button>
+        <button class="t-filter-btn" data-filter="state" role="tab" aria-selected="false">State &amp; Zonal</button>
+        <button class="t-filter-btn" data-filter="internal" role="tab" aria-selected="false">Internal PGSA
+          Trials</button>
+        <button class="t-filter-btn" data-filter="national" role="tab" aria-selected="false">National Selection
+          (NRAI)</button>
+      </div>
+
+      <!-- Tournament Cards Grid -->
+      <div class="tournaments-grid">
+        <!-- 1. State Championship -->
+        <article class="tournament-card" data-category="state">
+          <div class="t-card-header">
+            <span class="t-status-badge badge-open">● Registration Open</span>
+            <span class="t-category-tag">BSSA · State</span>
+          </div>
+          <div class="t-card-body">
+            <h3>36th Bihar State Shooting Championship 2026</h3>
+            <p class="t-desc">Official State Championship for Air Weapons &amp; Fire Arms across Sub-Youth, Youth,
+              Junior &amp; Senior (NR &amp; ISSF categories).</p>
+            <div class="t-details-list">
+              <div class="t-detail">
+                <span class="t-icon">📅</span>
+                <div><small>Dates</small><strong>November 12 – 19, 2026</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">📍</span>
+                <div><small>Venue</small><strong>Kalyan Bigha &amp; Patliputra Complex, Patna</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">🎯</span>
+                <div><small>Disciplines</small><strong>10m Rifle/Pistol · 25m Sports Pistol · 50m Free Pistol</strong>
+                </div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">⏳</span>
+                <div><small>Entry Deadline</small><strong>October 30, 2026 (via PGSA Desk)</strong></div>
+              </div>
+            </div>
+            <div class="t-card-actions">
+              <button class="button primary compact open-circular-btn" data-circular="state-36">View Circular &amp;
+                Schedule</button>
+              <a class="button secondary compact" href="#enquiry">Register via Academy</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Internal League -->
+        <article class="tournament-card" data-category="internal">
+          <div class="t-card-header">
+            <span class="t-status-badge badge-internal">● Internal Selection</span>
+            <span class="t-category-tag">PGSA SIUS League</span>
+          </div>
+          <div class="t-card-body">
+            <h3>Monthly SIUS Ranking Match &amp; League (Stage 4)</h3>
+            <p class="t-desc">Internal ranking and match simulation for all academy shooters on Olympic-standard SIUS
+              electronic targets to determine state squad seeding.</p>
+            <div class="t-details-list">
+              <div class="t-detail">
+                <span class="t-icon">📅</span>
+                <div><small>Dates</small><strong>October 25 – 26, 2026</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">📍</span>
+                <div><small>Venue</small><strong>PGSA Digha Range (10m SIUS Lines)</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">🎯</span>
+                <div><small>Format</small><strong>60-Shot Qualification + 24-Shot ISSF Final</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">🏆</span>
+                <div><small>Incentive</small><strong>Academy Squad Rank &amp; Match Pellets Grant</strong></div>
+              </div>
+            </div>
+            <div class="t-card-actions">
+              <button class="button primary compact open-circular-btn" data-circular="internal-sius">Match
+                Regulations</button>
+              <a class="button secondary compact" href="#enquiry">Book Firing Slot</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. East Zone Championship -->
+        <article class="tournament-card" data-category="state">
+          <div class="t-card-header">
+            <span class="t-status-badge badge-upcoming">🟡 Advance Notice</span>
+            <span class="t-category-tag">Pre-National Zonal</span>
+          </div>
+          <div class="t-card-body">
+            <h3>11th East Zone Shooting Championship 2026</h3>
+            <p class="t-desc">Pre-National championship bringing top shooters from Bihar, West Bengal, Jharkhand &amp;
+              Odisha for National Championship qualification.</p>
+            <div class="t-details-list">
+              <div class="t-detail">
+                <span class="t-icon">📅</span>
+                <div><small>Dates</small><strong>December 04 – 10, 2026</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">📍</span>
+                <div><small>Venue</small><strong>Asansol Rifle Club &amp; Range, West Bengal</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">🎯</span>
+                <div><small>Eligibility</small><strong>Achievers of Minimum Qualifying Score (MQS)</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">🚆</span>
+                <div><small>Support</small><strong>PGSA Escorted Squad &amp; Weapon Carriage</strong></div>
+              </div>
+            </div>
+            <div class="t-card-actions">
+              <button class="button primary compact open-circular-btn" data-circular="east-zone-11">MQS Criteria &amp;
+                Notice</button>
+              <a class="button secondary compact" href="#enquiry">Squad Briefing</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. National Selection Trials -->
+        <article class="tournament-card" data-category="national">
+          <div class="t-card-header">
+            <span class="t-status-badge badge-national">🏛️ National Pathway</span>
+            <span class="t-category-tag">NRAI Trials</span>
+          </div>
+          <div class="t-card-body">
+            <h3>NRAI National Selection Trials 1 &amp; 2 (2027)</h3>
+            <p class="t-desc">Selection trials conducted by the National Rifle Association of India for the Indian
+              National Shooting Squad (Senior &amp; Junior teams).</p>
+            <div class="t-details-list">
+              <div class="t-detail">
+                <span class="t-icon">📅</span>
+                <div><small>Dates</small><strong>January 15 – 24, 2027</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">📍</span>
+                <div><small>Venue</small><strong>Dr. Karni Singh Shooting Range (DKSSR), New Delhi</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">🎯</span>
+                <div><small>Eligibility</small><strong>National Renowned Shots &amp; Qualified Finalists</strong></div>
+              </div>
+              <div class="t-detail">
+                <span class="t-icon">🥋</span>
+                <div><small>Mentorship</small><strong>Camp by Coach Bibaswan Ganguly (ISSF A)</strong></div>
+              </div>
+            </div>
+            <div class="t-card-actions">
+              <button class="button primary compact open-circular-btn" data-circular="nrai-trials">View NRAI
+                Notification</button>
+              <a class="button secondary compact" href="#enquiry">High-Performance Camp</a>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="gallery section-light" id="gallery">
@@ -251,44 +1256,64 @@
           <p class="eyebrow">Gallery</p>
           <h2>Moments from Our Academy</h2>
         </div>
-        <button class="button outline compact" id="open-full-gallery" type="button">View Full Gallery <span aria-hidden="true">→</span></button>
+        <button class="button outline compact" id="open-full-gallery" type="button">View Full Gallery <span
+            aria-hidden="true">→</span></button>
       </div>
       <div class="gallery-grid">
-        <img class="gallery-thumb" src="assets/gallery-1.jpeg" alt="Air rifles on the shooting bench with SIUS targets" data-index="0" tabindex="0" role="button" aria-label="Enlarge: Air rifles on the shooting bench with SIUS targets">
-        <img class="gallery-thumb" src="assets/gallery-2.jpeg" alt="Air rifles at a range with Olympic logo" data-index="1" tabindex="0" role="button" aria-label="Enlarge: Air rifles at a range with Olympic logo">
-        <img class="gallery-thumb" src="assets/gallery-3.jpeg" alt="PGSA shooter aiming an air pistol at the range" data-index="2" tabindex="0" role="button" aria-label="Enlarge: PGSA shooter aiming an air pistol">
-        <img class="gallery-thumb" src="assets/gallery-4.jpeg" alt="PGSA athlete on podium at 10th East Zone Shooting Championship" data-index="3" tabindex="0" role="button" aria-label="Enlarge: East Zone Championship podium">
-        <img class="gallery-thumb" src="assets/gallery-5.jpeg" alt="PGSA Shooting Team at the East Zone Championship" data-index="4" tabindex="0" role="button" aria-label="Enlarge: PGSA Shooting Team">
-        <img class="gallery-thumb" src="assets/gallery-6.jpeg" alt="PGSA team at XXXVI Bihar State Shooting Championship" data-index="5" tabindex="0" role="button" aria-label="Enlarge: Bihar State Championship team">
+        <img class="gallery-thumb" src="assets/gallery-1.jpeg" alt="Air rifles on the shooting bench with SIUS targets"
+          data-index="0" tabindex="0" role="button"
+          aria-label="Enlarge: Air rifles on the shooting bench with SIUS targets">
+        <img class="gallery-thumb" src="assets/gallery-2.jpeg" alt="Air rifles at a range with Olympic logo"
+          data-index="1" tabindex="0" role="button" aria-label="Enlarge: Air rifles at a range with Olympic logo">
+        <img class="gallery-thumb" src="assets/gallery-3.jpeg" alt="PGSA shooter aiming an air pistol at the range"
+          data-index="2" tabindex="0" role="button" aria-label="Enlarge: PGSA shooter aiming an air pistol">
+        <img class="gallery-thumb" src="assets/gallery-4.jpeg"
+          alt="PGSA athlete on podium at 10th East Zone Shooting Championship" data-index="3" tabindex="0" role="button"
+          aria-label="Enlarge: East Zone Championship podium">
+        <img class="gallery-thumb" src="assets/gallery-5.jpeg" alt="PGSA Shooting Team at the East Zone Championship"
+          data-index="4" tabindex="0" role="button" aria-label="Enlarge: PGSA Shooting Team">
+        <img class="gallery-thumb" src="assets/gallery-6.jpeg"
+          alt="PGSA team at XXXVI Bihar State Shooting Championship" data-index="5" tabindex="0" role="button"
+          aria-label="Enlarge: Bihar State Championship team">
       </div>
     </section>
 
+    <!-- ===== HALL OF FAME (STAR PERFORMERS SLIDESHOW) ===== -->
     <section class="contact section-light" id="contact">
       <div>
         <p class="eyebrow">Contact Us</p>
         <h2>Visit Patliputra Guns Shooting Academy</h2>
 
         <!-- Location tabs -->
+<<<<<<< HEAD
          <div class="location-tabs" role="tablist" aria-label="Branch locations">
+=======
+        <!-- Location tabs -->
+        <div class="location-tabs" role="tablist" aria-label="Branch locations">
+>>>>>>> b837bfd (init)
           <button class="loc-tab active" role="tab" aria-selected="true" data-loc="digha"
             data-map="https://www.google.com/maps?q=Mica+Colony,+Digha+Ghat,+Patna,+800011&output=embed"
             data-address="Mica Colony, Yadav Colony, Professor Colony,&lt;br&gt;Digha Ghat, in front of St. Xavier's University,&lt;br&gt;Patna – 800011"
             id="tab-digha" aria-controls="map-frame">
-            📍 Digha Branch
+            📍 Digha — Patna
           </button>
 
           <button class="loc-tab" role="tab" aria-selected="false" data-loc="kankarbagh"
             data-map="https://www.google.com/maps?q=H4XX%2BH6+Patna,+Bihar&output=embed"
             data-address="Housing Board Colony,&lt;br&gt;Kankarbagh, Patna,&lt;br&gt;Bihar – 800020" id="tab-kankarbagh"
             aria-controls="map-frame">
+<<<<<<< HEAD
             📍 Kankarbagh Branch
+=======
+            📍 Kankarbagh — Patna
+>>>>>>> b837bfd (init)
           </button>
 
           <button class="loc-tab" role="tab" aria-selected="false" data-loc="ranchi"
             data-map="https://www.google.com/maps?q=988F%2BX37,+Radhey+Shyam+Ln,+Upper+Bazar,+Ranchi,+Jharkhand+834001,+India&output=embed"
             data-address="988F+X37, Radhey Shyam Ln,&lt;br&gt;Upper Bazar, Ranchi,&lt;br&gt;Jharkhand – 834001, India"
             id="tab-ranchi" aria-controls="map-frame">
-            📍 Ranchi (Coming Soon)
+            📍 Ranchi — Coming Soon
           </button>
         </div>
 
@@ -296,8 +1321,9 @@
           <article class="address-item">
             <span>📍</span>
             <div>
-              <strong id="loc-label">Digha Branch</strong>
-              <p id="loc-address">Mica Colony, Yadav Colony, Professor Colony,<br>Digha Ghat, in front of St. Xavier's University,<br>Patna – 800011</p>
+              <strong id="loc-label">Digha — Patna</strong>
+              <p id="loc-address">Mica Colony, Yadav Colony, Professor Colony,<br>Digha Ghat, in front of St. Xavier's
+                University,<br>Patna – 800011</p>
             </div>
           </article>
           <article>
@@ -323,11 +1349,7 @@
           </article>
         </div>
       </div>
-      <iframe
-        id="map-frame"
-        class="map-card"
-        title="Map to Patliputra Guns Shooting Academy"
-        loading="lazy"
+      <iframe id="map-frame" class="map-card" title="Map to Patliputra Guns Shooting Academy" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps?q=Mica+Colony,+Digha+Ghat,+Patna,+800011&output=embed">
       </iframe>
@@ -336,22 +1358,160 @@
     <section class="enquiry dark-section" id="enquiry">
       <div class="section-heading split">
         <div>
-          <p class="eyebrow">Enquiry Form</p>
-          <h2>Start Your Training Enquiry</h2>
+          <p class="eyebrow">Admissions &amp; Enquiry</p>
+          <h2>Enquire About Admissions</h2>
         </div>
-        <p>Share your details and the academy team will follow up with batch, fee, and admission information.</p>
+        <p>Interested in joining PGSA? Share your details and our academy team will contact you with batch timings, fees
+          and admission information.</p>
       </div>
+
+      <!-- 3 Distinct Actions Channels -->
+      <div class="enquiry-channels-grid">
+        <a class="enquiry-channel-card whatsapp"
+          href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20have%20an%20enquiry%20regarding%20shooting%20training%2C%20fees%2C%20and%20batches."
+          target="_blank" rel="noopener">
+          <div class="channel-icon">💬</div>
+          <div class="channel-body">
+            <span class="channel-badge">Quick questions</span>
+            <strong>WhatsApp Us</strong>
+            <p>Fees, batch timings, age eligibility, equipment &amp; trial classes</p>
+          </div>
+          <span class="channel-arrow">Chat Now →</span>
+        </a>
+
+        <a class="enquiry-channel-card apply"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdlrHnN2PlBXtQau46lU8Xj9JVBP5wVGS3WNUmAT8wK1GlOhA/viewform"
+          target="_blank" rel="noopener">
+          <div class="channel-icon">📝</div>
+          <div class="channel-body">
+            <span class="channel-badge">Ready to enrol?</span>
+            <strong>Apply Now</strong>
+            <p>Direct admission application form for new shooters</p>
+          </div>
+          <span class="channel-arrow">Open Application →</span>
+        </a>
+
+        <a class="enquiry-channel-card phone" href="tel:+917070499494">
+          <div class="channel-icon">📞</div>
+          <div class="channel-body">
+            <span class="channel-badge">Immediate talk</span>
+            <strong>Call Us</strong>
+            <p>Speak directly with our coaches &amp; staff (+91 7070499494)</p>
+          </div>
+          <span class="channel-arrow">Call Academy →</span>
+        </a>
+      </div>
+
       <div class="form-frame">
         <!-- Replace FORM_ID with the published Google Form embed URL for the academy. -->
-        <iframe
-          title="Patliputra Guns Shooting Academy enquiry form"
-          loading="lazy"
-          src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true">
+        <iframe title="Patliputra Guns Shooting Academy enquiry form" loading="lazy"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdlrHnN2PlBXtQau46lU8Xj9JVBP5wVGS3WNUmAT8wK1GlOhA/viewform?usp=dialog">
           Loading...
         </iframe>
       </div>
     </section>
   </main>
+
+  <!-- ===== COMPACT INFORMATIONAL FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Key CTAs -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand">
+            <img src="assets/pgsa-logo.png" alt="PGSA Logo" class="footer-logo">
+            <h3>PATLIPUTRA GUNS SHOOTING ACADEMY</h3>
+          </div>
+          <p class="footer-tagline">Precision. Discipline. Excellence.</p>
+          <p class="footer-desc">Bihar's premier academy for 10m air rifle and air pistol training.</p>
+          <div class="footer-action-buttons">
+            <a class="button whatsapp compact"
+              href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20have%20an%20enquiry%20regarding%20shooting%20training%2C%20fees%2C%20and%20batches."
+              target="_blank" rel="noopener">
+              <span class="btn-icon">💬</span> WhatsApp Us
+            </a>
+            <a class="button primary compact"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdlrHnN2PlBXtQau46lU8Xj9JVBP5wVGS3WNUmAT8wK1GlOhA/viewform"
+              target="_blank" rel="noopener">
+              Apply Now <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#training">Training</a></li>
+            <li><a href="#coaches">Coaches</a></li>
+            <li><a href="#hall-of-fame">🏆 Hall of Fame</a></li>
+            <li><a href="#medals">Achievements</a></li>
+            <li><a href="#khojj">Project Khojj</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Training -->
+        <div class="footer-col">
+          <h4>Training</h4>
+          <ul class="footer-nav">
+            <li><a href="#training">10m Air Rifle</a></li>
+            <li><a href="#training">10m Air Pistol</a></li>
+            <li><a href="#training">Beginner Training</a></li>
+            <li><a href="#training">Advanced Coaching</a></li>
+            <li><a href="#training">Competition Prep</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Training Centres -->
+        <div class="footer-col">
+          <h4>Training Centres</h4>
+          <ul class="footer-centres">
+            <li>
+              <strong>Digha — Patna</strong>
+              <small>Mica Colony, Digha Ghat, Patna – 800011</small>
+            </li>
+            <li>
+              <strong>Kankarbagh — Patna</strong>
+              <small>Housing Board Colony, Patna – 800020</small>
+            </li>
+            <li>
+              <strong>Ranchi — Coming Soon</strong>
+              <small>Upper Bazar, Ranchi, Jharkhand – 834001</small>
+            </li>
+          </ul>
+          <div class="footer-contact-links">
+            <p><a href="tel:+917070499494"><span class="f-icon">📞</span> +91 7070499494</a></p>
+            <p><a href="https://wa.me/917070499494" target="_blank" rel="noopener"><span class="f-icon">💬</span> WhatsApp</a></p>
+            <p><a href="mailto:patliputraguns.sa@gmail.com"><span class="f-icon">✉</span> Email Us</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Patliputra Guns Shooting Academy. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#contact">Privacy Policy</a>
+          <span class="sep">•</span>
+          <a href="#contact">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <aside class="floating-whatsapp" aria-label="Quick WhatsApp assistance">
+    <a href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20would%20like%20to%20know%20more%20about%20fees%2C%20batch%20timings%2C%20and%20admission."
+      target="_blank" rel="noopener" class="floating-whatsapp-link" title="Quick chat on WhatsApp">
+      <span class="wa-icon">💬</span>
+      <span class="wa-label">WhatsApp Us</span>
+    </a>
+  </aside>
 
   <!-- ===== LIGHTBOX MODAL ===== -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
@@ -375,6 +1535,29 @@
     </div>
   </div>
 
+  <!-- ===== TOURNAMENT CIRCULAR MODAL ===== -->
+  <div id="circular-modal" class="modal-overlay" role="dialog" aria-modal="true"
+    aria-label="Tournament Circular & Notice" hidden>
+    <div class="modal-box circular-modal-box">
+      <div class="modal-header">
+        <div>
+          <span class="modal-kicker" id="circ-modal-kicker">Official Circular</span>
+          <h2 id="circ-modal-title">Tournament Notice</h2>
+        </div>
+        <button class="modal-close" id="circular-modal-close" aria-label="Close notice">✕</button>
+      </div>
+      <div class="circular-modal-body" id="circ-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <a class="button secondary compact" id="circ-modal-download" href="assets/pgsa-logo.png" download>Download
+          Circular (PDF)</a>
+        <a class="button primary compact" href="#enquiry" id="circ-modal-action">Register via Academy</a>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>

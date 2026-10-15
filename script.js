@@ -233,9 +233,9 @@ const locLabel    = document.getElementById("loc-label");
 const locAddress  = document.getElementById("loc-address");
 
 const locNames = {
-  digha:      "Digha Branch",
-  kankarbagh: "Kankarbagh Branch",
-  ranchi:     "Ranchi (Coming Soon)"
+  digha:      "Digha — Patna",
+  kankarbagh: "Kankarbagh — Patna",
+  ranchi:     "Ranchi — Coming Soon"
 };
 
 locTabs.forEach((tab) => {
@@ -281,3 +281,395 @@ const navObserver = new IntersectionObserver(
 );
 
 sections.forEach((sec) => navObserver.observe(sec));
+
+
+/* ---------- 7. MEDAL HALL OF FAME — YEAR TABS + FILTER ---------- */
+const yearTabs   = document.querySelectorAll(".my-tab");
+const yearPanels = document.querySelectorAll(".medal-year-panel");
+const filterPills = document.querySelectorAll(".mf-pill");
+let currentFilter = "all";
+
+function showYear(year) {
+  yearTabs.forEach((t) => {
+    t.classList.toggle("active", t.dataset.year === year);
+    t.setAttribute("aria-selected", t.dataset.year === year ? "true" : "false");
+  });
+
+  yearPanels.forEach((p) => {
+    p.classList.toggle("active", p.dataset.year === year);
+  });
+
+  // Re-apply current filter inside the newly active panel
+  applyFilter(currentFilter);
+}
+
+function applyFilter(filter) {
+  currentFilter = filter;
+
+  filterPills.forEach((p) => p.classList.toggle("active", p.dataset.filter === filter));
+
+  // Only operate on the currently visible panel
+  const activePanel = document.querySelector(".medal-year-panel.active");
+  if (!activePanel) return;
+
+  activePanel.querySelectorAll(".championship-block").forEach((block) => {
+    const type = block.dataset.type; // "state" or "zone"
+    const show = filter === "all" || filter === type;
+    block.classList.toggle("hidden", !show);
+  });
+}
+
+yearTabs.forEach((tab) => {
+  tab.addEventListener("click", () => showYear(tab.dataset.year));
+});
+
+filterPills.forEach((pill) => {
+  pill.addEventListener("click", () => applyFilter(pill.dataset.filter));
+});
+
+
+/* ---------- 8. MOBILE NAV TOGGLE ---------- */
+const navToggle = document.getElementById("nav-toggle");
+const primaryNav = document.getElementById("primary-nav");
+
+if (navToggle && primaryNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = primaryNav.classList.toggle("open");
+    navToggle.classList.toggle("open", isOpen);
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  // Close nav when clicking any link
+  primaryNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      primaryNav.classList.remove("open");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Close nav on click outside
+  document.addEventListener("click", (e) => {
+    if (!primaryNav.contains(e.target) && !navToggle.contains(e.target) && primaryNav.classList.contains("open")) {
+      primaryNav.classList.remove("open");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+
+/* ---------- 9. TOURNAMENT ALERTS & CIRCULAR MODAL ---------- */
+const tFilterBtns = document.querySelectorAll(".t-filter-btn");
+const tournamentCards = document.querySelectorAll(".tournament-card");
+
+tFilterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    tFilterBtns.forEach((b) => {
+      b.classList.remove("active");
+      b.setAttribute("aria-selected", "false");
+    });
+    btn.classList.add("active");
+    btn.setAttribute("aria-selected", "true");
+
+    const filter = btn.dataset.filter;
+    tournamentCards.forEach((card) => {
+      const match = filter === "all" || card.dataset.category === filter;
+      card.classList.toggle("hidden", !match);
+    });
+  });
+});
+
+// Circular Modal data & handler
+const circularModal = document.getElementById("circular-modal");
+const circularModalClose = document.getElementById("circular-modal-close");
+const circKicker = document.getElementById("circ-modal-kicker");
+const circTitle = document.getElementById("circ-modal-title");
+const circBody = document.getElementById("circ-modal-body");
+const circAction = document.getElementById("circ-modal-action");
+
+const circularData = {
+  "state-36": {
+    kicker: "Bihar State Rifle Association (BSSA) Circular",
+    title: "36th Bihar State Shooting Championship 2026",
+    actionText: "Register Shooter via PGSA",
+    actionHref: "#enquiry",
+    body: `
+      <div class="circ-callout">
+        <strong>Mandatory Pre-requisite:</strong> All participating shooters must hold an active shooter ID with the Bihar State Rifle Association or NRAI.
+      </div>
+      <h4>Championship Schedule & Dates</h4>
+      <ul>
+        <li><strong>Competition Dates:</strong> November 12 – 19, 2026</li>
+        <li><strong>Weapons Checking & Kit Inspection:</strong> November 11, 2026 (10:00 AM – 4:00 PM)</li>
+        <li><strong>Air Weapons Venue:</strong> Patliputra Sports Complex Range, Kankarbagh, Patna</li>
+        <li><strong>Fire Arms Venue (25m / 50m):</strong> Kalyan Bigha Shooting Range, Nalanda</li>
+      </ul>
+      <h4>Eligible Disciplines & Events</h4>
+      <ul>
+        <li>10m Air Rifle (Sub-Youth, Youth, Junior & Senior Men/Women - NR & ISSF)</li>
+        <li>10m Air Pistol (Sub-Youth, Youth, Junior & Senior Men/Women - NR & ISSF)</li>
+        <li>25m Sports Pistol & Standard Pistol</li>
+        <li>50m Rifle 3 Positions & 50m Free Pistol</li>
+      </ul>
+      <h4>Registration & Submission Guidelines</h4>
+      <p>Submit your entry fees and weapon serial numbers at the PGSA administrative office by <strong>October 30, 2026</strong>. Late fee applicable thereafter.</p>
+    `
+  },
+  "internal-sius": {
+    kicker: "Patliputra Guns Shooting Academy Internal Circular",
+    title: "Monthly SIUS Ranking Match & League — Stage 4",
+    actionText: "Book Match Firing Point",
+    actionHref: "#enquiry",
+    body: `
+      <div class="circ-callout">
+        <strong>Tournament Objective:</strong> Electronic target simulation match under strict ISSF timing to establish internal academy rankings and select team representations.
+      </div>
+      <h4>Match Details</h4>
+      <ul>
+        <li><strong>Dates:</strong> October 25 & 26, 2026 (Saturday & Sunday)</li>
+        <li><strong>Firing Relays:</strong> Relay 1 (08:30 AM), Relay 2 (11:00 AM), Relay 3 (02:00 PM)</li>
+        <li><strong>Venue:</strong> PGSA Digha Range (Lane 1 to 12 SIUS Electronic Targets)</li>
+        <li><strong>Match Course:</strong> 60 competition shots in 75 minutes (Air Rifle/Pistol)</li>
+        <li><strong>Finals:</strong> Top 8 shooters per category advance to the 24-shot ISSF decimal final</li>
+      </ul>
+      <h4>Incentives & Awards</h4>
+      <p>Medals for Top 3 in each category. Stage 4 winner receives match-grade H&N / RWS pellets grant and subsidised range hours for state preparation.</p>
+    `
+  },
+  "east-zone-11": {
+    kicker: "East Zone Shooting Championship Circular (NRAI)",
+    title: "11th East Zone Shooting Championship 2026 (Pre-National)",
+    actionText: "Join Academy Travel Squad",
+    actionHref: "#enquiry",
+    body: `
+      <div class="circ-callout">
+        <strong>Eligibility:</strong> Shooters achieving Minimum Qualifying Score (MQS) at the 35th or 36th Bihar State Shooting Championship.
+      </div>
+      <h4>Zonal Championship Overview</h4>
+      <ul>
+        <li><strong>Dates:</strong> December 04 – 10, 2026</li>
+        <li><strong>Host Range:</strong> Asansol Rifle Club & Range, West Bengal</li>
+        <li><strong>Participating States:</strong> Bihar, West Bengal, Jharkhand, Odisha</li>
+        <li><strong>Qualification Goal:</strong> Achieving National MQS qualifies athlete for the 68th National Shooting Championship Competitions (NSCC).</li>
+      </ul>
+      <h4>PGSA Team Logistics Support</h4>
+      <p>PGSA provides supervised squad travel, hotel reservations, coach accompaniment (Head Coach Bibaswan Ganguly & team coaches), and official weapon transportation documentation.</p>
+    `
+  },
+  "nrai-trials": {
+    kicker: "National Rifle Association of India (NRAI)",
+    title: "National Selection Trials 1 & 2 (Rifle / Pistol 2027)",
+    actionText: "Enrol in High-Performance Camp",
+    actionHref: "#enquiry",
+    body: `
+      <div class="circ-callout">
+        <strong>High Performance Pathway:</strong> Official trials for selection of the Indian National Shooting Squad for ISSF World Cups and Asian Championships.
+      </div>
+      <h4>Trials Overview</h4>
+      <ul>
+        <li><strong>Dates:</strong> January 15 – 24, 2027</li>
+        <li><strong>Venue:</strong> Dr. Karni Singh Shooting Range (DKSSR), Tughlakabad, New Delhi</li>
+        <li><strong>Eligibility:</strong> Shooters holding Renowned Shot status or qualified from 67th NSCC with qualifying averages.</li>
+      </ul>
+      <h4>PGSA Intensive Preparation Camp</h4>
+      <p>Consultant Head Coach Bibaswan Ganguly (ISSF A License) will conduct a 2-week intensive match-simulation camp covering trigger timing, electronic trace analysis (SCATT), and finals pressure routines.</p>
+    `
+  }
+};
+
+document.querySelectorAll(".open-circular-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const key = btn.dataset.circular;
+    const data = circularData[key];
+    if (!data || !circularModal) return;
+
+    if (circKicker) circKicker.textContent = data.kicker;
+    if (circTitle) circTitle.textContent = data.title;
+    if (circBody) circBody.innerHTML = data.body;
+    if (circAction) {
+      circAction.textContent = data.actionText;
+      circAction.href = data.actionHref;
+    }
+
+    circularModal.removeAttribute("hidden");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeCircularModal() {
+  if (!circularModal) return;
+  circularModal.setAttribute("hidden", "");
+  document.body.style.overflow = "";
+}
+
+if (circularModalClose) circularModalClose.addEventListener("click", closeCircularModal);
+if (circularModal) {
+  circularModal.addEventListener("click", (e) => {
+    if (e.target === circularModal) closeCircularModal();
+  });
+}
+document.addEventListener("keydown", (e) => {
+  if (circularModal && !circularModal.hasAttribute("hidden") && e.key === "Escape") {
+    closeCircularModal();
+  }
+});
+
+
+/* ---------- 10. FLOATING CARDS 3D TILT ON DESKTOP ---------- */
+if (window.matchMedia("(min-width: 981px)").matches) {
+  const fameCards = document.querySelectorAll(".fame-card");
+  fameCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xPct = (x / rect.width - 0.5) * 12;
+      const yPct = (y / rect.height - 0.5) * -12;
+      card.style.transform = `perspective(1000px) rotateX(${yPct}deg) rotateY(${xPct}deg) translateY(-8px) scale(1.02)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
+
+
+/* ---------- 11. HALL OF FAME — STAR PERFORMERS SLIDESHOW ---------- */
+const fameSliderTrack = document.getElementById("fame-slider-track");
+const fameSlides = document.querySelectorAll(".fame-slide");
+const famePrevBtn = document.getElementById("fame-prev");
+const fameNextBtn = document.getElementById("fame-next");
+const fameDots = document.querySelectorAll(".fame-dot");
+const fameWrapper = document.getElementById("fame-slider-wrapper");
+
+if (fameSliderTrack && fameSlides.length) {
+  let currentSlide = 0;
+  let autoplayTimer = null;
+
+  function getSlideStep() {
+    if (!fameSlides.length) return 0;
+    const slide = fameSlides[0];
+    const style = window.getComputedStyle(slide);
+    const marginRight = parseFloat(style.marginRight) || 0;
+    return slide.offsetWidth + marginRight;
+  }
+
+  function getMaxSlideIndex() {
+    if (window.innerWidth <= 768) {
+      return fameSlides.length - 1;
+    } else {
+      // 2 slides visible on larger screens
+      return Math.max(0, fameSlides.length - 2);
+    }
+  }
+
+  function showFameSlide(index) {
+    const maxIdx = getMaxSlideIndex();
+    if (index > maxIdx) {
+      currentSlide = 0;
+    } else if (index < 0) {
+      currentSlide = maxIdx;
+    } else {
+      currentSlide = index;
+    }
+
+    const step = getSlideStep();
+    fameSliderTrack.style.transform = `translateX(-${currentSlide * step}px)`;
+
+    fameDots.forEach((dot, i) => {
+      const isActive = i === currentSlide;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+  }
+
+  function nextFameSlide() {
+    showFameSlide(currentSlide + 1);
+  }
+
+  function prevFameSlide() {
+    showFameSlide(currentSlide - 1);
+  }
+
+  if (fameNextBtn) fameNextBtn.addEventListener("click", nextFameSlide);
+  if (famePrevBtn) famePrevBtn.addEventListener("click", prevFameSlide);
+
+  fameDots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const targetIndex = parseInt(dot.dataset.slide, 10);
+      showFameSlide(targetIndex);
+      restartAutoplay();
+    });
+  });
+
+  // Autoplay functionality
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(nextFameSlide, 4500);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  if (fameWrapper) {
+    fameWrapper.addEventListener("mouseenter", stopAutoplay);
+    fameWrapper.addEventListener("mouseleave", startAutoplay);
+    fameWrapper.addEventListener("focusin", stopAutoplay);
+    fameWrapper.addEventListener("focusout", startAutoplay);
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    fameWrapper.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoplay();
+    }, { passive: true });
+
+    fameWrapper.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diffX = touchEndX - touchStartX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          nextFameSlide();
+        } else {
+          prevFameSlide();
+        }
+      }
+      startAutoplay();
+    }, { passive: true });
+  }
+
+  window.addEventListener("resize", () => {
+    showFameSlide(currentSlide);
+  });
+
+  // Initialize slideshow
+  showFameSlide(0);
+  startAutoplay();
+}
+
+/* ---------- 9. FLOATING WHATSAPP VISIBILITY ---------- */
+const floatingWA = document.querySelector(".floating-whatsapp");
+if (floatingWA) {
+  const toggleFloatingWA = () => {
+    if (window.scrollY > 250) {
+      floatingWA.classList.add("visible");
+    } else {
+      floatingWA.classList.remove("visible");
+    }
+  };
+  window.addEventListener("scroll", toggleFloatingWA, { passive: true });
+  toggleFloatingWA();
+}
