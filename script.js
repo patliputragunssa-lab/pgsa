@@ -389,6 +389,44 @@ const circBody = document.getElementById("circ-modal-body");
 const circAction = document.getElementById("circ-modal-action");
 
 const circularData = {
+  "issf-a-ganguly": {
+    kicker: "Academy Milestone Announcement",
+    title: "Congratulations to Mr. Bibaswan Ganguly on Achieving the Prestigious ISSF 'A' License!",
+    actionText: "View on Instagram ↗",
+    actionHref: "https://www.instagram.com/p/Delos_JSYUg/?cplk=MWJmbXZqdmhidmlpeA==",
+    hideDownload: true,
+    body: `
+      <div class="circ-callout" style="border-left-color: #f4c95c; background: rgba(244, 201, 92, 0.12);">
+        <strong>Prestigious Achievement:</strong> Highest International Shooting Sport Federation (ISSF) coaching accreditation achieved by Consultant Head Coach Mr. Bibaswan Ganguly.
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+        The Patliputra Gun's Shooting Academy (PGSA) family extends its proudest congratulations to <strong>Mr. Bibaswan Ganguly</strong>, on successfully achieving the prestigious <strong>ISSF 'A' License</strong>!
+      </p>
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 16px; color: rgba(255, 255, 255, 0.9);">
+        Since beginning our strategic coaching partnership last month, your expertise and dedication have been invaluable to our academy's vision and growth. This outstanding milestone is a true testament to your relentless commitment to the sport of shooting and your excellence in coaching.
+      </p>
+      <p style="font-size: 14px; line-height: 1.6; margin-bottom: 18px; color: rgba(255, 255, 255, 0.9);">
+        We are incredibly fortunate to have you guiding our shooters and coaches; and elevating our training programs. Here is to reaching even greater heights and shaping future champions together!
+      </p>
+      <p style="font-weight: 700; color: #f4c95c; margin-bottom: 20px;">
+        With best wishes and immense pride,<br>
+        <span style="font-size: 13px; font-weight: 400; color: rgba(255, 255, 255, 0.8);">The Patliputra Gun's Shooting Academy Family</span>
+      </p>
+      <h4>Partnership &amp; Training Highlights</h4>
+      <ul>
+        <li><strong>ISSF 'A' License:</strong> The pinnacle coaching certification recognized worldwide by the International Shooting Sport Federation.</li>
+        <li><strong>Coach &amp; Athlete Development:</strong> Mentoring PGSA resident coaches and junior/senior shooters in technical mastery and match psychology.</li>
+        <li><strong>High-Performance Integration:</strong> SIUS electronic diagnostic integration, SCATT trace calibration, and international match simulation.</li>
+      </ul>
+      <div style="margin-top: 18px; padding: 14px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+        <div>
+          <strong style="color: #fff; font-size: 13.5px;">Official Announcement on Instagram</strong>
+          <p style="margin: 0; font-size: 12.5px; color: rgba(255, 255, 255, 0.7);">View the original post and congratulate Coach Bibaswan Ganguly</p>
+        </div>
+        <a href="https://www.instagram.com/p/Delos_JSYUg/?cplk=MWJmbXZqdmhidmlpeA==" target="_blank" rel="noopener noreferrer" class="button instagram-btn compact" style="text-decoration: none;">Open Instagram Post ↗</a>
+      </div>
+    `
+  },
   "state-36": {
     kicker: "Bihar State Rifle Association (BSSA) Circular",
     title: "36th Bihar State Shooting Championship 2026",
@@ -490,6 +528,21 @@ document.querySelectorAll(".open-circular-btn").forEach((btn) => {
     if (circAction) {
       circAction.textContent = data.actionText;
       circAction.href = data.actionHref;
+      if (data.actionHref && data.actionHref.startsWith("http")) {
+        circAction.target = "_blank";
+        circAction.rel = "noopener noreferrer";
+      } else {
+        circAction.removeAttribute("target");
+        circAction.removeAttribute("rel");
+      }
+    }
+    const circDownload = document.getElementById("circ-modal-download");
+    if (circDownload) {
+      if (data.hideDownload) {
+        circDownload.style.display = "none";
+      } else {
+        circDownload.style.display = "";
+      }
     }
 
     circularModal.removeAttribute("hidden");

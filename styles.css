@@ -1049,6 +1049,12 @@ h3 {
   border: 1px solid rgba(168, 85, 247, 0.35);
 }
 
+.badge-featured {
+  background: rgba(244, 201, 92, 0.22);
+  color: #925807;
+  border: 1px solid rgba(244, 201, 92, 0.55);
+}
+
 .t-category-tag {
   font-size: 12px;
   font-weight: 700;
@@ -1129,6 +1135,90 @@ h3 {
   font-size: 12.5px;
   padding: 0 12px;
   text-align: center;
+}
+
+/* Featured News & Milestone Card */
+.tournament-card.featured-news-card {
+  border: 1.5px solid rgba(244, 201, 92, 0.45);
+  background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+  position: relative;
+  box-shadow: 0 8px 26px rgba(244, 201, 92, 0.12);
+}
+
+.tournament-card.featured-news-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f4c95c 0%, #e6683c 50%, #cc2366 100%);
+  z-index: 1;
+}
+
+.news-coach-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px 4px;
+}
+
+.news-coach-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(244, 201, 92, 0.3);
+  background: #0d1a18;
+  flex-shrink: 0;
+}
+
+.news-coach-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.news-coach-name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.news-coach-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #8c6008;
+  background: rgba(244, 201, 92, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(244, 201, 92, 0.4);
+}
+
+.button.instagram-btn {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff !important;
+  border: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(220, 39, 67, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.button.instagram-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(220, 39, 67, 0.4);
+  filter: brightness(1.08);
+  color: #ffffff !important;
 }
 
 /* ===== HALL OF FAME (FLOATING CARDS PATTERN) ===== */
