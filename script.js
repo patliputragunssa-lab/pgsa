@@ -328,10 +328,32 @@ filterPills.forEach((pill) => {
 });
 
 
-/* ---------- 8. MOBILE NAV TOGGLE ---------- */
+/* ---------- 8. NAVIGATION, HEADER FREEZE & MOBILE SECTION SELECTOR ---------- */
+const siteHeader = document.querySelector(".site-header");
 const navToggle = document.getElementById("nav-toggle");
 const primaryNav = document.getElementById("primary-nav");
+const mobileSectionSelect = document.getElementById("mobile-section-select");
 
+// 8A. Header scroll state
+window.addEventListener("scroll", () => {
+  if (siteHeader) {
+    siteHeader.classList.toggle("scrolled", window.scrollY > 20);
+  }
+}, { passive: true });
+
+// 8B. Mobile Dropdown Section Jump
+if (mobileSectionSelect) {
+  mobileSectionSelect.addEventListener("change", (e) => {
+    const targetId = e.target.value;
+    if (!targetId) return;
+    const targetEl = document.querySelector(targetId);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+
+// 8C. Mobile Nav Toggle
 if (navToggle && primaryNav) {
   navToggle.addEventListener("click", () => {
     const isOpen = primaryNav.classList.toggle("open");
@@ -355,6 +377,49 @@ if (navToggle && primaryNav) {
       navToggle.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
     }
+  });
+}
+
+// 8D. ScrollSpy: Highlight active desktop link & sync mobile section dropdown
+const observedSectionIds = [
+  "home", "about", "training", "hall-of-fame", "medals", "coaches", "stats", "khojj", "alerts", "gallery", "contact", "enquiry"
+];
+
+function updateActiveSection(currentId) {
+  if (!currentId) return;
+
+  // Update desktop nav
+  if (primaryNav) {
+    primaryNav.querySelectorAll("a").forEach((link) => {
+      const href = link.getAttribute("href");
+      link.classList.toggle("active", href === `#${currentId}`);
+    });
+  }
+
+  // Update mobile section dropdown
+  if (mobileSectionSelect && mobileSectionSelect.value !== `#${currentId}`) {
+    const option = mobileSectionSelect.querySelector(`option[value="#${currentId}"]`);
+    if (option) {
+      mobileSectionSelect.value = `#${currentId}`;
+    }
+  }
+}
+
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        updateActiveSection(entry.target.id);
+      }
+    });
+  }, {
+    rootMargin: "-15% 0px -60% 0px",
+    threshold: 0
+  });
+
+  observedSectionIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) sectionObserver.observe(el);
   });
 }
 
@@ -427,91 +492,129 @@ const circularData = {
       </div>
     `
   },
-  "state-36": {
-    kicker: "Bihar State Rifle Association (BSSA) Circular",
-    title: "36th Bihar State Shooting Championship 2026",
-    actionText: "Register Shooter via PGSA",
+  "mavlankar-35": {
+    kicker: "NRAI All India Championship Circular",
+    title: "XXXV All India G.V. Mavlankar Shooting Championship (Pistol Events)",
+    actionText: "Contact Range Desk for Assistance",
     actionHref: "#enquiry",
     body: `
       <div class="circ-callout">
-        <strong>Mandatory Pre-requisite:</strong> All participating shooters must hold an active shooter ID with the Bihar State Rifle Association or NRAI.
+        <strong>Championship Milestone:</strong> The prestigious 35th All India G.V. Mavlankar Shooting Championship (Pistol Events) serves as the primary national qualification gateway into the National Shooting Championship Competitions (NSCC).
       </div>
-      <h4>Championship Schedule & Dates</h4>
+      <h4>Championship Schedule &amp; Dates</h4>
       <ul>
-        <li><strong>Competition Dates:</strong> November 12 – 19, 2026</li>
-        <li><strong>Weapons Checking & Kit Inspection:</strong> November 11, 2026 (10:00 AM – 4:00 PM)</li>
-        <li><strong>Air Weapons Venue:</strong> Patliputra Sports Complex Range, Kankarbagh, Patna</li>
-        <li><strong>Fire Arms Venue (25m / 50m):</strong> Kalyan Bigha Shooting Range, Nalanda</li>
+        <li><strong>Competition Dates:</strong> October 23 to November 1, 2026</li>
+        <li><strong>Host Range &amp; Venue:</strong> Trishul Shooting Range, Maharana Pratap Sports College, Raipur, Dehradun, Uttarakhand</li>
+        <li><strong>Disciplines:</strong> Pistol Events (10m Air Pistol, 25m Sports Pistol, 25m Standard Pistol, 25m Centre Fire Pistol, 50m Free Pistol)</li>
+        <li><strong>Governing Body:</strong> National Rifle Association of India (NRAI) in coordination with Uttarakhand State Rifle Association</li>
       </ul>
-      <h4>Eligible Disciplines & Events</h4>
+      <h4>Eligibility &amp; Qualification Pathway</h4>
       <ul>
-        <li>10m Air Rifle (Sub-Youth, Youth, Junior & Senior Men/Women - NR & ISSF)</li>
-        <li>10m Air Pistol (Sub-Youth, Youth, Junior & Senior Men/Women - NR & ISSF)</li>
-        <li>25m Sports Pistol & Standard Pistol</li>
-        <li>50m Rifle 3 Positions & 50m Free Pistol</li>
+        <li>Open to qualified competitors meeting the pre-requisite Minimum Qualifying Score (MQS) at State Shooting Championships.</li>
+        <li>Athletes achieving the required National MQS at this championship secure direct entry into the 69th National Shooting Championship Competitions (NSCC).</li>
       </ul>
-      <h4>Registration & Submission Guidelines</h4>
-      <p>Submit your entry fees and weapon serial numbers at the PGSA administrative office by <strong>October 30, 2026</strong>. Late fee applicable thereafter.</p>
+      <h4>PGSA Shooter Assistance</h4>
+      <p>PGSA provides traveling shooters with pre-match weapon tuning, ammunition checks, and coach guidance to ensure peak competitive performance in Dehradun.</p>
     `
   },
-  "internal-sius": {
-    kicker: "Patliputra Guns Shooting Academy Internal Circular",
-    title: "Monthly SIUS Ranking Match & League — Stage 4",
-    actionText: "Book Match Firing Point",
+  "nscc-69": {
+    kicker: "NRAI National Championship Notification",
+    title: "69th National Shooting Championship Competitions (NSCC) — Rifle & Pistol Events",
+    actionText: "Prepare with PGSA Coaches",
     actionHref: "#enquiry",
     body: `
       <div class="circ-callout">
-        <strong>Tournament Objective:</strong> Electronic target simulation match under strict ISSF timing to establish internal academy rankings and select team representations.
+        <strong>Apex National Championship:</strong> The 69th NSCC is India's premier national shooting event, determining the national champions and serving as the primary qualification stage for National Selection Trials and the Indian National Squad.
       </div>
-      <h4>Match Details</h4>
+      <h4>Tournament Highlights</h4>
       <ul>
-        <li><strong>Dates:</strong> October 25 & 26, 2026 (Saturday & Sunday)</li>
-        <li><strong>Firing Relays:</strong> Relay 1 (08:30 AM), Relay 2 (11:00 AM), Relay 3 (02:00 PM)</li>
-        <li><strong>Venue:</strong> PGSA Digha Range (Lane 1 to 12 SIUS Electronic Targets)</li>
-        <li><strong>Match Course:</strong> 60 competition shots in 75 minutes (Air Rifle/Pistol)</li>
-        <li><strong>Finals:</strong> Top 8 shooters per category advance to the 24-shot ISSF decimal final</li>
+        <li><strong>Dates:</strong> Around December 2026 (Tentative Schedule)</li>
+        <li><strong>Venue:</strong> Dr. Karni Singh Shooting Ranges (DKSSR), Tughlakabad, New Delhi</li>
+        <li><strong>Events:</strong> Rifle &amp; Pistol Events (10m Air Rifle, 10m Air Pistol, 25m Sports Pistol, 25m Rapid Fire Pistol, 50m Rifle 3 Positions, 50m Prone, 50m Free Pistol)</li>
+        <li><strong>Categories:</strong> Sub-Youth, Youth, Junior, Senior &amp; Masters (Men &amp; Women)</li>
       </ul>
-      <h4>Incentives & Awards</h4>
-      <p>Medals for Top 3 in each category. Stage 4 winner receives match-grade H&N / RWS pellets grant and subsidised range hours for state preparation.</p>
+      <h4>Significance &amp; Progression</h4>
+      <ul>
+        <li><strong>Renowned Shot Status:</strong> Shooters achieving the national benchmark score obtain the prestigious "Renowned Shot" certification.</li>
+        <li><strong>Selection Trials:</strong> Top performers qualify for the NRAI National Selection Trials 1 &amp; 2 for international team selection.</li>
+      </ul>
+      <h4>PGSA High-Performance Preparation</h4>
+      <p>Academy shooters will undergo dedicated SIUS electronic target match practice, finals pressure drills, and SCATT diagnostic analysis leading up to the championship.</p>
     `
   },
-  "east-zone-11": {
-    kicker: "East Zone Shooting Championship Circular (NRAI)",
-    title: "11th East Zone Shooting Championship 2026 (Pre-National)",
-    actionText: "Join Academy Travel Squad",
+  "christmas-knockout": {
+    kicker: "Patliputra Gun's Shooting Academy Tournament",
+    title: "PGSA Christmas Knockout Competition 2026",
+    actionText: "Register Firing Slot",
     actionHref: "#enquiry",
     body: `
       <div class="circ-callout">
-        <strong>Eligibility:</strong> Shooters achieving Minimum Qualifying Score (MQS) at the 35th or 36th Bihar State Shooting Championship.
+        <strong>Academy Tournament:</strong> Annual high-intensity head-to-head matchplay tournament designed to test nerve, speed, and precision under direct elimination pressure.
       </div>
-      <h4>Zonal Championship Overview</h4>
+      <h4>Competition Details</h4>
       <ul>
-        <li><strong>Dates:</strong> December 04 – 10, 2026</li>
-        <li><strong>Host Range:</strong> Asansol Rifle Club & Range, West Bengal</li>
-        <li><strong>Participating States:</strong> Bihar, West Bengal, Jharkhand, Odisha</li>
-        <li><strong>Qualification Goal:</strong> Achieving National MQS qualifies athlete for the 68th National Shooting Championship Competitions (NSCC).</li>
+        <li><strong>Dates:</strong> December 24 &amp; 25, 2026</li>
+        <li><strong>Venue:</strong> Patliputra Gun's Shooting Academy Ranges (Digha &amp; Kankarbagh, Patna)</li>
+        <li><strong>Disciplines:</strong> 10m Air Rifle &amp; 10m Air Pistol</li>
+        <li><strong>Eligibility:</strong> All active PGSA academy members across Sub-Youth, Youth, Junior &amp; Senior divisions</li>
       </ul>
-      <h4>PGSA Team Logistics Support</h4>
-      <p>PGSA provides supervised squad travel, hotel reservations, coach accompaniment (Head Coach Bibaswan Ganguly & team coaches), and official weapon transportation documentation.</p>
+      <h4>Knockout Tournament Format</h4>
+      <ul>
+        <li><strong>Seeding Round:</strong> 30-shot qualification round to establish tournament bracket seeding.</li>
+        <li><strong>Knockout Duels:</strong> Single-elimination head-to-head matchplay under direct countdown timing with sudden-death shoot-offs.</li>
+        <li><strong>Finals &amp; Awards:</strong> Christmas Champion Trophies, medals, and specialized shooting equipment grants for winners.</li>
+      </ul>
+      <p>Contact the range administration desk or your personal coach to confirm your relay slot before December 20, 2026.</p>
     `
   },
-  "nrai-trials": {
-    kicker: "National Rifle Association of India (NRAI)",
-    title: "National Selection Trials 1 & 2 (Rifle / Pistol 2027)",
-    actionText: "Enrol in High-Performance Camp",
+  "arjuna-series": {
+    kicker: "Patliputra Gun's Shooting Academy Test Series",
+    title: "PGSA Weekly Arjuna Award Test Series",
+    actionText: "Enrol in Test Series",
     actionHref: "#enquiry",
     body: `
       <div class="circ-callout">
-        <strong>High Performance Pathway:</strong> Official trials for selection of the Indian National Shooting Squad for ISSF World Cups and Asian Championships.
+        <strong>High-Performance Benchmarking:</strong> A rigorous weekly diagnostic test series aimed at cultivating athlete discipline, match consistency, and elite competition mindset mirroring India's highest sporting standards.
       </div>
-      <h4>Trials Overview</h4>
+      <h4>Series Schedule &amp; Format</h4>
       <ul>
-        <li><strong>Dates:</strong> January 15 – 24, 2027</li>
-        <li><strong>Venue:</strong> Dr. Karni Singh Shooting Range (DKSSR), Tughlakabad, New Delhi</li>
-        <li><strong>Eligibility:</strong> Shooters holding Renowned Shot status or qualified from 67th NSCC with qualifying averages.</li>
+        <li><strong>Commencement:</strong> Starts from 1st Week of December 2026 (Weekly rounds conducted every weekend)</li>
+        <li><strong>Venue:</strong> PGSA Ranges (10m SIUS Electronic Target Lines)</li>
+        <li><strong>Disciplines:</strong> 10m Air Rifle &amp; 10m Air Pistol</li>
+        <li><strong>Course of Fire:</strong> Full 60-shot competition series under ISSF regulation lighting and timing.</li>
       </ul>
-      <h4>PGSA Intensive Preparation Camp</h4>
-      <p>Consultant Head Coach Bibaswan Ganguly (ISSF A License) will conduct a 2-week intensive match-simulation camp covering trigger timing, electronic trace analysis (SCATT), and finals pressure routines.</p>
+      <h4>Key Highlights &amp; Athlete Benefits</h4>
+      <ul>
+        <li><strong>SCATT &amp; Decimal Scoring:</strong> Precision trace analysis recording stability of hold, trigger break timing, and follow-through.</li>
+        <li><strong>Continuous Leaderboard:</strong> Cumulative ranking updated weekly to track personal bests and performance trends.</li>
+        <li><strong>Coach Reviews:</strong> One-on-one diagnostic feedback after each weekly match to rectify technical flaws.</li>
+      </ul>
+      <p>Open to all aspiring PGSA shooters aiming for State, Zonal, and National squad selections.</p>
+    `
+  },
+  "pgsa-league": {
+    kicker: "Patliputra Gun's Shooting Academy League Season",
+    title: "PGSA League 2027",
+    actionText: "Register for PGSA League",
+    actionHref: "#enquiry",
+    body: `
+      <div class="circ-callout">
+        <strong>Flagship Annual League:</strong> The premier season-long shooting league organized by Patliputra Gun's Shooting Academy, featuring multi-stage matches, point-based standings, and grand finals.
+      </div>
+      <h4>League Schedule &amp; Venue</h4>
+      <ul>
+        <li><strong>Commencement:</strong> Starts from January 2027</li>
+        <li><strong>Venue:</strong> Patliputra Gun's Shooting Academy (Digha &amp; Patliputra Complex Ranges, Patna)</li>
+        <li><strong>Structure:</strong> Multi-Stage League (Monthly Stages followed by Super Final Stage)</li>
+        <li><strong>Events:</strong> 10m Air Rifle and 10m Air Pistol across all age categories</li>
+      </ul>
+      <h4>League Structure &amp; Rewards</h4>
+      <ul>
+        <li><strong>Stage Matches:</strong> Shooters accumulate points across consecutive league rounds.</li>
+        <li><strong>Olympic Final Simulation:</strong> Top 8 league point leaders advance to live audience ISSF decimal finals.</li>
+        <li><strong>Prizes &amp; Honors:</strong> Annual League Championship Shields, cash vouchers, match pellets, and sponsored academy training hours.</li>
+      </ul>
+      <p>Registration opens in late December 2026 at the academy desk. All registered members are encouraged to join and compete.</p>
     `
   }
 };
