@@ -866,3 +866,762 @@ if (floatingWA) {
   window.addEventListener("scroll", toggleFloatingWA, { passive: true });
   toggleFloatingWA();
 }
+
+/* ==========================================================================
+   10. INTERACTIVE 10M OLYMPIC SIUS RANGE SIMULATOR (WITH GUN POV & STABILITY)
+   ========================================================================== */
+function initShootingSimulator() {
+  const viewport = document.getElementById("sim-target-viewport");
+  if (!viewport) return;
+
+  const reticle = document.getElementById("sim-reticle");
+  const pelletLayer = document.getElementById("sim-pellet-layer");
+  const muzzleFlash = document.getElementById("sim-recoil-flash");
+  const gunStage = document.getElementById("sim-gun-stage");
+  const muzzlePuff = document.getElementById("sim-muzzle-puff");
+  const gunPistol = document.getElementById("sim-gun-pistol");
+  const gunRifle = document.getElementById("sim-gun-rifle");
+  const startHint = document.getElementById("sim-start-hint");
+
+  // Controls
+  const btnPistol = document.getElementById("sim-weapon-pistol");
+  const btnRifle = document.getElementById("sim-weapon-rifle");
+  const diffToggle = document.getElementById("sim-diff-toggle");
+  const diffLabel = document.getElementById("sim-diff-label");
+  const audioToggle = document.getElementById("sim-audio-toggle");
+  const audioIcon = document.getElementById("sim-audio-icon");
+  const audioText = document.getElementById("sim-audio-text");
+  const resetBtn = document.getElementById("sim-reset-btn");
+
+  // Breath & Stability Controls
+  const breathBtn = document.getElementById("sim-breath-btn");
+  const breathBtnLabel = document.getElementById("sim-breath-btn-label");
+  const breathDot = document.getElementById("sim-breath-dot");
+  const breathPctReadout = document.getElementById("sim-breath-pct");
+  const breathBar = document.getElementById("sim-breath-bar");
+  const breathInstruction = document.getElementById("sim-breath-instruction");
+
+  // Console Displays
+  const currentShotNumEl = document.getElementById("sim-current-shot-num");
+  const lastScoreEl = document.getElementById("sim-last-score");
+  const scoreBadgeEl = document.getElementById("sim-score-badge");
+  const ringPillEl = document.getElementById("sim-ring-pill");
+  const offsetXEl = document.getElementById("sim-offset-x");
+  const offsetYEl = document.getElementById("sim-offset-y");
+  const statusEl = document.getElementById("sim-shot-status");
+  const avgScoreEl = document.getElementById("sim-avg-score");
+  const totalScoreEl = document.getElementById("sim-total-score");
+  const outcomeCard = document.getElementById("sim-outcome-card");
+  const outcomeIcon = document.getElementById("sim-outcome-icon");
+  const outcomeTitle = document.getElementById("sim-outcome-title");
+  const outcomeDesc = document.getElementById("sim-outcome-desc");
+  const specGunEl = document.getElementById("sim-spec-gun");
+  const specSwayEl = document.getElementById("sim-spec-sway");
+
+  // State Variables
+  const MAX_SHOTS = 5;
+  let shotCount = 0;
+  let seriesScores = [];
+  let isAudioEnabled = true;
+  let isHovering = false;
+  let isSeriesComplete = false;
+
+  // Weapon & Difficulty Settings
+  let currentWeapon = "pistol"; // 'pistol' or 'rifle'
+  let isOlympicFinals = false; // false = Academy Training, true = Olympic Finals
+
+  // Aim coordinates (in viewport pixels)
+  let currentAimX = 0;
+  let currentAimY = 0;
+  let targetAimX = 0;
+  let targetAimY = 0;
+  let swayOffsetX = 0;
+  let swayOffsetY = 0;
+
+  // Breath & Stability Mechanics
+  let isHoldingBreath = false;
+  let breathCapacity = 1.0; // 0.0 to 1.0
+  let isExhausted = false;
+
+  // Web Audio Context for synthesized gunshot and heartbeats
+  let audioCtx = null;
+
+  function getAudioContext() {
+    if (!audioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) {
+        audioCtx = new AudioContextClass();
+      }
+    }
+    if (audioCtx && audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  // Synthesize realistic Olympic 10m Gunshot (Air Pistol vs Air Rifle acoustic tuning)
+  function playSynthesizedShotSound() {
+    if (!isAudioEnabled) return;
+    try {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const now = ctx.currentTime;
+      const isRifle = currentWeapon === "rifle";
+
+      // 1. Pneumatic Air Release (Filtered Noise Burst)
+      const bufferSize = Math.floor(ctx.sampleRate * 0.05);
+      const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+      }
+
+      const whiteNoise = ctx.createBufferSource();
+      whiteNoise.buffer = noiseBuffer;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = "bandpass";
+      // Air pistol has a sharper snap (980Hz), air rifle has a deeper acoustic pop (580Hz)
+      filter.frequency.setValueAtTime(isRifle ? 580 : 980, now);
+      filter.Q.setValueAtTime(isRifle ? 3.0 : 2.2, now);
+
+      const noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(isRifle ? 0.75 : 0.85, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + (isRifle ? 0.05 : 0.04));
+
+      whiteNoise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+      whiteNoise.start(now);
+
+      // 2. Lead Pellet Steel Target Sensor Strike Ping
+      const osc1 = ctx.createOscillator();
+      const osc2 = ctx.createOscillator();
+      const oscGain = ctx.createGain();
+
+      osc1.type = "sine";
+      osc1.frequency.setValueAtTime(isRifle ? 2300 : 2100, now + 0.012);
+      osc1.frequency.exponentialRampToValueAtTime(1450, now + 0.15);
+
+      osc2.type = "sine";
+      osc2.frequency.setValueAtTime(isRifle ? 3600 : 3300, now + 0.012);
+      osc2.frequency.exponentialRampToValueAtTime(2200, now + 0.12);
+
+      oscGain.gain.setValueAtTime(0, now);
+      oscGain.gain.setValueAtTime(0.38, now + 0.012);
+      oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+
+      osc1.connect(oscGain);
+      osc2.connect(oscGain);
+      oscGain.connect(ctx.destination);
+
+      osc1.start(now + 0.012);
+      osc2.start(now + 0.012);
+      osc1.stop(now + 0.17);
+      osc2.stop(now + 0.17);
+    } catch (e) {
+      // Audio autoplay fallback
+    }
+  }
+
+  // Play subtle heartbeat thump on tension/exhaustion
+  function playHeartbeatThump() {
+    if (!isAudioEnabled) return;
+    try {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(75, now);
+      osc.frequency.exponentialRampToValueAtTime(40, now + 0.12);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.15);
+    } catch (e) {}
+  }
+
+  // Audio Toggle Button
+  if (audioToggle) {
+    audioToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      getAudioContext();
+      isAudioEnabled = !isAudioEnabled;
+      if (isAudioEnabled) {
+        audioIcon.textContent = "🔊";
+        audioText.textContent = "Audio ON";
+        audioToggle.classList.remove("muted");
+      } else {
+        audioIcon.textContent = "🔇";
+        audioText.textContent = "Audio OFF";
+        audioToggle.classList.add("muted");
+      }
+    });
+  }
+
+  // Weapon Switcher
+  function setWeapon(weapon) {
+    currentWeapon = weapon;
+    if (weapon === "pistol") {
+      btnPistol.classList.add("active");
+      btnRifle.classList.remove("active");
+      gunPistol.classList.add("active");
+      gunRifle.classList.remove("active");
+      if (specGunEl) specGunEl.textContent = "🔫 10m Air Pistol Armed";
+      if (specSwayEl) specSwayEl.textContent = isOlympicFinals ? "Olympic One-Hand Sway" : "Natural Pistol Sway";
+    } else {
+      btnRifle.classList.add("active");
+      btnPistol.classList.remove("active");
+      gunRifle.classList.add("active");
+      gunPistol.classList.remove("active");
+      if (specGunEl) specGunEl.textContent = "🎯 10m Air Rifle Armed";
+      if (specSwayEl) specSwayEl.textContent = isOlympicFinals ? "Olympic Rifle Aperture Sway" : "Natural Rifle Sway";
+    }
+  }
+
+  if (btnPistol) btnPistol.addEventListener("click", () => setWeapon("pistol"));
+  if (btnRifle) btnRifle.addEventListener("click", () => setWeapon("rifle"));
+
+  // Difficulty Mode Toggle
+  if (diffToggle) {
+    diffToggle.addEventListener("click", () => {
+      isOlympicFinals = !isOlympicFinals;
+      diffToggle.setAttribute("aria-pressed", isOlympicFinals ? "true" : "false");
+      diffToggle.classList.toggle("active-olympic", isOlympicFinals);
+      if (isOlympicFinals) {
+        diffLabel.textContent = "Olympic Finals: ON";
+        if (specSwayEl) specSwayEl.textContent = "Olympic Finals Sway + Inertia";
+      } else {
+        diffLabel.textContent = "Olympic Finals: OFF";
+        if (specSwayEl) specSwayEl.textContent = "Natural Hold Sway";
+      }
+    });
+  }
+
+  // Dynamic Breath Label based on Touch vs Keyboard Device
+  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
+  function getDefaultBreathLabel() {
+    return isTouchDevice ? "HOLD BREATH TO STEADY AIM" : "HOLD BREATH (SPACEBAR)";
+  }
+  if (breathBtnLabel) {
+    breathBtnLabel.textContent = getDefaultBreathLabel();
+  }
+
+  // Breath Control Logic
+  function startHoldingBreath() {
+    if (isExhausted) return;
+    isHoldingBreath = true;
+    if (breathBtn) breathBtn.classList.add("active");
+    if (breathBtnLabel) breathBtnLabel.textContent = "HOLDING BREATH... (STEADY)";
+    if (breathDot) {
+      breathDot.className = "breath-indicator-dot holding";
+    }
+  }
+
+  function stopHoldingBreath() {
+    isHoldingBreath = false;
+    if (breathBtn) breathBtn.classList.remove("active");
+    if (breathBtnLabel) breathBtnLabel.textContent = getDefaultBreathLabel();
+    if (!isExhausted && breathDot) {
+      breathDot.className = "breath-indicator-dot";
+    }
+  }
+
+  // Keyboard Spacebar for Hold Breath
+  window.addEventListener("keydown", (e) => {
+    if (e.code === "Space" && e.target === document.body) {
+      e.preventDefault();
+      getAudioContext();
+      startHoldingBreath();
+    }
+  });
+
+  window.addEventListener("keyup", (e) => {
+    if (e.code === "Space") {
+      stopHoldingBreath();
+    }
+  });
+
+  // Hold Breath Button Events (Optimized for Mobile Touch & Desktop Mouse)
+  if (breathBtn) {
+    breathBtn.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      getAudioContext();
+      startHoldingBreath();
+    });
+    breathBtn.addEventListener("mouseup", stopHoldingBreath);
+    breathBtn.addEventListener("mouseleave", stopHoldingBreath);
+
+    breathBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      getAudioContext();
+      startHoldingBreath();
+    }, { passive: false });
+
+    breathBtn.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      stopHoldingBreath();
+    }, { passive: false });
+
+    breathBtn.addEventListener("touchcancel", stopHoldingBreath);
+  }
+
+  // Calculate center of viewport
+  function updateViewportCenter() {
+    const rect = viewport.getBoundingClientRect();
+    if (!isHovering) {
+      targetAimX = rect.width / 2;
+      targetAimY = rect.height / 2;
+    }
+  }
+  updateViewportCenter();
+  window.addEventListener("resize", updateViewportCenter);
+
+  // Main Animation Loop: Physical Sway, Breathing, Weapon Inertia & Parallax
+  let lastHeartbeatTime = 0;
+
+  function animateAimSway() {
+    const time = Date.now() * 0.0015;
+    const nowMs = Date.now();
+
+    // 1. Update Breath Capacity Meter
+    if (isHoldingBreath && !isExhausted) {
+      // Faster depletion in Olympic Finals mode
+      const drainRate = isOlympicFinals ? 0.0075 : 0.005;
+      breathCapacity = Math.max(0, breathCapacity - drainRate);
+
+      if (breathCapacity <= 0) {
+        // Hypoxia: Tremors kick in!
+        isExhausted = true;
+        isHoldingBreath = false;
+        if (breathBtn) breathBtn.classList.remove("active");
+        if (breathBtnLabel) breathBtnLabel.textContent = "⚠️ RECOVERING BREATH...";
+        viewport.classList.add("tremor-shake");
+        playHeartbeatThump();
+      }
+    } else {
+      // Recharge breath
+      const rechargeRate = 0.006;
+      breathCapacity = Math.min(1.0, breathCapacity + rechargeRate);
+
+      if (isExhausted && breathCapacity >= 0.4) {
+        isExhausted = false;
+        viewport.classList.remove("tremor-shake");
+        if (breathBtnLabel) breathBtnLabel.textContent = getDefaultBreathLabel();
+      }
+    }
+
+    // Update Breath Bar UI
+    if (breathBar) {
+      breathBar.style.width = `${(breathCapacity * 100).toFixed(0)}%`;
+      breathBar.classList.toggle("exhausted", isExhausted);
+    }
+    if (breathPctReadout) {
+      if (isExhausted) {
+        breathPctReadout.textContent = "⚠️ TREMORS! FATIGUE";
+        breathPctReadout.className = "breath-pct-readout exhausted";
+        if (breathDot) breathDot.className = "breath-indicator-dot exhausted";
+      } else if (isHoldingBreath) {
+        breathPctReadout.textContent = `${(breathCapacity * 100).toFixed(0)}% STEADY HOLD`;
+        breathPctReadout.className = "breath-pct-readout holding";
+      } else {
+        breathPctReadout.textContent = `${(breathCapacity * 100).toFixed(0)}% READY`;
+        breathPctReadout.className = "breath-pct-readout";
+        if (breathDot) breathDot.className = "breath-indicator-dot";
+      }
+    }
+
+    // 2. Compute Natural Lissajous Figure-8 Hold Sway
+    let swayMultiplier = 1.0;
+    if (isHoldingBreath) {
+      // Steady sight: Sway drops by 80%!
+      swayMultiplier = 0.22;
+    } else if (isExhausted) {
+      // Violent breathing gasp and trembling
+      swayMultiplier = 3.4;
+    } else if (isOlympicFinals) {
+      // Olympic Finals has authentic pressure sway
+      swayMultiplier = 1.45;
+    }
+
+    // Pistol has a larger, more mobile sway pattern than Rifle
+    const baseAmpX = (currentWeapon === "pistol" ? 9.5 : 6.0) * swayMultiplier;
+    const baseAmpY = (currentWeapon === "pistol" ? 11.5 : 7.5) * swayMultiplier;
+
+    // Authentic ISSF Lissajous ellipse (breathing + cardiovascular pulse)
+    swayOffsetX = (Math.sin(time * 1.4) * 0.7 + Math.cos(time * 2.8) * 0.3) * baseAmpX;
+    swayOffsetY = (Math.cos(time * 1.1) * 0.75 + Math.sin(time * 2.2) * 0.25) * baseAmpY;
+
+    // Heartbeat twitch every 850ms in Olympic mode
+    if (isOlympicFinals && !isHoldingBreath && (nowMs - lastHeartbeatTime > 900)) {
+      lastHeartbeatTime = nowMs;
+      swayOffsetY += (Math.random() - 0.5) * 4.5;
+    }
+
+    // 3. Weapon Inertia Physics: Heavy match gun does not snap instantly!
+    // Lerp factor: lower = heavier weapon mass & inertia
+    const inertiaLerp = isOlympicFinals ? 0.075 : 0.15;
+    currentAimX += (targetAimX - currentAimX) * inertiaLerp;
+    currentAimY += (targetAimY - currentAimY) * inertiaLerp;
+
+    const finalX = currentAimX + swayOffsetX;
+    const finalY = currentAimY + swayOffsetY;
+
+    // Position Aiming Reticle
+    if (reticle) {
+      reticle.style.left = `${finalX}px`;
+      reticle.style.top = `${finalY}px`;
+    }
+
+    // 4. First-Person Gun Parallax Tracking
+    // The match gun barrel pivots smoothly towards the reticle
+    if (gunStage) {
+      const rect = viewport.getBoundingClientRect();
+      const normCenterX = rect.width / 2;
+      const gunOffset = (currentAimX - normCenterX) * 0.28;
+      const gunTilt = (currentAimX - normCenterX) * 0.035;
+      gunStage.style.transform = `translate(calc(-50% + ${gunOffset}px), 0px) rotate(${gunTilt}deg)`;
+    }
+
+    requestAnimationFrame(animateAimSway);
+  }
+  requestAnimationFrame(animateAimSway);
+
+  // Viewport Mouse Tracking
+  viewport.addEventListener("mouseenter", () => {
+    isHovering = true;
+    if (startHint) startHint.classList.add("hidden");
+  });
+
+  viewport.addEventListener("mouseleave", () => {
+    isHovering = false;
+    const rect = viewport.getBoundingClientRect();
+    targetAimX = rect.width / 2;
+    targetAimY = rect.height / 2;
+  });
+
+  viewport.addEventListener("mousemove", (e) => {
+    isHovering = true;
+    const rect = viewport.getBoundingClientRect();
+    targetAimX = Math.max(8, Math.min(rect.width - 8, e.clientX - rect.left));
+    targetAimY = Math.max(8, Math.min(rect.height - 8, e.clientY - rect.top));
+  });
+
+  // Calculate ISSF 10m Target Decimal Score
+  function calculateShotScore(pixelX, pixelY) {
+    const rect = viewport.getBoundingClientRect();
+    const svgX = (pixelX / rect.width) * 400;
+    const svgY = (pixelY / rect.height) * 400;
+
+    const diffX = svgX - 200;
+    const diffY = svgY - 200;
+    const radius = Math.sqrt(diffX * diffX + diffY * diffY);
+
+    const mmOffsetX = (diffX * 0.115).toFixed(1);
+    const mmOffsetY = (diffY * 0.115).toFixed(1);
+
+    let ring = 0;
+    let score = 0;
+    let badgeText = "";
+    let isInnerTen = false;
+
+    // Olympic ISSF 10m Target Geometry:
+    // Outer border = 180 (Ring 1)
+    // Ring 10 = 18
+    // Inner-Ten X = 3.6
+    if (radius <= 18) {
+      ring = 10;
+      if (radius <= 3.8) {
+        score = 10.9;
+        badgeText = "INNER TEN (10.9 X) 🎯";
+        isInnerTen = true;
+      } else {
+        const ringFraction = (18 - radius) / (18 - 3.8);
+        score = +(10.0 + ringFraction * 0.8).toFixed(1);
+        badgeText = score >= 10.7 ? "CENTRE BULL 🎯" : "BULLSEYE 10 🌟";
+      }
+    } else if (radius <= 36) {
+      ring = 9;
+      const frac = (36 - radius) / 18;
+      score = +(9.0 + frac * 0.9).toFixed(1);
+      badgeText = "EXCELLENT 9 ✨";
+    } else if (radius <= 54) {
+      ring = 8;
+      const frac = (54 - radius) / 18;
+      score = +(8.0 + frac * 0.9).toFixed(1);
+      badgeText = "SOLID 8 👍";
+    } else if (radius <= 72) {
+      ring = 7;
+      const frac = (72 - radius) / 18;
+      score = +(7.0 + frac * 0.9).toFixed(1);
+      badgeText = "IN BULL (7)";
+    } else if (radius <= 90) {
+      ring = 6;
+      const frac = (90 - radius) / 18;
+      score = +(6.0 + frac * 0.9).toFixed(1);
+      badgeText = "RING 6";
+    } else if (radius <= 108) {
+      ring = 5;
+      const frac = (108 - radius) / 18;
+      score = +(5.0 + frac * 0.9).toFixed(1);
+      badgeText = "RING 5";
+    } else if (radius <= 126) {
+      ring = 4;
+      const frac = (126 - radius) / 18;
+      score = +(4.0 + frac * 0.9).toFixed(1);
+      badgeText = "RING 4";
+    } else if (radius <= 144) {
+      ring = 3;
+      const frac = (144 - radius) / 18;
+      score = +(3.0 + frac * 0.9).toFixed(1);
+      badgeText = "RING 3";
+    } else if (radius <= 162) {
+      ring = 2;
+      const frac = (162 - radius) / 18;
+      score = +(2.0 + frac * 0.9).toFixed(1);
+      badgeText = "RING 2";
+    } else if (radius <= 180) {
+      ring = 1;
+      const frac = (180 - radius) / 18;
+      score = +(1.0 + frac * 0.9).toFixed(1);
+      badgeText = "RING 1 (BORDER)";
+    } else {
+      ring = 0;
+      score = 0.0;
+      badgeText = "OFF TARGET (MISS)";
+    }
+
+    return {
+      score,
+      ring,
+      mmOffsetX: (diffX >= 0 ? "+" : "") + mmOffsetX,
+      mmOffsetY: (diffY >= 0 ? "+" : "") + mmOffsetY,
+      badgeText,
+      isInnerTen,
+      pixelX,
+      pixelY
+    };
+  }
+
+  // Fire Shot Handler
+  function executeShot(clientX, clientY) {
+    if (isSeriesComplete) {
+      resetSeries();
+    }
+
+    const rect = viewport.getBoundingClientRect();
+    let hitX = currentAimX + swayOffsetX;
+    let hitY = currentAimY + swayOffsetY;
+
+    // Keep within bounds
+    hitX = Math.max(8, Math.min(rect.width - 8, hitX));
+    hitY = Math.max(8, Math.min(rect.height - 8, hitY));
+
+    shotCount++;
+    const result = calculateShotScore(hitX, hitY);
+    seriesScores.push(result.score);
+
+    // Audio & Gunshot Synthesis
+    playSynthesizedShotSound();
+
+    // Visual Gun Recoil Kick
+    if (gunStage) {
+      gunStage.classList.add("recoil");
+      setTimeout(() => gunStage.classList.remove("recoil"), 90);
+    }
+
+    // Muzzle Vapor Puff
+    if (muzzlePuff) {
+      muzzlePuff.classList.remove("puff-active");
+      void muzzlePuff.offsetWidth; // trigger reflow
+      muzzlePuff.classList.add("puff-active");
+    }
+
+    // Reticle Kick
+    if (reticle) {
+      reticle.classList.add("recoil");
+      setTimeout(() => reticle.classList.remove("recoil"), 90);
+    }
+
+    // Target Muzzle Flash Overlay
+    if (muzzleFlash) {
+      muzzleFlash.classList.add("active");
+      setTimeout(() => muzzleFlash.classList.remove("active"), 70);
+    }
+
+    // Shockwave Ripple
+    const ripple = document.createElement("div");
+    ripple.className = "shot-ripple";
+    ripple.style.left = `${hitX}px`;
+    ripple.style.top = `${hitY}px`;
+    viewport.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 550);
+
+    // Persistent Pellet Hole
+    const pellet = document.createElement("div");
+    pellet.className = "pellet-hole";
+    pellet.style.left = `${hitX}px`;
+    pellet.style.top = `${hitY}px`;
+    pellet.innerHTML = `<span class="pellet-badge">${shotCount}</span>`;
+    pelletLayer.appendChild(pellet);
+
+    // Update Console Displays
+    updateScoreboard(result);
+
+    // Check if 5-shot round complete
+    if (shotCount >= MAX_SHOTS) {
+      isSeriesComplete = true;
+      showSeriesCompletion();
+    }
+  }
+
+  // Update Console & Series Chips
+  function updateScoreboard(res) {
+    currentShotNumEl.textContent = shotCount;
+    lastScoreEl.textContent = res.score.toFixed(1);
+    ringPillEl.textContent = res.ring > 0 ? `RING ${res.ring}` : "OUT";
+
+    scoreBadgeEl.textContent = res.badgeText;
+    scoreBadgeEl.classList.toggle("inner-ten", res.isInnerTen);
+
+    offsetXEl.textContent = `${res.mmOffsetX} mm`;
+    offsetYEl.textContent = `${res.mmOffsetY} mm`;
+    statusEl.textContent = shotCount < MAX_SHOTS ? "RECORDED" : "SERIES DONE";
+
+    // Update Series Chip
+    const chip = document.getElementById(`chip-${shotCount}`);
+    if (chip) {
+      chip.classList.remove("pending");
+      chip.classList.add("active-chip");
+      const chipVal = chip.querySelector(".chip-val");
+      if (chipVal) chipVal.textContent = res.score.toFixed(1);
+
+      if (res.score >= 10.0) {
+        chip.classList.add("grade-10");
+      } else if (res.score >= 9.0) {
+        chip.classList.add("grade-9");
+      }
+    }
+
+    // Calculate Average & Cumulative Total
+    const total = seriesScores.reduce((acc, curr) => acc + curr, 0);
+    const avg = total / seriesScores.length;
+
+    totalScoreEl.innerHTML = `${total.toFixed(1)} <small>/ 54.5</small>`;
+    avgScoreEl.textContent = avg.toFixed(2);
+  }
+
+  // Series Completion Evaluation
+  function showSeriesCompletion() {
+    const total = seriesScores.reduce((acc, curr) => acc + curr, 0);
+
+    if (outcomeCard) {
+      if (total >= 51.5) {
+        outcomeIcon.textContent = "🏆";
+        outcomeTitle.textContent = `Olympic Finalist Level (${total.toFixed(1)} / 54.5)!`;
+        outcomeDesc.textContent = "Phenomenal precision and group consistency! You're shooting at international championship standard.";
+      } else if (total >= 47.0) {
+        outcomeIcon.textContent = "🥇";
+        outcomeTitle.textContent = `National Qualifier Precision (${total.toFixed(1)} / 54.5)!`;
+        outcomeDesc.textContent = "Remarkable sight alignment and hold! You possess high natural potential for competitive rifle/pistol shooting.";
+      } else if (total >= 40.0) {
+        outcomeIcon.textContent = "⭐";
+        outcomeTitle.textContent = `State Championship Contender (${total.toFixed(1)} / 54.5)!`;
+        outcomeDesc.textContent = "Solid grouping on the target bull! With systematic coach-led trigger routines, you can easily top the podium.";
+      } else {
+        outcomeIcon.textContent = "🎯";
+        outcomeTitle.textContent = `Promising Marksman (${total.toFixed(1)} / 54.5)!`;
+        outcomeDesc.textContent = "Great effort! Practice your breath control and stance with certified coaches at PGSA's Patna ranges.";
+      }
+      outcomeCard.style.display = "flex";
+    }
+  }
+
+  // Reset Series
+  function resetSeries() {
+    shotCount = 0;
+    seriesScores = [];
+    isSeriesComplete = false;
+
+    pelletLayer.innerHTML = "";
+    currentShotNumEl.textContent = "0";
+    lastScoreEl.textContent = "--.-";
+    ringPillEl.textContent = "RING --";
+    scoreBadgeEl.textContent = "READY TO FIRE";
+    scoreBadgeEl.classList.remove("inner-ten");
+
+    offsetXEl.textContent = "0.0 mm";
+    offsetYEl.textContent = "0.0 mm";
+    statusEl.textContent = "ARMED";
+
+    avgScoreEl.textContent = "--.-";
+    totalScoreEl.innerHTML = `0.0 <small>/ 54.5</small>`;
+
+    if (outcomeCard) outcomeCard.style.display = "none";
+
+    for (let i = 1; i <= MAX_SHOTS; i++) {
+      const chip = document.getElementById(`chip-${i}`);
+      if (chip) {
+        chip.className = "series-chip pending";
+        const val = chip.querySelector(".chip-val");
+        if (val) val.textContent = "--";
+      }
+    }
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", resetSeries);
+  }
+
+  // Viewport Click & Touch to Shoot (Debounced for Mobile to prevent ghost double-shots)
+  let lastTouchFireTime = 0;
+
+  viewport.addEventListener("touchstart", (e) => {
+    lastTouchFireTime = Date.now();
+    getAudioContext();
+    if (startHint) startHint.classList.add("hidden");
+    const touch = e.touches[0];
+    if (touch) {
+      const rect = viewport.getBoundingClientRect();
+      targetAimX = Math.max(8, Math.min(rect.width - 8, touch.clientX - rect.left));
+      targetAimY = Math.max(8, Math.min(rect.height - 8, touch.clientY - rect.top));
+      currentAimX = targetAimX;
+      currentAimY = targetAimY;
+      executeShot(touch.clientX, touch.clientY);
+    }
+  }, { passive: true });
+
+  viewport.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    if (touch) {
+      const rect = viewport.getBoundingClientRect();
+      targetAimX = Math.max(8, Math.min(rect.width - 8, touch.clientX - rect.left));
+      targetAimY = Math.max(8, Math.min(rect.height - 8, touch.clientY - rect.top));
+    }
+  }, { passive: true });
+
+  viewport.addEventListener("click", (e) => {
+    // Ignore synthetic click event dispatched by mobile browsers after touchstart
+    if (Date.now() - lastTouchFireTime < 600) {
+      return;
+    }
+    getAudioContext();
+    executeShot(e.clientX, e.clientY);
+  });
+}
+
+// Initialize simulator when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initShootingSimulator);
+} else {
+  initShootingSimulator();
+}
+

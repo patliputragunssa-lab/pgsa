@@ -61,9 +61,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 26px;
-  min-height: 72px;
-  padding: 12px clamp(18px, 5vw, 64px);
+  gap: clamp(12px, 1.8vw, 24px);
+  min-height: 68px;
+  padding: 10px clamp(14px, 2.8vw, 42px);
   color: var(--white);
   background: rgba(5, 12, 12, 0.96);
   backdrop-filter: blur(18px);
@@ -82,13 +82,14 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-width: max-content;
+  flex-shrink: 0;
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 0 0 1px rgba(244, 201, 92, 0.72);
@@ -98,35 +99,38 @@ a {
   display: block;
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: clamp(17px, 1.8vw, 25px);
+  font-size: clamp(16px, 1.35vw, 21px);
   line-height: 1.05;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .brand small {
   display: block;
-  margin-top: 4px;
+  margin-top: 3px;
   color: var(--gold);
-  font-size: 12px;
+  font-size: clamp(9px, 0.7vw, 11px);
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(8px, 1.2vw, 18px);
+  gap: clamp(6px, 0.95vw, 14px);
   flex: 1;
-  font-size: 13px;
+  font-size: clamp(11.5px, 0.82vw, 13px);
   font-weight: 700;
   white-space: nowrap;
 }
 
 nav a {
   position: relative;
-  padding: 14px 0;
+  padding: 10px 2px;
   color: rgba(255, 255, 255, 0.86);
+  transition: color 0.2s ease;
 }
 
 nav a.active,
@@ -378,16 +382,17 @@ h1,
 h2 {
   font-family: var(--font-heading);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: -0.015em;
+  overflow-wrap: break-word;
 }
 
 h1 {
-  max-width: 620px;
+  max-width: 640px;
   margin-bottom: 14px;
-  font-size: clamp(32px, 5.8vw, 64px);
+  font-size: clamp(30px, 5.2vw, 56px);
   text-transform: uppercase;
-  line-height: 1.08;
+  line-height: 1.1;
 }
 
 h1 span {
@@ -397,8 +402,8 @@ h1 span {
 
 h2 {
   margin-bottom: 16px;
-  font-size: clamp(26px, 3.8vw, 42px);
-  line-height: 1.18;
+  font-size: clamp(23px, 3.2vw, 38px);
+  line-height: 1.22;
 }
 
 h3 {
@@ -623,16 +628,35 @@ h3 {
 .section-heading.split,
 .section-heading.row {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 28px;
+  gap: 24px;
+}
+
+.section-heading.split > div {
+  flex: 1 1 auto;
 }
 
 .section-heading.split > p {
+  flex: 0 1 520px;
   max-width: 520px;
   color: rgba(255, 255, 255, 0.82);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .section-heading.split,
+  .section-heading.row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .section-heading.split > p {
+    max-width: 100%;
+    font-size: 15px;
+  }
 }
 
 .section-heading.light-copy > p {
@@ -2367,7 +2391,7 @@ h3 {
 }
 
 /* ===== RESPONSIVE & MOBILE FRIENDLY ENHANCEMENTS ===== */
-@media (max-width: 1120px) {
+@media (max-width: 1240px) {
   html {
     scroll-padding-top: 125px;
   }
@@ -2977,42 +3001,115 @@ h3 {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
-/* ===== LOCATION TABS (DARK LUXURY PILLS) ===== */
+/* ===== LOCATION TABS (PREMIUM HIGH-VISIBILITY TOUCH PILLS) ===== */
 .location-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
+  align-items: center;
+  background: rgba(6, 16, 14, 0.78);
+  padding: 6px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(244, 201, 92, 0.32);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(244, 201, 92, 0.18);
 }
 
 .loc-tab {
-  padding: 8px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 30px;
-  color: rgba(255, 255, 255, 0.82);
+  padding: 12px 24px;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #e2edea;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
-  font-size: 13.5px;
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.loc-pin {
+  font-size: 16px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+}
+
+.loc-label-wrap {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
+.loc-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.loc-sep {
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.loc-sub {
+  font-size: 13.5px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.loc-badge-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(244, 201, 92, 0.18);
+  color: var(--gold, #f4c95c);
+  border: 1px solid rgba(244, 201, 92, 0.45);
+}
+
 .loc-tab:hover {
-  border-color: rgba(244, 201, 92, 0.5);
-  color: var(--white);
-  background: rgba(244, 201, 92, 0.1);
+  border-color: rgba(244, 201, 92, 0.65);
+  color: #ffffff;
+  background: rgba(244, 201, 92, 0.16);
   transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
 }
 
 .loc-tab.active {
-  border-color: var(--gold);
-  color: #07100e;
-  background: linear-gradient(135deg, #ffd978, #f4c95c);
-  box-shadow: 0 4px 14px rgba(244, 201, 92, 0.35);
+  border-color: #fff2c2;
+  color: #061310;
+  background: linear-gradient(135deg, #ffe28a 0%, #f4c95c 55%, #dfa52b 100%);
+  box-shadow: 0 8px 24px rgba(244, 201, 92, 0.45), 0 0 0 3px rgba(244, 201, 92, 0.24);
   font-weight: 800;
+  transform: translateY(-2px);
+}
+
+.loc-tab.active .loc-title {
+  color: #061310;
+}
+
+.loc-tab.active .loc-sub {
+  color: #0a1f1a;
+  opacity: 0.95;
+}
+
+.loc-tab.active .loc-sep {
+  opacity: 0.6;
+  color: #0a1f1a;
+}
+
+.loc-tab.active .loc-badge-tag {
+  background: rgba(6, 19, 16, 0.18);
+  color: #061310;
+  border-color: rgba(6, 19, 16, 0.32);
 }
 
 /* Make contact links styled */
@@ -3749,13 +3846,1354 @@ h3 {
 
 @media (max-width: 480px) {
   .floating-whatsapp {
-    bottom: 18px;
+    bottom: 16px;
     right: 16px;
   }
 
   .floating-whatsapp-link {
-    padding: 8px 14px;
-    font-size: 13px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
   }
+
+  .floating-whatsapp-link .wa-label {
+    display: none;
+  }
+
+  .floating-whatsapp-link .wa-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+}
+
+/* ==========================================================================
+   10M OLYMPIC SIUS RANGE SIMULATOR STYLES
+   ========================================================================== */
+.simulator-section {
+  padding: 64px clamp(20px, 5vw, 64px) 76px;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(244, 201, 92, 0.08), transparent 60%),
+    radial-gradient(ellipse at 75% 85%, rgba(35, 75, 68, 0.22), transparent 60%),
+    linear-gradient(180deg, #07100e 0%, #0d1a18 50%, #07100e 100%);
+  position: relative;
+  border-top: 1px solid rgba(244, 201, 92, 0.22);
+}
+
+.simulator-container {
+  max-width: 1180px;
+  margin: 36px auto 0;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* Stage Card (Target Booth) */
+.sim-stage-card {
+  background: rgba(10, 22, 20, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 201, 92, 0.28);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(244, 201, 92, 0.15);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sim-stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(244, 201, 92, 0.16);
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sim-lane-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sim-pulse-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  animation: simPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes simPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.65; }
+}
+
+.sim-lane-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold, #f4c95c);
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.sim-stage-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .sim-stage-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .sim-stage-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Weapon Selection Pill Buttons */
+.sim-btn-group {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(244, 201, 92, 0.22);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.sim-pill-btn {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 11px;
+  color: #9cb5ae;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.sim-pill-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sim-pill-btn.active {
+  background: rgba(244, 201, 92, 0.18);
+  color: var(--gold, #f4c95c);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(244, 201, 92, 0.25);
+}
+
+/* Difficulty Toggle Button */
+.sim-diff-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(244, 201, 92, 0.22);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: #a4beba;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.sim-diff-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.sim-diff-btn .diff-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  transition: all 0.2s ease;
+}
+
+.sim-diff-btn.active-olympic {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.14);
+  color: #ff8b8b;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
+}
+
+.sim-diff-btn.active-olympic .diff-indicator {
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  animation: simPulse 1s infinite alternate;
+}
+
+.sim-audio-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(244, 201, 92, 0.28);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: #e5ece9;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.sim-audio-btn:hover {
+  background: rgba(244, 201, 92, 0.15);
+  border-color: var(--gold, #f4c95c);
+  color: #ffffff;
+}
+
+.sim-audio-btn.muted {
+  opacity: 0.6;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Target Viewport Area */
+.sim-target-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, #1b2e2b 0%, #0d1a18 70%, #07100e 100%);
+  border: 1px solid rgba(244, 201, 92, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: crosshair;
+  user-select: none;
+  touch-action: none;
+}
+
+.sim-target-viewport:focus-visible {
+  outline: 2px solid var(--gold, #f4c95c);
+  outline-offset: 2px;
+}
+
+.sim-target-svg {
+  width: 90%;
+  height: 90%;
+  max-width: 380px;
+  max-height: 380px;
+  border-radius: 50%;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/* SVG Target Rings */
+.ring-white {
+  fill: #f6f3eb;
+  stroke: #1b1b1b;
+  stroke-width: 1.5;
+}
+
+.ring-line {
+  fill: none;
+  stroke: #222222;
+  stroke-width: 0.9;
+}
+
+.ring-black {
+  fill: #121716;
+}
+
+.ring-bull-line {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 0.8;
+}
+
+.ring-10 {
+  stroke: rgba(244, 201, 92, 0.8);
+  stroke-width: 1;
+}
+
+.ring-inner-dot {
+  fill: #ffffff;
+}
+
+.ring-cross {
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 0.75;
+}
+
+.target-num {
+  fill: #222222;
+  font-size: 11px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  user-select: none;
+}
+
+.target-num-white {
+  fill: #ffffff;
+  font-size: 11px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  user-select: none;
+}
+
+/* Dynamic Reticle */
+.sim-reticle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+  transition: transform 0.04s ease-out;
+}
+
+.sim-reticle-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid rgba(244, 201, 92, 0.95);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(244, 201, 92, 0.65);
+}
+
+.sim-reticle-hair {
+  position: absolute;
+  background: var(--gold, #f4c95c);
+  box-shadow: 0 0 4px rgba(244, 201, 92, 0.5);
+}
+
+.hair-top {
+  width: 1.5px;
+  height: 10px;
+  top: 0;
+  left: calc(50% - 0.75px);
+}
+
+.hair-bottom {
+  width: 1.5px;
+  height: 10px;
+  bottom: 0;
+  left: calc(50% - 0.75px);
+}
+
+.hair-left {
+  height: 1.5px;
+  width: 10px;
+  left: 0;
+  top: calc(50% - 0.75px);
+}
+
+.hair-right {
+  height: 1.5px;
+  width: 10px;
+  right: 0;
+  top: calc(50% - 0.75px);
+}
+
+.sim-reticle-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #ff4757;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 5px #ff4757;
+}
+
+/* Recoil Animation Class applied to Reticle */
+.sim-reticle.recoil {
+  transform: translate(-50%, calc(-50% - 7px)) scale(0.92);
+  transition: transform 0.05s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+/* Pellet Hole Markings on Target */
+.sim-pellet-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.pellet-hole {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #090909 60%, #2b2b2b 90%, #dcdcdc 100%);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.9), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pelletImpact 0.24s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pellet-badge {
+  font-size: 8px;
+  font-weight: 800;
+  color: var(--gold, #f4c95c);
+  text-shadow: 0 1px 2px #000;
+  line-height: 1;
+}
+
+@keyframes pelletImpact {
+  0% { transform: translate(-50%, -50%) scale(2.8); opacity: 0.2; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Shockwave Ripple on Impact */
+.shot-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(244, 201, 92, 0.85);
+  pointer-events: none;
+  animation: shockwave 0.5s ease-out forwards;
+}
+
+@keyframes shockwave {
+  0% { width: 0; height: 0; opacity: 1; }
+  100% { width: 90px; height: 90px; opacity: 0; border-width: 0.5px; }
+}
+
+/* Recoil flash */
+.sim-recoil-flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.08s ease-out;
+  z-index: 8;
+}
+
+.sim-recoil-flash.active {
+  opacity: 1;
+  transition: none;
+}
+
+/* Viewport start hint */
+.sim-start-hint {
+  position: absolute;
+  top: 14px;
+  background: rgba(10, 20, 18, 0.92);
+  border: 1px solid rgba(244, 201, 92, 0.35);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 11px;
+  color: #dfede7;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 12;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.sim-start-hint.hidden {
+  opacity: 0;
+}
+
+/* ==========================================================================
+   VISIBLE OLYMPIC MATCH FIREARM (FIRST-PERSON SHOOTER POV)
+   ========================================================================== */
+.sim-gun-stage {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  width: 250px;
+  height: 200px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 8;
+  will-change: transform;
+  transition: transform 0.08s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sim-gun-svg {
+  display: none;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.85));
+}
+
+.sim-gun-svg.active {
+  display: block;
+}
+
+/* Dynamic Recoil Kick */
+.sim-gun-stage.recoil {
+  transform: translate(-50%, 18px) scale(0.95) rotate(-3deg);
+  transition: transform 0.04s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+/* Muzzle Flash & Vapor Puff */
+.sim-muzzle-puff {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(244, 201, 92, 0.75) 45%, transparent 80%);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9;
+}
+
+.sim-muzzle-puff.puff-active {
+  animation: muzzleVaporPuff 0.32s ease-out forwards;
+}
+
+@keyframes muzzleVaporPuff {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  50% { transform: translate(-50%, -15px) scale(2.8); opacity: 0.8; }
+  100% { transform: translate(-50%, -30px) scale(4); opacity: 0; }
+}
+
+/* ==========================================================================
+   BREATH CONTROL & STABILITY GAUGE (DIFFICULTY SYSTEM)
+   ========================================================================== */
+.sim-breath-panel {
+  margin-top: 18px;
+  background: #060e0d;
+  border: 1px solid rgba(244, 201, 92, 0.22);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breath-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breath-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #8faea4;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breath-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 6px #34d399;
+  transition: all 0.2s ease;
+}
+
+.breath-indicator-dot.holding {
+  background: var(--gold, #f4c95c);
+  box-shadow: 0 0 8px var(--gold, #f4c95c);
+  animation: simPulse 0.8s infinite alternate;
+}
+
+.breath-indicator-dot.exhausted {
+  background: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+  animation: simPulse 0.4s infinite alternate;
+}
+
+.breath-pct-readout {
+  font-size: 11px;
+  font-family: monospace;
+  font-weight: 700;
+  color: #34d399;
+  transition: color 0.2s ease;
+}
+
+.breath-pct-readout.holding {
+  color: var(--gold, #f4c95c);
+}
+
+.breath-pct-readout.exhausted {
+  color: #ef4444;
+  font-weight: 900;
+}
+
+.breath-bar-track {
+  width: 100%;
+  height: 7px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.breath-bar-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #34d399 0%, #f4c95c 65%, #ef4444 100%);
+  border-radius: 999px;
+  transition: width 0.05s linear;
+}
+
+.breath-bar-fill.exhausted {
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+.breath-panel-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sim-hold-breath-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(244, 201, 92, 0.3);
+  border-radius: 8px;
+  padding: 6px 14px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.sim-hold-breath-btn:hover {
+  background: rgba(244, 201, 92, 0.16);
+  border-color: var(--gold, #f4c95c);
+}
+
+.sim-hold-breath-btn.active {
+  background: rgba(244, 201, 92, 0.28);
+  border-color: var(--gold, #f4c95c);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(244, 201, 92, 0.4);
+}
+
+.breath-instruction {
+  font-size: 10.5px;
+  color: #8aa79e;
+  flex: 1;
+  min-width: 180px;
+}
+
+/* Tremor State Shake */
+.sim-target-viewport.tremor-shake {
+  animation: violentTremor 0.18s infinite linear;
+}
+
+@keyframes violentTremor {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3px, 2px); }
+  50% { transform: translate(3px, -2px); }
+  75% { transform: translate(-2px, -3px); }
+  100% { transform: translate(2px, 3px); }
+}
+
+/* Stage Footer Specs (Mobile Friendly ISSF Indicators) */
+.sim-stage-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(244, 201, 92, 0.16);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sim-spec-pill {
+  font-size: 11.5px;
+  color: #c4d7d1;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(244, 201, 92, 0.22);
+  border-radius: 999px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.sway-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold, #f4c95c);
+  display: inline-block;
+  box-shadow: 0 0 6px var(--gold, #f4c95c);
+  animation: swayBlink 1.4s infinite alternate;
+}
+
+@keyframes swayBlink {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* ==========================================================================
+   SIUS DIGITAL LANE CONSOLE / MONITOR
+   ========================================================================== */
+.sim-console-card {
+  background: rgba(10, 22, 20, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 201, 92, 0.28);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(244, 201, 92, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sim-console-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(244, 201, 92, 0.16);
+}
+
+.console-brand-box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sius-brand {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  font-family: monospace;
+}
+
+.sius-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold, #f4c95c);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.console-counter-box {
+  text-align: right;
+}
+
+.counter-label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #8faea4;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.counter-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: monospace;
+}
+
+.counter-value strong {
+  color: var(--gold, #f4c95c);
+  font-size: 15px;
+}
+
+/* Digital Score Readout Box */
+.sim-score-display {
+  margin: 18px 0;
+  background: #060e0d;
+  border: 1px solid rgba(244, 201, 92, 0.25);
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+.score-display-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.disp-label {
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  color: #8faea4;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.score-badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--gold, #f4c95c);
+  background: rgba(244, 201, 92, 0.15);
+  border: 1px solid rgba(244, 201, 92, 0.35);
+  padding: 3px 9px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.score-badge.inner-ten {
+  background: rgba(244, 201, 92, 0.3);
+  border-color: var(--gold, #f4c95c);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(244, 201, 92, 0.5);
+}
+
+.score-value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 4px 0 12px;
+}
+
+.score-val-big {
+  font-size: clamp(40px, 6vw, 54px);
+  font-weight: 900;
+  color: #ffffff;
+  font-family: monospace;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(244, 201, 92, 0.4);
+}
+
+.score-ring-pill {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--gold, #f4c95c);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(244, 201, 92, 0.2);
+}
+
+.score-coords-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.coord-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.coord-label {
+  font-size: 8.5px;
+  color: #7b998f;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.coord-val {
+  font-size: 11px;
+  font-family: monospace;
+  font-weight: 700;
+  color: #d1dfdb;
+}
+
+.status-val {
+  color: #34d399;
+}
+
+/* 5-Shot Series Chips */
+.sim-series-card {
+  background: rgba(6, 14, 13, 0.6);
+  border: 1px solid rgba(244, 201, 92, 0.16);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+.series-card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #8faea4;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.sim-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.series-chip {
+  background: #081211;
+  border: 1px solid rgba(244, 201, 92, 0.2);
+  border-radius: 8px;
+  padding: 8px 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.22s ease;
+}
+
+.series-chip.pending {
+  opacity: 0.45;
+  border-style: dashed;
+}
+
+.series-chip.active-chip {
+  border-color: var(--gold, #f4c95c);
+  background: rgba(244, 201, 92, 0.12);
+  box-shadow: 0 0 12px rgba(244, 201, 92, 0.25);
+}
+
+.series-chip.grade-10 {
+  border-color: #f4c95c;
+  background: rgba(244, 201, 92, 0.18);
+}
+
+.series-chip.grade-9 {
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+}
+
+.chip-num {
+  font-size: 8px;
+  color: #7a978d;
+  font-weight: 700;
+}
+
+.chip-val {
+  font-size: 13px;
+  font-family: monospace;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.series-chip.grade-10 .chip-val {
+  color: var(--gold, #f4c95c);
+}
+
+.series-totals-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tot-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.tot-label {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: #8faea4;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.tot-val {
+  font-size: 15px;
+  font-family: monospace;
+  font-weight: 700;
+  color: #e5ece9;
+}
+
+.tot-val.grand-total {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--gold, #f4c95c);
+}
+
+.tot-val.grand-total small {
+  font-size: 12px;
+  color: #8faea4;
+  font-weight: 500;
+}
+
+/* Match Round Outcome Card */
+.sim-outcome-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(244, 201, 92, 0.18) 0%, rgba(35, 75, 68, 0.35) 100%);
+  border: 1.5px solid var(--gold, #f4c95c);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  animation: outcomeReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes outcomeReveal {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.outcome-icon {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.outcome-details h4 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+}
+
+.outcome-details p {
+  font-size: 11px;
+  color: #e5edea;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Actions Row */
+.sim-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.sim-btn-reset {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(244, 201, 92, 0.3);
+  color: #ffffff !important;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  flex: 0.9;
+}
+
+.sim-btn-reset:hover {
+  background: rgba(244, 201, 92, 0.18);
+  border-color: var(--gold, #f4c95c);
+}
+
+.sim-btn-join {
+  flex: 1.1;
+  font-size: 13px !important;
+  padding: 10px 18px !important;
+  border-radius: 10px !important;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   SIMULATOR & LOCATION TABS RESPONSIVENESS (MOBILE-FIRST POLISH)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .simulator-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sim-target-viewport {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .range-locations-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .location-tabs {
+    width: 100%;
+    border-radius: 16px;
+    padding: 8px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loc-tab {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px;
+    font-size: 15px;
+    min-height: 48px;
+  }
+
+  .loc-label-wrap {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .sim-stage-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .sim-lane-tag {
+    justify-content: center;
+  }
+
+  .sim-stage-controls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .sim-btn-group {
+    grid-column: span 2;
+    display: flex;
+    width: 100%;
+  }
+
+  .sim-pill-btn {
+    flex: 1;
+    justify-content: center;
+    min-height: 42px;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .sim-diff-btn,
+  .sim-audio-btn {
+    grid-column: span 1;
+    justify-content: center;
+    min-height: 42px;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .breath-panel-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .sim-hold-breath-btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 10px;
+  }
+
+  .breath-instruction {
+    text-align: center;
+    font-size: 11px;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .simulator-section {
+    padding: 40px 14px 48px;
+  }
+
+  .sim-stage-card,
+  .sim-console-card {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+
+  .sim-target-viewport {
+    max-width: min(320px, 86vw);
+    border-radius: 14px;
+  }
+
+  .sim-gun-stage {
+    width: 195px;
+    height: 155px;
+    bottom: -15px;
+  }
+
+  .sim-stage-footer {
+    gap: 6px;
+  }
+
+  .sim-spec-pill {
+    font-size: 10.5px;
+    padding: 5px 10px;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .sim-console-header {
+    padding-bottom: 10px;
+  }
+
+  .sius-brand {
+    font-size: 18px;
+  }
+
+  .score-display-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .score-val-big {
+    font-size: clamp(34px, 8.5vw, 44px);
+  }
+
+  .score-coords-row {
+    grid-template-columns: 1fr 1fr 1.15fr;
+    gap: 6px;
+  }
+
+  .coord-label {
+    font-size: 8px;
+  }
+
+  .coord-val {
+    font-size: 10.5px;
+  }
+
+  .sim-chips-grid {
+    gap: 4px;
+  }
+
+  .series-chip {
+    padding: 6px 2px;
+    min-width: 0;
+  }
+
+  .chip-num {
+    font-size: 7.5px;
+  }
+
+  .chip-val {
+    font-size: 11.5px;
+  }
+
+  .tot-val.grand-total {
+    font-size: 16px;
+  }
+
+  .sim-outcome-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+
+  .sim-actions-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sim-btn-reset,
+  .sim-btn-join {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    flex: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .sim-target-viewport {
+    max-width: min(280px, 86vw);
+  }
+
+  .sim-gun-stage {
+    width: 170px;
+    height: 135px;
+    bottom: -12px;
+  }
+
+  .sim-stage-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-btn-group,
+  .sim-diff-btn,
+  .sim-audio-btn {
+    grid-column: span 1;
+    width: 100%;
+  }
+
+  .score-coords-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* Global Mobile Anti-Breakage & Smooth Overflow Safeguards */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe.modern-map-frame {
+  height: 100%;
 }
 
