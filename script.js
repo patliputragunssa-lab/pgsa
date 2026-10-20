@@ -159,7 +159,7 @@ document.addEventListener("keydown", (e) => {
 
 // Wire up gallery thumbnails
 document.querySelectorAll(".gallery-thumb").forEach((img) => {
-  img.addEventListener("click",   () => openLightbox(galleryImages, Number(img.dataset.index)));
+  img.addEventListener("click", () => openLightbox(galleryImages, Number(img.dataset.index)));
   img.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -167,6 +167,29 @@ document.querySelectorAll(".gallery-thumb").forEach((img) => {
     }
   });
 });
+
+// Wire up gallery category filters
+const gFilterBtns = document.querySelectorAll(".g-filter-btn");
+const galleryCards = document.querySelectorAll(".gallery-card");
+
+if (gFilterBtns.length && galleryCards.length) {
+  gFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      gFilterBtns.forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+
+      const filter = btn.dataset.filter;
+      galleryCards.forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.classList.toggle("hidden", !match);
+      });
+    });
+  });
+}
 
 
 /* ---------- 4. FULL GALLERY MODAL ---------- */
@@ -227,10 +250,12 @@ document.addEventListener("keydown", (e) => {
 
 
 /* ---------- 5. LOCATION TABS + GOOGLE MAPS ---------- */
-const locTabs     = document.querySelectorAll(".loc-tab");
-const mapFrame    = document.getElementById("map-frame");
-const locLabel    = document.getElementById("loc-label");
-const locAddress  = document.getElementById("loc-address");
+const locTabs        = document.querySelectorAll(".loc-tab");
+const mapFrame       = document.getElementById("map-frame");
+const locLabel       = document.getElementById("loc-label");
+const locAddress     = document.getElementById("loc-address");
+const mapDirLink     = document.getElementById("map-directions-link");
+const mapTitleLabel  = document.getElementById("map-title-label");
 
 const locNames = {
   digha:      "Digha — Patna",
@@ -255,8 +280,17 @@ locTabs.forEach((tab) => {
     }
 
     // Update address panel
-    if (locLabel)   locLabel.textContent = locNames[tab.dataset.loc] || "";
+    const locKey = tab.dataset.loc;
+    if (locLabel)   locLabel.textContent = locNames[locKey] || "";
     if (locAddress) locAddress.innerHTML = tab.dataset.address || "";
+
+    // Update directions button and map title
+    if (mapDirLink && tab.dataset.dir) {
+      mapDirLink.href = tab.dataset.dir;
+    }
+    if (mapTitleLabel && locNames[locKey]) {
+      mapTitleLabel.textContent = `Range Map — ${locNames[locKey]}`;
+    }
   });
 });
 
@@ -715,9 +749,11 @@ if (fameSliderTrack && fameSlides.length) {
   function getMaxSlideIndex() {
     if (window.innerWidth <= 768) {
       return fameSlides.length - 1;
-    } else {
-      // 2 slides visible on larger screens
+    } else if (window.innerWidth <= 1120) {
       return Math.max(0, fameSlides.length - 2);
+    } else {
+      // 3 slides visible on desktop
+      return Math.max(0, fameSlides.length - 3);
     }
   }
 
@@ -755,7 +791,8 @@ if (fameSliderTrack && fameSlides.length) {
   fameDots.forEach((dot) => {
     dot.addEventListener("click", () => {
       const targetIndex = parseInt(dot.dataset.slide, 10);
-      showFameSlide(targetIndex);
+      const maxIdx = getMaxSlideIndex();
+      showFameSlide(Math.min(targetIndex, maxIdx));
       restartAutoplay();
     });
   });
