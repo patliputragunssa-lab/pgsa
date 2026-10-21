@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.3">
+  <link rel="stylesheet" href="styles.css?v=3.8">
 </head>
 
 <body>
@@ -77,10 +77,11 @@
   <main id="home">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Patna, Bihar · Ranchi, Jharkhand</p>
+        <p class="eyebrow">Bihar . Jharkhand</p>
         <h1>Patliputra Guns <span>Shooting Academy</span></h1>
         <p class="hero-lede">Aim Big.. Dream Bigger</p>
-        <p>Bihar and Jharkhand's premier academy for 10m air rifle and air pistol training, built to guide young shooters from first
+        <p>Bihar and Jharkhand's premier academy for 10m air rifle and air pistol training, built to guide young
+          shooters from first
           practice to competitive performance.</p>
         <div class="hero-actions">
           <a class="button primary" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a>
@@ -147,7 +148,8 @@
       <div class="feature-strip">
         <article>
           <span class="strip-icon">👥</span>
-          <div><strong>Professional Coaching</strong><small>Structured guidance for beginners and competitors</small></div>
+          <div><strong>Professional Coaching</strong><small>Structured guidance for beginners and competitors</small>
+          </div>
         </article>
         <article>
           <span class="strip-icon">🛡</span>
@@ -155,7 +157,8 @@
         </article>
         <article>
           <span class="strip-icon">▰</span>
-          <div><strong>Training Centres</strong><small>Digha — Patna · Kankarbagh — Patna · Ranchi — Coming Soon</small></div>
+          <div><strong>Training Centres</strong><small>Digha — Patna · Kankarbagh — Patna · Ranchi — Coming Soon</small>
+          </div>
         </article>
         <article>
           <span class="strip-icon">★</span>
@@ -218,7 +221,9 @@
           <p class="eyebrow">Interactive Firing Line · Olympic SIUS Lane</p>
           <h2>10m Target Simulator</h2>
         </div>
-        <p>Experience the precision of an Olympic 10m shooting range. Control your reticle against realistic breathing sway, align your sight picture, and click or tap to shoot a 5-shot match series on our digital SIUS target!</p>
+        <p>Experience the precision of an Olympic 10m shooting range. Control your reticle against realistic breathing
+          sway, align your sight picture, and click or tap to shoot a 5-shot match series on our digital SIUS target!
+        </p>
       </div>
 
       <div class="simulator-container">
@@ -241,12 +246,14 @@
                 </button>
               </div>
 
-              <button class="sim-diff-btn" id="sim-diff-toggle" type="button" aria-pressed="false" title="Toggle Olympic Final difficulty with heavier sway and weapon momentum">
+              <button class="sim-diff-btn" id="sim-diff-toggle" type="button" aria-pressed="false"
+                title="Toggle Olympic Final difficulty with heavier sway and weapon momentum">
                 <span class="diff-indicator"></span>
                 <span id="sim-diff-label">Olympic Finals: OFF</span>
               </button>
 
-              <button class="sim-audio-btn" id="sim-audio-toggle" type="button" aria-label="Toggle Gunshot Sound Effects">
+              <button class="sim-audio-btn" id="sim-audio-toggle" type="button"
+                aria-label="Toggle Gunshot Sound Effects">
                 <span class="sim-audio-icon" id="sim-audio-icon">🔊</span>
                 <span class="sim-audio-text" id="sim-audio-text">Audio ON</span>
               </button>
@@ -254,7 +261,8 @@
           </div>
 
           <!-- Target Canvas Area with Sway Reticle & Visible Match Firearm -->
-          <div class="sim-target-viewport" id="sim-target-viewport" tabindex="0" role="region" aria-label="10m Target Shooting Area. Click or tap inside the target to fire. Press or hold Spacebar to steady aim.">
+          <div class="sim-target-viewport" id="sim-target-viewport" tabindex="0" role="region"
+            aria-label="10m Target Shooting Area. Click or tap inside the target to fire. Press or hold Spacebar to steady aim.">
             <!-- ISSF 10m Target SVG -->
             <svg class="sim-target-svg" id="sim-target-svg" viewBox="0 0 400 400" aria-hidden="true">
               <!-- Outer White Rings (1 to 6) -->
@@ -264,13 +272,13 @@
               <circle cx="200" cy="200" r="126" class="ring-line" />
               <circle cx="200" cy="200" r="108" class="ring-line" />
               <circle cx="200" cy="200" r="90" class="ring-line" />
-              
+
               <!-- Black Bull Rings (7 to 10) -->
               <circle cx="200" cy="200" r="72" class="ring-black ring-bull" />
               <circle cx="200" cy="200" r="54" class="ring-bull-line" />
               <circle cx="200" cy="200" r="36" class="ring-bull-line" />
               <circle cx="200" cy="200" r="18" class="ring-bull-line ring-10" />
-              
+
               <!-- Inner Ten Crosshair & Dot (10.9 Bull) -->
               <circle cx="200" cy="200" r="3.5" class="ring-inner-dot" />
               <line x1="194" y1="200" x2="206" y2="200" class="ring-cross" />
@@ -340,66 +348,74 @@
               <div class="sim-muzzle-puff" id="sim-muzzle-puff"></div>
 
               <!-- 10m Olympic Air Pistol SVG (Walther / Morini style) -->
-              <svg class="sim-gun-svg sim-gun-pistol active" id="sim-gun-pistol" viewBox="0 0 320 250" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <svg class="sim-gun-svg sim-gun-pistol active" id="sim-gun-pistol" viewBox="0 0 320 250" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- Anatomical Walnut Grip -->
-                <path d="M125 185 C115 200 95 230 90 250 L230 250 C225 230 205 200 195 185 Z" fill="#714424" stroke="#482b17" stroke-width="2.5"/>
-                <path d="M102 210 C125 218 195 218 218 210" stroke="#935b33" stroke-width="2" fill="none"/>
-                <path d="M96 230 C125 238 195 238 224 230" stroke="#935b33" stroke-width="2" fill="none"/>
-                <ellipse cx="160" cy="225" rx="42" ry="14" fill="#58351c" opacity="0.6"/>
+                <path d="M125 185 C115 200 95 230 90 250 L230 250 C225 230 205 200 195 185 Z" fill="#714424"
+                  stroke="#482b17" stroke-width="2.5" />
+                <path d="M102 210 C125 218 195 218 218 210" stroke="#935b33" stroke-width="2" fill="none" />
+                <path d="M96 230 C125 238 195 238 224 230" stroke="#935b33" stroke-width="2" fill="none" />
+                <ellipse cx="160" cy="225" rx="42" ry="14" fill="#58351c" opacity="0.6" />
                 <!-- Pistol Action Receiver -->
-                <rect x="136" y="115" width="48" height="75" rx="5" fill="#182220" stroke="#2b3b37" stroke-width="2"/>
+                <rect x="136" y="115" width="48" height="75" rx="5" fill="#182220" stroke="#2b3b37" stroke-width="2" />
                 <!-- Trigger Guard & Match Gold Trigger Blade -->
-                <path d="M140 152 C126 152 122 170 122 182 C122 192 132 196 142 196" fill="none" stroke="#354843" stroke-width="3"/>
-                <rect x="137" y="160" width="5" height="18" rx="2" fill="#f4c95c" stroke="#cf9c27" stroke-width="1"/>
+                <path d="M140 152 C126 152 122 170 122 182 C122 192 132 196 142 196" fill="none" stroke="#354843"
+                  stroke-width="3" />
+                <rect x="137" y="160" width="5" height="18" rx="2" fill="#f4c95c" stroke="#cf9c27" stroke-width="1" />
                 <!-- 200 BAR Compressed Air Cylinder (Blue Olympic Anodized) -->
-                <rect x="146" y="52" width="28" height="74" rx="8" fill="#1b4163" stroke="#2b5f8f" stroke-width="1.8"/>
-                <circle cx="160" cy="52" r="9" fill="#d4af37" stroke="#aa820a" stroke-width="1.2"/>
-                <rect x="153" y="42" width="14" height="10" rx="3" fill="#666"/>
-                <text x="160" y="92" fill="rgba(255,255,255,0.75)" font-size="8" font-family="monospace" font-weight="bold" text-anchor="middle" transform="rotate(-90 160 92)">200 BAR</text>
+                <rect x="146" y="52" width="28" height="74" rx="8" fill="#1b4163" stroke="#2b5f8f" stroke-width="1.8" />
+                <circle cx="160" cy="52" r="9" fill="#d4af37" stroke="#aa820a" stroke-width="1.2" />
+                <rect x="153" y="42" width="14" height="10" rx="3" fill="#666" />
+                <text x="160" y="92" fill="rgba(255,255,255,0.75)" font-size="8" font-family="monospace"
+                  font-weight="bold" text-anchor="middle" transform="rotate(-90 160 92)">200 BAR</text>
                 <!-- Match Precision Barrel -->
-                <rect x="151" y="16" width="18" height="102" rx="3" fill="#111615" stroke="#253531" stroke-width="2"/>
+                <rect x="151" y="16" width="18" height="102" rx="3" fill="#111615" stroke="#253531" stroke-width="2" />
                 <!-- Barrel Compensator with Ported Recoil Vents -->
-                <rect x="148" y="2" width="24" height="20" rx="3" fill="#1f2a27" stroke="#3e524d" stroke-width="1.8"/>
-                <line x1="151" y1="7" x2="157" y2="7" stroke="#060908" stroke-width="2"/>
-                <line x1="163" y1="7" x2="169" y2="7" stroke="#060908" stroke-width="2"/>
-                <line x1="151" y1="13" x2="157" y2="13" stroke="#060908" stroke-width="2"/>
-                <line x1="163" y1="13" x2="169" y2="13" stroke="#060908" stroke-width="2"/>
+                <rect x="148" y="2" width="24" height="20" rx="3" fill="#1f2a27" stroke="#3e524d" stroke-width="1.8" />
+                <line x1="151" y1="7" x2="157" y2="7" stroke="#060908" stroke-width="2" />
+                <line x1="163" y1="7" x2="169" y2="7" stroke="#060908" stroke-width="2" />
+                <line x1="151" y1="13" x2="157" y2="13" stroke="#060908" stroke-width="2" />
+                <line x1="163" y1="13" x2="169" y2="13" stroke="#060908" stroke-width="2" />
                 <!-- Front Sight Post (Aligns directly on bore axis) -->
-                <rect x="157" y="-5" width="6" height="8" rx="1" fill="#000" stroke="#f4c95c" stroke-width="1"/>
+                <rect x="157" y="-5" width="6" height="8" rx="1" fill="#000" stroke="#f4c95c" stroke-width="1" />
                 <!-- Rear Adjustable Sight Notch (Shooter View) -->
-                <path d="M130 124 L152 124 L152 132 L168 132 L168 124 L190 124 L190 136 L130 136 Z" fill="#121817" stroke="#48615a" stroke-width="1.5"/>
+                <path d="M130 124 L152 124 L152 132 L168 132 L168 124 L190 124 L190 136 L130 136 Z" fill="#121817"
+                  stroke="#48615a" stroke-width="1.5" />
               </svg>
 
               <!-- 10m Olympic Air Rifle SVG (Feinwerkbau / Walther style) -->
-              <svg class="sim-gun-svg sim-gun-rifle" id="sim-gun-rifle" viewBox="0 0 320 250" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <svg class="sim-gun-svg sim-gun-rifle" id="sim-gun-rifle" viewBox="0 0 320 250" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- Aluminium Competition Stock & Cheekpiece -->
-                <path d="M125 180 L108 250 L212 250 L195 180 Z" fill="#0c1f1b" stroke="#264f45" stroke-width="2.5"/>
-                <rect x="126" y="196" width="68" height="7" rx="2" fill="#f4c95c" opacity="0.9"/>
-                <rect x="126" y="214" width="68" height="7" rx="2" fill="#f4c95c" opacity="0.9"/>
+                <path d="M125 180 L108 250 L212 250 L195 180 Z" fill="#0c1f1b" stroke="#264f45" stroke-width="2.5" />
+                <rect x="126" y="196" width="68" height="7" rx="2" fill="#f4c95c" opacity="0.9" />
+                <rect x="126" y="214" width="68" height="7" rx="2" fill="#f4c95c" opacity="0.9" />
                 <!-- Breech & Loading Action -->
-                <rect x="142" y="102" width="36" height="90" rx="4" fill="#182321" stroke="#334742" stroke-width="1.8"/>
-                <rect x="134" y="128" width="10" height="30" rx="3" fill="#8ca09b" stroke="#5a706b"/>
+                <rect x="142" y="102" width="36" height="90" rx="4" fill="#182321" stroke="#334742"
+                  stroke-width="1.8" />
+                <rect x="134" y="128" width="10" height="30" rx="3" fill="#8ca09b" stroke="#5a706b" />
                 <!-- Air Tube underneath Barrel (Red Anodized) -->
-                <rect x="150" y="38" width="20" height="80" rx="7" fill="#8b2020" stroke="#b22d2d" stroke-width="1.8"/>
-                <circle cx="160" cy="38" r="7" fill="#d4af37"/>
+                <rect x="150" y="38" width="20" height="80" rx="7" fill="#8b2020" stroke="#b22d2d" stroke-width="1.8" />
+                <circle cx="160" cy="38" r="7" fill="#d4af37" />
                 <!-- Long Carbon Barrel Tube Sleeve -->
-                <rect x="152" y="8" width="16" height="106" rx="3" fill="#0e1312" stroke="#273532" stroke-width="2"/>
+                <rect x="152" y="8" width="16" height="106" rx="3" fill="#0e1312" stroke="#273532" stroke-width="2" />
                 <!-- Muzzle Stabilizer Counterweights -->
-                <rect x="148" y="24" width="24" height="10" rx="2" fill="#293733" stroke="#4a5f5a" stroke-width="1.2"/>
+                <rect x="148" y="24" width="24" height="10" rx="2" fill="#293733" stroke="#4a5f5a" stroke-width="1.2" />
                 <!-- Front Diopter Globe Tunnel -->
-                <circle cx="160" cy="5" r="12" fill="none" stroke="#283734" stroke-width="3"/>
-                <circle cx="160" cy="5" r="5.5" fill="none" stroke="#f4c95c" stroke-width="1.2"/>
-                <line x1="160" y1="11" x2="160" y2="16" stroke="#0a0f0e" stroke-width="2.5"/>
+                <circle cx="160" cy="5" r="12" fill="none" stroke="#283734" stroke-width="3" />
+                <circle cx="160" cy="5" r="5.5" fill="none" stroke="#f4c95c" stroke-width="1.2" />
+                <line x1="160" y1="11" x2="160" y2="16" stroke="#0a0f0e" stroke-width="2.5" />
                 <!-- Rear Micro-Diopter Aperture (Eye Level) -->
-                <circle cx="160" cy="122" r="18" fill="#0a0f0e" stroke="#48615a" stroke-width="2.5"/>
-                <circle cx="160" cy="122" r="5" fill="#000" stroke="#f4c95c" stroke-width="1.2"/>
+                <circle cx="160" cy="122" r="18" fill="#0a0f0e" stroke="#48615a" stroke-width="2.5" />
+                <circle cx="160" cy="122" r="5" fill="#000" stroke="#f4c95c" stroke-width="1.2" />
               </svg>
             </div>
 
             <!-- Start Guide Hint -->
             <div class="sim-start-hint" id="sim-start-hint">
               <span class="hint-icon">🎯</span>
-              <span id="sim-start-hint-text">Hold <strong>[SPACE]</strong> or breath button to steady · Tap or click to fire!</span>
+              <span id="sim-start-hint-text">Hold <strong>[SPACE]</strong> or breath button to steady · Tap or click to
+                fire!</span>
             </div>
           </div>
 
@@ -412,7 +428,7 @@
               </span>
               <span class="breath-pct-readout" id="sim-breath-pct">100% READY</span>
             </div>
-            
+
             <div class="breath-bar-track">
               <div class="breath-bar-fill" id="sim-breath-bar"></div>
             </div>
@@ -431,7 +447,8 @@
           <div class="sim-stage-footer">
             <span class="sim-spec-pill">📏 ISSF 10m Ratio</span>
             <span class="sim-spec-pill" id="sim-spec-gun">🔫 10m Air Pistol Armed</span>
-            <span class="sim-spec-pill"><span class="sway-indicator-dot"></span> <span id="sim-spec-sway">Natural Hold Sway</span></span>
+            <span class="sim-spec-pill"><span class="sway-indicator-dot"></span> <span id="sim-spec-sway">Natural Hold
+                Sway</span></span>
           </div>
         </div>
 
@@ -481,11 +498,16 @@
               <span>5-SHOT TOTAL</span>
             </div>
             <div class="sim-chips-grid" id="sim-chips-grid">
-              <div class="series-chip pending" id="chip-1"><span class="chip-num">#1</span><span class="chip-val">--</span></div>
-              <div class="series-chip pending" id="chip-2"><span class="chip-num">#2</span><span class="chip-val">--</span></div>
-              <div class="series-chip pending" id="chip-3"><span class="chip-num">#3</span><span class="chip-val">--</span></div>
-              <div class="series-chip pending" id="chip-4"><span class="chip-num">#4</span><span class="chip-val">--</span></div>
-              <div class="series-chip pending" id="chip-5"><span class="chip-num">#5</span><span class="chip-val">--</span></div>
+              <div class="series-chip pending" id="chip-1"><span class="chip-num">#1</span><span
+                  class="chip-val">--</span></div>
+              <div class="series-chip pending" id="chip-2"><span class="chip-num">#2</span><span
+                  class="chip-val">--</span></div>
+              <div class="series-chip pending" id="chip-3"><span class="chip-num">#3</span><span
+                  class="chip-val">--</span></div>
+              <div class="series-chip pending" id="chip-4"><span class="chip-num">#4</span><span
+                  class="chip-val">--</span></div>
+              <div class="series-chip pending" id="chip-5"><span class="chip-num">#5</span><span
+                  class="chip-val">--</span></div>
             </div>
             <div class="series-totals-row">
               <div class="tot-box">
@@ -543,8 +565,8 @@
               <article class="fame-card floating-card" tabindex="0">
                 <div class="fame-card-inner">
                   <div class="fame-photo-wrap">
-                    <img class="fame-photo" src="assets/fame-aarav-framed.jpg" alt="Aarav Singh — International Rifle Shooter &amp; SAI NCOE Athlete"
-                      loading="lazy">
+                    <img class="fame-photo" src="assets/fame-aarav-framed.jpg"
+                      alt="Aarav Singh — International Rifle Shooter &amp; SAI NCOE Athlete" loading="lazy">
                     <span class="fame-badge">🌍 ISSF World Championship &amp; SAI NCOE</span>
                   </div>
                   <div class="fame-body">
@@ -552,23 +574,23 @@
                       <h3 class="fame-name">Aarav Singh</h3>
                       <p class="fame-discipline">10m Air Rifle · Junior Men</p>
                     </div>
-                    <div class="fame-stats-row">
-                      <div class="fame-stat">
-                        <strong>6th Rank</strong>
+                    <div class="fame-stats-grid-4">
+                      <div class="fame-stat-box">
+                        <strong>Achieved 6th Rank &amp; Qualified</strong>
                         <small>Cairo World Champs (Jr)</small>
                       </div>
-                      <div class="fame-stat">
-                        <strong>SAI NCOE</strong>
-                        <small>Selected 2026 (Sigra)</small>
+                      <div class="fame-stat-box">
+                        <strong>Selected in SAI NCOE</strong>
+                        <small>2026 (Sigra, Varanasi)</small>
                       </div>
-                      <div class="fame-stat">
-                        <strong>Bihar Rep</strong>
+                      <div class="fame-stat-box">
+                        <strong>Represented Bihar</strong>
                         <small>38th National Games</small>
                       </div>
-                    </div>
-                    <p class="fame-quote">“Reaching the World Championship stage and training at SAI NCOE began with the precision foundation and daily target discipline built at PGSA.”</p>
-                    <div class="fame-highlights">
-                      <span>🌍 6th Rank (Junior Category) at ISSF World Championship, Cairo (Egypt)</span>
+                      <div class="fame-stat-box">
+                        <strong>4th Position in 2024 NSCC</strong>
+                        <small>Mixed Event · 10m Air Rifle(Youth)</small>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -589,23 +611,19 @@
                       <h3 class="fame-name">Rishika Raj</h3>
                       <p class="fame-discipline">10m Air Pistol &amp; 25m Sports Pistol · Junior Women</p>
                     </div>
-                    <div class="fame-stats-row">
-                      <div class="fame-stat">
-                        <strong>Age 13</strong>
-                        <small>37th National Games Goa</small>
+                    <div class="fame-stats-stack-3">
+                      <div class="fame-stat-box wide">
+                        <strong>Youngest to Represent Bihar in Shooting (Age 13)</strong>
+                        <small>National Games held in Goa (2023)</small>
                       </div>
-                      <div class="fame-stat">
-                        <strong>4x Gold</strong>
-                        <small>State Sweep (Air Pistol)</small>
+                      <div class="fame-stat-box wide">
+                        <strong>Won 6 Medals in East Zone Championship</strong>
+                        <small>Most by any shooter representing Bihar</small>
                       </div>
-                      <div class="fame-stat">
-                        <strong>6 Medals</strong>
-                        <small>East Zone Record</small>
+                      <div class="fame-stat-box wide">
+                        <strong>First PGSA Shooter to Win Gold in All 4 Categories</strong>
+                        <small>Sub-Youth, Youth, Jr. &amp; Sr. at Pistol 10m in States</small>
                       </div>
-                    </div>
-                    <p class="fame-quote">“Age is no barrier on the firing line when sight alignment, breath control, and trigger release are in complete harmony.”</p>
-                    <div class="fame-highlights">
-                      <span>🇮🇳 Youngest shooter in Bihar history to represent at National Games, Goa (Age 13)</span>
                     </div>
                   </div>
                 </div>
@@ -618,7 +636,8 @@
                 <div class="fame-card-inner">
                   <div class="fame-photo-wrap">
                     <img class="fame-photo" src="assets/fame-rudra-perfect.jpg"
-                      alt="Rudra Pratap Singh — Khelo India 2025 Bronze Medalist &amp; India Open Gold Champion" loading="lazy">
+                      alt="Rudra Pratap Singh — Khelo India 2025 Bronze Medalist &amp; India Open Gold Champion"
+                      loading="lazy">
                     <span class="fame-badge">🇮🇳 National Games &amp; Khelo India Medalist</span>
                   </div>
                   <div class="fame-body">
@@ -626,23 +645,19 @@
                       <h3 class="fame-name">Rudra Pratap Singh</h3>
                       <p class="fame-discipline">10m Air Rifle · Sub-Youth Men &amp; Mixed Team</p>
                     </div>
-                    <div class="fame-stats-row">
-                      <div class="fame-stat">
-                        <strong>Gold 🥇</strong>
-                        <small>India Open 2025 (Mhow)</small>
+                    <div class="fame-stats-stack-3">
+                      <div class="fame-stat-box wide">
+                        <strong>Won Khelo India Youth Games Bronze</strong>
+                        <small>Mixed Team Event · 10m Air Rifle</small>
                       </div>
-                      <div class="fame-stat">
-                        <strong>Bronze 🥉</strong>
-                        <small>Khelo India Mix 2025</small>
+                      <div class="fame-stat-box wide">
+                        <strong>Won Gold in India Open (2025)</strong>
+                        <small>Sub-Youth Men · 10m Air Rifle</small>
                       </div>
-                      <div class="fame-stat">
-                        <strong>Bihar Rep</strong>
-                        <small>38th National Games</small>
+                      <div class="fame-stat-box wide">
+                        <strong>Represented Bihar</strong>
+                        <small>38th National Games held at Dehradun</small>
                       </div>
-                    </div>
-                    <p class="fame-quote">“Competing at Khelo India and the National Games taught me that calmness under decimal-scoring pressure is what wins medals.”</p>
-                    <div class="fame-highlights">
-                      <span>🥇 Gold Medal in 10m Air Rifle Sub-Youth at India Open 2025 (Mhow, MP)</span>
                     </div>
                   </div>
                 </div>
@@ -654,7 +669,8 @@
               <article class="fame-card floating-card" tabindex="0">
                 <div class="fame-card-inner">
                   <div class="fame-photo-wrap">
-                    <img class="fame-photo" src="assets/fame-priya-medal-framed.jpg" alt="Priya Rani — Gold Medalist at India Open Shooting Championship 2026 (Para 10m Air Rifle)"
+                    <img class="fame-photo" src="assets/fame-priya-medal-framed.jpg"
+                      alt="Priya Rani — Gold Medalist at India Open Shooting Championship 2026 (Para 10m Air Rifle)"
                       loading="lazy">
                     <span class="fame-badge">🥇 India Open Para Champion</span>
                   </div>
@@ -663,21 +679,8 @@
                       <h3 class="fame-name">Priya Rani</h3>
                       <p class="fame-discipline">10m Air Rifle · Para Standing (SH1)</p>
                     </div>
-                    <div class="fame-stats-row">
-                      <div class="fame-stat">
-                        <strong>Gold 🥇</strong>
-                        <small>India Open 2026</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>10m Rifle</strong>
-                        <small>Para Standing Event</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>Asansol</strong>
-                        <small>Host Venue</small>
-                      </div>
-                    </div>
-                    <p class="fame-quote">“Adaptive shooting proves that barriers disappear on the firing line. Dedication, self-belief, and precision are the only things that count.”</p>
+                    <p class="fame-quote">“Adaptive shooting proves that barriers disappear on the firing line.
+                      Dedication, self-belief, and precision are the only things that count.”</p>
                     <div class="fame-highlights">
                       <span>🥇 Gold Medalist in 10m Air Rifle Para Event at India Open 2026 (Asansol)</span>
                     </div>
@@ -691,7 +694,8 @@
               <article class="fame-card floating-card" tabindex="0">
                 <div class="fame-card-inner">
                   <div class="fame-photo-wrap">
-                    <img class="fame-photo" src="assets/fame-ankit-framed.jpg" alt="Ankit Kumar — All India GV Mavlankar Pre-National Championship Silver Medalist"
+                    <img class="fame-photo" src="assets/fame-ankit-framed.jpg"
+                      alt="Ankit Kumar — All India GV Mavlankar Pre-National Championship Silver Medalist"
                       loading="lazy">
                     <span class="fame-badge">🥈 Pre-National Silver Medalist</span>
                   </div>
@@ -700,23 +704,11 @@
                       <h3 class="fame-name">Ankit Kumar</h3>
                       <p class="fame-discipline">10m Air Rifle · Youth Men</p>
                     </div>
-                    <div class="fame-stats-row">
-                      <div class="fame-stat">
-                        <strong>Silver 🥈</strong>
-                        <small>G.V. Mavlankar Champ</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>10m Rifle</strong>
-                        <small>National MQS Achieved</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>NSCC</strong>
-                        <small>Qualified for Nationals</small>
-                      </div>
-                    </div>
-                    <p class="fame-quote">“Winning Silver at the Pre-Nationals comes down to trusting thousands of practice rounds and holding firm through every shot.”</p>
+                    <p class="fame-quote">“Winning Silver at the Pre-Nationals comes down to trusting thousands of
+                      practice rounds and holding firm through every shot.”</p>
                     <div class="fame-highlights">
-                      <span>🥈 Silver Medalist in 10m Air Rifle at All India G.V. Mavlankar Championship (Pre-Nationals)</span>
+                      <span>🥈 Silver Medalist in 10m Air Rifle at All India G.V. Mavlankar Championship
+                        (Pre-Nationals)</span>
                     </div>
                   </div>
                 </div>
@@ -729,7 +721,8 @@
                 <div class="fame-card-inner">
                   <div class="fame-photo-wrap">
                     <img class="fame-photo" src="assets/fame-pratham-framed.jpg"
-                      alt="Pratham Chakrabarty — Multi-Medalist at East Zone &amp; Bihar State Shooting Championships" loading="lazy">
+                      alt="Pratham Chakrabarty — Multi-Medalist at East Zone &amp; Bihar State Shooting Championships"
+                      loading="lazy">
                     <span class="fame-badge">🥇 East Zone &amp; State Medalist</span>
                   </div>
                   <div class="fame-body">
@@ -737,21 +730,8 @@
                       <h3 class="fame-name">Pratham Chakrabarty</h3>
                       <p class="fame-discipline">10m Air Rifle · Junior &amp; Youth Men</p>
                     </div>
-                    <div class="fame-stats-row">
-                      <div class="fame-stat">
-                        <strong>4 Medals</strong>
-                        <small>10th East Zone Zonal</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>4 Medals</strong>
-                        <small>34th Bihar State Indv</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>Team Gold</strong>
-                        <small>Junior &amp; Youth Men</small>
-                      </div>
-                    </div>
-                    <p class="fame-quote">“Sustained matchplay consistency across zonal and state championships comes down to disciplined routine and mental resilience.”</p>
+                    <p class="fame-quote">“Sustained matchplay consistency across zonal and state championships comes
+                      down to disciplined routine and mental resilience.”</p>
                     <div class="fame-highlights">
                       <span>🥇 Won 4 Medals (1 Gold, 3 Bronze) in 10m Air Rifle at 10th East Zone Championship</span>
                     </div>
@@ -765,8 +745,8 @@
               <article class="fame-card floating-card" tabindex="0">
                 <div class="fame-card-inner">
                   <div class="fame-photo-wrap">
-                    <img class="fame-photo" src="assets/fame-prince-framed.jpg" alt="Prince Kumar — BRC Agniveer Selection via Shooting Sports Quota"
-                      loading="lazy">
+                    <img class="fame-photo" src="assets/fame-prince-framed.jpg"
+                      alt="Prince Kumar — BRC Agniveer Selection via Shooting Sports Quota" loading="lazy">
                     <span class="fame-badge">🇮🇳 Indian Army BRC Agniveer</span>
                   </div>
                   <div class="fame-body">
@@ -774,21 +754,8 @@
                       <h3 class="fame-name">Prince Kumar</h3>
                       <p class="fame-discipline">10m Air Rifle · Senior Men</p>
                     </div>
-                    <div class="fame-stats-row">
-                      <div class="fame-stat">
-                        <strong>Selected</strong>
-                        <small>BRC Agniveer Danapur</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>Sports Quota</strong>
-                        <small>Shooting Merit Entry</small>
-                      </div>
-                      <div class="fame-stat">
-                        <strong>Team Gold</strong>
-                        <small>Bihar State Champ</small>
-                      </div>
-                    </div>
-                    <p class="fame-quote">“Precision training and discipline at PGSA opened the proud pathway to serve our nation in the Indian Armed Forces.”</p>
+                    <p class="fame-quote">“Precision training and discipline at PGSA opened the proud pathway to serve
+                      our nation in the Indian Armed Forces.”</p>
                     <div class="fame-highlights">
                       <span>🇮🇳 Selected for Indian Army BRC Agniveer through Shooting Sports Quota</span>
                     </div>
@@ -847,6 +814,8 @@
         <button class="mf-pill" data-filter="state">State</button>
         <button class="mf-pill" data-filter="zone">East Zone</button>
       </div>
+
+      <p class="medals-instruction-hint">💡 Click or tap any championship below to open and view the medalists list.</p>
 
       <!-- ============ 2025 ============ -->
       <div class="medal-year-panel active" data-year="2025">
@@ -1947,24 +1916,30 @@
           <p class="eyebrow">Shooter Noticeboard &amp; Academy Updates</p>
           <h2>News, Articles &amp; Tournament Alerts</h2>
         </div>
-        <p>Official announcements, academy milestones, upcoming National &amp; All-India championships, and PGSA internal leagues &amp; knockout tournaments.</p>
+        <p>Official announcements, academy milestones, upcoming National &amp; All-India championships, and PGSA
+          internal leagues &amp; knockout tournaments.</p>
       </div>
 
       <!-- Urgent alert banner ticker -->
       <div class="alert-ticker" role="alert">
         <span class="ticker-tag">🔔 TOURNAMENT ALERT</span>
         <div class="ticker-content">
-          <strong>XXXV All India G.V. Mavlankar (Oct 23 – Nov 1) &amp; 69th NSCC Nationals (Dec 2026):</strong> Official tournament calendar announced. Shooter registrations, pre-match weapon checks, and internal test series are underway.
+          <strong>XXXV All India G.V. Mavlankar (Oct 23 – Nov 1) &amp; 69th NSCC Nationals (Dec 2026):</strong> Official
+          tournament calendar announced. Shooter registrations, pre-match weapon checks, and internal test series are
+          underway.
         </div>
         <a class="ticker-link" href="#enquiry">Range Desk →</a>
       </div>
 
       <!-- Tournament & News category filters -->
       <div class="tournament-filters" role="tablist" aria-label="Tournament and news filters">
-        <button class="t-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Notices &amp; Tournaments (6)</button>
+        <button class="t-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Notices &amp;
+          Tournaments (6)</button>
         <button class="t-filter-btn" data-filter="news" role="tab" aria-selected="false">Academy Milestones</button>
-        <button class="t-filter-btn" data-filter="national" role="tab" aria-selected="false">National Championships</button>
-        <button class="t-filter-btn" data-filter="internal" role="tab" aria-selected="false">PGSA Internal Competitions</button>
+        <button class="t-filter-btn" data-filter="national" role="tab" aria-selected="false">National
+          Championships</button>
+        <button class="t-filter-btn" data-filter="internal" role="tab" aria-selected="false">PGSA Internal
+          Competitions</button>
       </div>
 
       <!-- Tournament Cards Grid -->
@@ -1985,7 +1960,8 @@
             </div>
             <h3>Congratulations on Achieving Prestigious ISSF 'A' License!</h3>
             <p class="t-desc">
-              PGSA family extends its proudest congratulations to Mr. Bibaswan Ganguly on earning the pinnacle of global shooting coaching credentials.
+              PGSA family extends its proudest congratulations to Mr. Bibaswan Ganguly on earning the pinnacle of global
+              shooting coaching credentials.
             </p>
             <div class="t-compact-meta">
               <div class="t-meta-chip"><span class="chip-icon">🎖️</span> ISSF 'A' License</div>
@@ -1994,8 +1970,11 @@
               <div class="t-meta-chip"><span class="chip-icon">📱</span> Instagram Post</div>
             </div>
             <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="issf-a-ganguly">Read Tribute <span aria-hidden="true">→</span></button>
-              <a class="button instagram-btn compact" href="https://www.instagram.com/p/Delos_JSYUg/?cplk=MWJmbXZqdmhidmlpeA==" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+              <button class="button primary compact open-circular-btn" data-circular="issf-a-ganguly">Read Tribute <span
+                  aria-hidden="true">→</span></button>
+              <a class="button instagram-btn compact"
+                href="https://www.instagram.com/p/Delos_JSYUg/?cplk=MWJmbXZqdmhidmlpeA==" target="_blank"
+                rel="noopener noreferrer">Instagram ↗</a>
             </div>
           </div>
         </article>
@@ -2008,7 +1987,8 @@
           </div>
           <div class="t-card-body">
             <h3>XXXV All India G.V. Mavlankar Championship (Pistol)</h3>
-            <p class="t-desc">Pre-National championship serving as the primary qualification gateway for shooters aiming for 69th NSCC Nationals.</p>
+            <p class="t-desc">Pre-National championship serving as the primary qualification gateway for shooters aiming
+              for 69th NSCC Nationals.</p>
             <div class="t-compact-meta">
               <div class="t-meta-chip"><span class="chip-icon">📅</span> Oct 23 – Nov 1, 2026</div>
               <div class="t-meta-chip"><span class="chip-icon">📍</span> Trishul Range, Dehradun</div>
@@ -2016,7 +1996,8 @@
               <div class="t-meta-chip"><span class="chip-icon">🏛️</span> Gateway to 69th NSCC</div>
             </div>
             <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="mavlankar-35">View Notice <span aria-hidden="true">→</span></button>
+              <button class="button primary compact open-circular-btn" data-circular="mavlankar-35">View Notice <span
+                  aria-hidden="true">→</span></button>
               <a class="button secondary compact" href="#enquiry">Shooter Desk →</a>
             </div>
           </div>
@@ -2030,7 +2011,8 @@
           </div>
           <div class="t-card-body">
             <h3>69th National Shooting Championship (NSCC)</h3>
-            <p class="t-desc">India's premier national championship establishing national rankings, Renowned Shot titles, and selection trial eligibility.</p>
+            <p class="t-desc">India's premier national championship establishing national rankings, Renowned Shot
+              titles, and selection trial eligibility.</p>
             <div class="t-compact-meta">
               <div class="t-meta-chip"><span class="chip-icon">📅</span> Dec 2026 (Tentative)</div>
               <div class="t-meta-chip"><span class="chip-icon">📍</span> DKSSR Ranges, New Delhi</div>
@@ -2038,7 +2020,8 @@
               <div class="t-meta-chip"><span class="chip-icon">⭐</span> Renowned Shot &amp; Trials</div>
             </div>
             <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="nscc-69">View Notice <span aria-hidden="true">→</span></button>
+              <button class="button primary compact open-circular-btn" data-circular="nscc-69">View Notice <span
+                  aria-hidden="true">→</span></button>
               <a class="button secondary compact" href="#enquiry">Prep Camp →</a>
             </div>
           </div>
@@ -2052,7 +2035,8 @@
           </div>
           <div class="t-card-body">
             <h3>PGSA Christmas Knockout Competition</h3>
-            <p class="t-desc">High-voltage head-to-head elimination tournament simulating sudden-death matchplay pressure for academy shooters.</p>
+            <p class="t-desc">High-voltage head-to-head elimination tournament simulating sudden-death matchplay
+              pressure for academy shooters.</p>
             <div class="t-compact-meta">
               <div class="t-meta-chip"><span class="chip-icon">📅</span> Dec 24 &amp; 25, 2026</div>
               <div class="t-meta-chip"><span class="chip-icon">📍</span> PGSA Ranges, Patna</div>
@@ -2060,7 +2044,8 @@
               <div class="t-meta-chip"><span class="chip-icon">🏆</span> Trophies &amp; Match Pellets</div>
             </div>
             <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="christmas-knockout">Rules &amp; Draw <span aria-hidden="true">→</span></button>
+              <button class="button primary compact open-circular-btn" data-circular="christmas-knockout">Rules &amp;
+                Draw <span aria-hidden="true">→</span></button>
               <a class="button secondary compact" href="#enquiry">Book Slot →</a>
             </div>
           </div>
@@ -2074,7 +2059,8 @@
           </div>
           <div class="t-card-body">
             <h3>PGSA Weekly Arjuna Award Test Series</h3>
-            <p class="t-desc">Rigorous weekly diagnostic match series designed to build championship-grade consistency, decimal scoring precision, and resilience.</p>
+            <p class="t-desc">Rigorous weekly diagnostic match series designed to build championship-grade consistency,
+              decimal scoring precision, and resilience.</p>
             <div class="t-compact-meta">
               <div class="t-meta-chip"><span class="chip-icon">📅</span> Starts Dec 2026 (Weekly)</div>
               <div class="t-meta-chip"><span class="chip-icon">📍</span> 10m Electronic SIUS Lines</div>
@@ -2082,7 +2068,8 @@
               <div class="t-meta-chip"><span class="chip-icon">📈</span> Weekly Leaderboard</div>
             </div>
             <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="arjuna-series">Series Details <span aria-hidden="true">→</span></button>
+              <button class="button primary compact open-circular-btn" data-circular="arjuna-series">Series Details
+                <span aria-hidden="true">→</span></button>
               <a class="button secondary compact" href="#enquiry">Enrol Series →</a>
             </div>
           </div>
@@ -2096,7 +2083,8 @@
           </div>
           <div class="t-card-body">
             <h3>PGSA League 2027</h3>
-            <p class="t-desc">Flagship multi-stage annual league featuring cumulative points, stage rankings, and an Olympic decimal grand finale.</p>
+            <p class="t-desc">Flagship multi-stage annual league featuring cumulative points, stage rankings, and an
+              Olympic decimal grand finale.</p>
             <div class="t-compact-meta">
               <div class="t-meta-chip"><span class="chip-icon">📅</span> Starts January 2027</div>
               <div class="t-meta-chip"><span class="chip-icon">📍</span> Digha &amp; Patliputra Ranges</div>
@@ -2104,7 +2092,8 @@
               <div class="t-meta-chip"><span class="chip-icon">🥇</span> Top 8 Decimal Finals</div>
             </div>
             <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="pgsa-league">League Format <span aria-hidden="true">→</span></button>
+              <button class="button primary compact open-circular-btn" data-circular="pgsa-league">League Format <span
+                  aria-hidden="true">→</span></button>
               <a class="button secondary compact" href="#enquiry">Join League →</a>
             </div>
           </div>
@@ -2120,8 +2109,10 @@
           <h2>Life at Patliputra Gun's Shooting Academy</h2>
         </div>
         <div class="gallery-heading-action">
-          <p class="gallery-heading-sub">Take an inside look at our Olympic electronic SIUS target bays, diagnostic training sessions, and historic podium victories.</p>
-          <button class="button outline compact" id="open-full-gallery" type="button">View All Photos <span aria-hidden="true">⤢</span></button>
+          <p class="gallery-heading-sub">Take an inside look at our Olympic electronic SIUS target bays, diagnostic
+            training sessions, and historic podium victories.</p>
+          <button class="button outline compact" id="open-full-gallery" type="button">View All Photos <span
+              aria-hidden="true">⤢</span></button>
         </div>
       </div>
 
@@ -2129,16 +2120,19 @@
       <div class="gallery-filters" role="tablist" aria-label="Photo gallery categories">
         <button class="g-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Photos (6)</button>
         <button class="g-filter-btn" data-filter="range" role="tab" aria-selected="false">Olympic SIUS Range</button>
-        <button class="g-filter-btn" data-filter="championship" role="tab" aria-selected="false">Championships &amp; Podiums</button>
+        <button class="g-filter-btn" data-filter="championship" role="tab" aria-selected="false">Championships &amp;
+          Podiums</button>
         <button class="g-filter-btn" data-filter="training" role="tab" aria-selected="false">Shooter Training</button>
       </div>
 
       <!-- Bento / Editorial Mosaic Grid -->
       <div class="gallery-bento-grid">
         <!-- Tile 0: Featured Hero Tile (10m SIUS Lines) -->
-        <article class="gallery-card gallery-thumb hero-tile" data-index="0" data-category="range" tabindex="0" role="button" aria-label="Enlarge: Air rifles on the shooting bench with SIUS targets">
+        <article class="gallery-card gallery-thumb hero-tile" data-index="0" data-category="range" tabindex="0"
+          role="button" aria-label="Enlarge: Air rifles on the shooting bench with SIUS targets">
           <div class="gallery-img-wrap">
-            <img class="gallery-img" src="assets/gallery-1.jpeg" alt="Air rifles on the shooting bench with SIUS targets" loading="lazy">
+            <img class="gallery-img" src="assets/gallery-1.jpeg"
+              alt="Air rifles on the shooting bench with SIUS targets" loading="lazy">
             <div class="gallery-card-gradient"></div>
           </div>
           <div class="gallery-card-top">
@@ -2146,26 +2140,41 @@
             <span class="gallery-badge glass-badge">10m Electronic SIUS Range</span>
           </div>
           <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
           </span>
           <div class="gallery-card-bottom">
             <h3>Swiss-Calibrated SIUS Electronic Target Lines</h3>
-            <p>Olympic-standard 10m firing bays equipped with instant decimal precision scoring monitors and match benches.</p>
+            <p>Olympic-standard 10m firing bays equipped with instant decimal precision scoring monitors and match
+              benches.</p>
             <span class="gallery-expand-cta">Click to enlarge shot ⤢</span>
           </div>
         </article>
 
         <!-- Tile 1: Olympic Range Bench -->
-        <article class="gallery-card gallery-thumb" data-index="1" data-category="range" tabindex="0" role="button" aria-label="Enlarge: Air rifles at a range with Olympic logo">
+        <article class="gallery-card gallery-thumb" data-index="1" data-category="range" tabindex="0" role="button"
+          aria-label="Enlarge: Air rifles at a range with Olympic logo">
           <div class="gallery-img-wrap">
-            <img class="gallery-img" src="assets/gallery-2.jpeg" alt="Air rifles at a range with Olympic logo" loading="lazy">
+            <img class="gallery-img" src="assets/gallery-2.jpeg" alt="Air rifles at a range with Olympic logo"
+              loading="lazy">
             <div class="gallery-card-gradient"></div>
           </div>
           <div class="gallery-card-top">
             <span class="gallery-badge glass-badge">Olympic Standards</span>
           </div>
           <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
           </span>
           <div class="gallery-card-bottom">
             <h3>Precision Weapon Firing Station</h3>
@@ -2175,16 +2184,24 @@
         </article>
 
         <!-- Tile 2: Shooter Training -->
-        <article class="gallery-card gallery-thumb" data-index="2" data-category="training" tabindex="0" role="button" aria-label="Enlarge: PGSA shooter aiming an air pistol">
+        <article class="gallery-card gallery-thumb" data-index="2" data-category="training" tabindex="0" role="button"
+          aria-label="Enlarge: PGSA shooter aiming an air pistol">
           <div class="gallery-img-wrap">
-            <img class="gallery-img" src="assets/gallery-3.jpeg" alt="PGSA shooter aiming an air pistol at the range" loading="lazy">
+            <img class="gallery-img" src="assets/gallery-3.jpeg" alt="PGSA shooter aiming an air pistol at the range"
+              loading="lazy">
             <div class="gallery-card-gradient"></div>
           </div>
           <div class="gallery-card-top">
             <span class="gallery-badge glass-badge">Precision Training</span>
           </div>
           <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
           </span>
           <div class="gallery-card-bottom">
             <h3>Air Pistol Stance &amp; Trigger Control</h3>
@@ -2194,16 +2211,24 @@
         </article>
 
         <!-- Tile 3: East Zone Podium -->
-        <article class="gallery-card gallery-thumb" data-index="3" data-category="championship" tabindex="0" role="button" aria-label="Enlarge: East Zone Championship podium">
+        <article class="gallery-card gallery-thumb" data-index="3" data-category="championship" tabindex="0"
+          role="button" aria-label="Enlarge: East Zone Championship podium">
           <div class="gallery-img-wrap">
-            <img class="gallery-img" src="assets/gallery-4.jpeg" alt="PGSA athlete on podium at 10th East Zone Shooting Championship" loading="lazy">
+            <img class="gallery-img" src="assets/gallery-4.jpeg"
+              alt="PGSA athlete on podium at 10th East Zone Shooting Championship" loading="lazy">
             <div class="gallery-card-gradient"></div>
           </div>
           <div class="gallery-card-top">
             <span class="gallery-badge gold-badge">East Zone Gold</span>
           </div>
           <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
           </span>
           <div class="gallery-card-bottom">
             <h3>Podium Victory Ceremony</h3>
@@ -2213,16 +2238,24 @@
         </article>
 
         <!-- Tile 4: East Zone Shooting Team -->
-        <article class="gallery-card gallery-thumb" data-index="4" data-category="championship" tabindex="0" role="button" aria-label="Enlarge: PGSA Shooting Team">
+        <article class="gallery-card gallery-thumb" data-index="4" data-category="championship" tabindex="0"
+          role="button" aria-label="Enlarge: PGSA Shooting Team">
           <div class="gallery-img-wrap">
-            <img class="gallery-img" src="assets/gallery-5.jpeg" alt="PGSA Shooting Team at the East Zone Championship" loading="lazy">
+            <img class="gallery-img" src="assets/gallery-5.jpeg" alt="PGSA Shooting Team at the East Zone Championship"
+              loading="lazy">
             <div class="gallery-card-gradient"></div>
           </div>
           <div class="gallery-card-top">
             <span class="gallery-badge glass-badge">Championship Squad</span>
           </div>
           <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
           </span>
           <div class="gallery-card-bottom">
             <h3>PGSA Team at East Zone</h3>
@@ -2232,16 +2265,24 @@
         </article>
 
         <!-- Tile 5: Bihar State Championship -->
-        <article class="gallery-card gallery-thumb" data-index="5" data-category="championship" tabindex="0" role="button" aria-label="Enlarge: Bihar State Championship team">
+        <article class="gallery-card gallery-thumb" data-index="5" data-category="championship" tabindex="0"
+          role="button" aria-label="Enlarge: Bihar State Championship team">
           <div class="gallery-img-wrap">
-            <img class="gallery-img" src="assets/gallery-6.jpeg" alt="PGSA team at XXXVI Bihar State Shooting Championship" loading="lazy">
+            <img class="gallery-img" src="assets/gallery-6.jpeg"
+              alt="PGSA team at XXXVI Bihar State Shooting Championship" loading="lazy">
             <div class="gallery-card-gradient"></div>
           </div>
           <div class="gallery-card-top">
             <span class="gallery-badge glass-badge">State Champions</span>
           </div>
           <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
           </span>
           <div class="gallery-card-bottom">
             <h3>XXXVI Bihar State Championship Contingent</h3>
@@ -2262,7 +2303,8 @@
           <p class="eyebrow">Admissions &amp; Range Locations</p>
           <h2>Join PGSA &amp; Visit Our Ranges</h2>
         </div>
-        <p>Take your first step toward competitive shooting. Register online for admission or visit our state-of-the-art electronic SIUS ranges in Patna.</p>
+        <p>Take your first step toward competitive shooting. Register online for admission or visit our state-of-the-art
+          electronic SIUS ranges in Patna.</p>
       </div>
 
       <!-- 1. The 3 Quick Channels (WhatsApp, Apply, Call) -->
@@ -2312,8 +2354,10 @@
           <div class="admission-portal-content">
             <div class="admission-portal-info">
               <h3>Direct Admission &amp; Enrolment Application</h3>
-              <p>Ready to start your Olympic shooting journey? Fill out our official Google Form to register for 10m Air Rifle or 10m Air Pistol batches. Our head coach and coordinators will review your submission and contact you within 24 hours.</p>
-              
+              <p>Ready to start your Olympic shooting journey? Fill out our official Google Form to register for 10m Air
+                Rifle or 10m Air Pistol batches. Our head coach and coordinators will review your submission and contact
+                you within 24 hours.</p>
+
               <div class="admission-steps-grid">
                 <div class="admission-step">
                   <span class="step-num">01</span>
@@ -2349,7 +2393,8 @@
               <p class="cta-note">Opens official Google Form in a new tab · Takes ~2 mins</p>
               <div class="portal-contact-fast">
                 <span>Prefer instant assistance?</span>
-                <a href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20want%20to%20apply%20for%20shooting%20training." target="_blank" rel="noopener">Chat on WhatsApp →</a>
+                <a href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20want%20to%20apply%20for%20shooting%20training."
+                  target="_blank" rel="noopener">Chat on WhatsApp →</a>
               </div>
             </div>
           </div>
@@ -2418,7 +2463,8 @@
               <span class="info-icon">📍</span>
               <div>
                 <small>Range Address</small>
-                <p id="loc-address">Mica Colony, Yadav Colony, Professor Colony,<br>Digha Ghat, in front of St. Xavier's University,<br>Patna – 800011</p>
+                <p id="loc-address">Mica Colony, Yadav Colony, Professor Colony,<br>Digha Ghat, in front of St. Xavier's
+                  University,<br>Patna – 800011</p>
               </div>
             </div>
 
@@ -2426,7 +2472,8 @@
               <span class="info-icon">🕒</span>
               <div>
                 <small>Training Hours</small>
-                <p>Monday – Saturday: 6:00 AM – 7:30 PM<br><span class="text-gold">Morning &amp; Evening Batches Available</span></p>
+                <p>Monday – Saturday: 6:00 AM – 7:30 PM<br><span class="text-gold">Morning &amp; Evening Batches
+                    Available</span></p>
               </div>
             </div>
 
@@ -2464,8 +2511,8 @@
             </div>
 
             <div class="map-card-viewport">
-              <iframe id="map-frame" class="modern-map-frame" title="Map of Patliputra Guns Shooting Academy" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
+              <iframe id="map-frame" class="modern-map-frame" title="Map of Patliputra Guns Shooting Academy"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps?q=Mica+Colony,+Digha+Ghat,+Patna,+800011&output=embed">
               </iframe>
             </div>
@@ -2627,7 +2674,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.0"></script>
+  <script src="script.js?v=3.3"></script>
 </body>
 
 </html>

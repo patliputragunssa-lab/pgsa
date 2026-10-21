@@ -361,6 +361,64 @@ filterPills.forEach((pill) => {
   pill.addEventListener("click", () => applyFilter(pill.dataset.filter));
 });
 
+/* ---------- 7B. MEDAL CHAMPIONSHIP ACCORDION DROPDOWNS ---------- */
+function initMedalsAccordion() {
+  const blocks = document.querySelectorAll(".championship-block");
+  blocks.forEach((block) => {
+    const header = block.querySelector(".champ-header");
+    const athleteCards = block.querySelector(".athlete-cards");
+    if (!header || !athleteCards) return;
+
+    // Wrap badge & h3 into .champ-header-left if not already wrapped
+    if (!header.querySelector(".champ-header-left")) {
+      const leftWrap = document.createElement("div");
+      leftWrap.className = "champ-header-left";
+      while (header.firstChild) {
+        leftWrap.appendChild(header.firstChild);
+      }
+      header.appendChild(leftWrap);
+    }
+
+    // Add toggle pill if not present
+    if (!header.querySelector(".champ-toggle-pill")) {
+      const toggle = document.createElement("div");
+      toggle.className = "champ-toggle-pill";
+      toggle.innerHTML = `<span class="champ-toggle-label">View Medalists</span><span class="champ-arrow" aria-hidden="true">▾</span>`;
+      header.appendChild(toggle);
+    }
+
+    // ARIA roles
+    header.setAttribute("role", "button");
+    header.setAttribute("tabindex", "0");
+    header.setAttribute("aria-expanded", block.classList.contains("open") ? "true" : "false");
+
+    // Click handler to open/close dropdown
+    header.addEventListener("click", () => {
+      const isOpen = block.classList.toggle("open");
+      header.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      const label = header.querySelector(".champ-toggle-label");
+      if (label) {
+        label.textContent = isOpen ? "Hide Medalists" : "View Medalists";
+      }
+    });
+
+    // Keyboard accessibility (Enter / Spacebar)
+    header.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        header.click();
+      }
+    });
+  });
+}
+
+// Initialize medal dropdowns on ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMedalsAccordion);
+} else {
+  initMedalsAccordion();
+}
+
 
 /* ---------- 8. NAVIGATION, HEADER FREEZE & MOBILE SECTION SELECTOR ---------- */
 const siteHeader = document.querySelector(".site-header");
