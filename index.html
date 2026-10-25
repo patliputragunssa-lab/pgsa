@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.8">
+  <link rel="stylesheet" href="styles.css?v=4.3">
 </head>
 
 <body>
@@ -25,6 +25,7 @@
     </a>
     <nav aria-label="Primary navigation" id="primary-nav">
       <a class="active" href="#home">Home</a>
+      <a href="#ranchi-opening" class="nav-ranchi-pill">🎪 Ranchi Launch</a>
       <a href="#about">About</a>
       <a href="#training">Training</a>
       <a href="#simulator">Simulator</a>
@@ -50,33 +51,16 @@
     </div>
   </header>
 
-  <!-- Mobile Quick Section Dropdown Navigation Bar -->
-  <aside class="mobile-section-bar" id="mobile-section-bar" aria-label="Mobile quick section navigation">
-    <div class="mobile-section-inner">
-      <span class="mobile-section-label"><span class="nav-target-icon">🎯</span> Section:</span>
-      <div class="mobile-select-wrap">
-        <select id="mobile-section-select" class="mobile-section-select" aria-label="Jump directly to any section">
-          <option value="#home">🏠 Home (Overview)</option>
-          <option value="#about">🏢 About Academy</option>
-          <option value="#training">🎯 Training &amp; Disciplines</option>
-          <option value="#simulator">🎯 10m Target Simulator</option>
-          <option value="#hall-of-fame">🏆 Hall of Fame</option>
-          <option value="#medals">🥇 Medal Archive (2025–2022)</option>
-          <option value="#coaches">👥 Coaches &amp; Leadership</option>
-          <option value="#stats">📊 Academy Track Record</option>
-          <option value="#khojj">🌟 Project Khojj (Talent Hunt)</option>
-          <option value="#alerts">📢 News &amp; Tournament Alerts</option>
-          <option value="#gallery">📸 Academy Range Gallery</option>
-          <option value="#contact">🎯 Admissions &amp; Range Locations</option>
-        </select>
-        <span class="mobile-select-arrow" aria-hidden="true">▾</span>
-      </div>
-    </div>
-  </aside>
 
   <main id="home">
     <section class="hero">
       <div class="hero-copy">
+        <a href="#ranchi-opening" class="hero-curtain-kicker" id="hero-curtain-kicker">
+          <span class="curtain-kicker-badge">🎉 GRAND OPENING</span>
+          <span class="curtain-kicker-text">Ranchi Branch Opening on <strong>1st Nov</strong> — <em>Pull Curtains to
+              Unveil</em> 🎪</span>
+          <span class="curtain-kicker-arrow" aria-hidden="true">▾</span>
+        </a>
         <p class="eyebrow">Bihar . Jharkhand</p>
         <h1>Patliputra Guns <span>Shooting Academy</span></h1>
         <p class="hero-lede">Aim Big.. Dream Bigger</p>
@@ -108,6 +92,190 @@
           <small>Compete and grow</small>
         </div>
       </aside>
+    </section>
+
+    <!-- ===== RANCHI BRANCH GRAND OPENING — INTERACTIVE CURTAIN THEATER ===== -->
+    <section class="curtain-reveal-section dark-section" id="ranchi-opening"
+      aria-label="Ranchi Branch Grand Opening Announcement">
+      <div class="curtain-section-header section-heading split">
+        <div>
+          <p class="eyebrow">Jharkhand Expansion · Landmark Announcement</p>
+          <h2>Grand Opening — Ranchi Branch</h2>
+        </div>
+        <p class="curtain-section-desc">Experience Jharkhand's premier 10m Air Rifle and Air Pistol high-performance
+          training complex, opening on <strong>1st November</strong>. Tap or pull below to unveil the new range.</p>
+      </div>
+
+      <!-- Theater Stage Proscenium -->
+      <div class="theater-stage" id="theater-stage">
+
+        <!-- Top Proscenium Pelmet (Valance) with Gold Fringe -->
+        <div class="stage-pelmet">
+          <div class="pelmet-drapes">
+            <span class="pelmet-swag"></span>
+            <span class="pelmet-swag"></span>
+            <span class="pelmet-swag"></span>
+          </div>
+          <div class="pelmet-banner">
+            <span class="pelmet-stars" aria-hidden="true">✦ ✦ ✦</span>
+            <span class="pelmet-title">PATLIPUTRA GUNS SHOOTING ACADEMY · RANCHI</span>
+            <span class="pelmet-stars" aria-hidden="true">✦ ✦ ✦</span>
+          </div>
+          <div class="pelmet-fringe"></div>
+        </div>
+
+        <!-- The Viewport with Background Content & Overlapping Left/Right Curtains -->
+        <div class="curtain-viewport" id="curtain-viewport" role="region" aria-label="Curtain reveal stage">
+
+          <!-- Spotlight Effect -->
+          <div class="stage-spotlight" aria-hidden="true"></div>
+
+          <!-- Confetti Canvas -->
+          <canvas class="curtain-confetti-canvas" id="curtain-confetti" aria-hidden="true"></canvas>
+
+          <!-- REVEALED CONTENT (Behind Curtains) -->
+          <div class="stage-unveiled-content" id="stage-unveiled-content" aria-hidden="true">
+            <div class="unveiled-badge-row">
+              <span class="unveiled-kicker-pill">🎊 YOU ARE CORDIALLY INVITED</span>
+              <span class="unveiled-date-pill">🗓️ OPENING ON 1st NOVEMBER 2026 · 11:00 AM</span>
+            </div>
+
+            <h3 class="unveiled-title">GRAND OPENING — RANCHI</h3>
+            <p class="unveiled-subtitle">Patliputra Guns Shooting Academy · Jharkhand's Premier 10m Olympic Electronic
+              Range</p>
+
+            <!-- Main Showcase: Poster & Official Ceremony Details -->
+            <div class="unveiled-stage-body">
+
+              <!-- Left: Official Invitation Card Frame -->
+              <div class="unveiled-poster-frame">
+                <div class="poster-inner-mat">
+                  <img src="assets/ranchi-grand-opening.jpg"
+                    alt="Official Grand Opening Invitation Card - Patliputra Guns Shooting Academy Ranchi"
+                    class="ranchi-invite-img" loading="eager" />
+                  <a href="assets/ranchi-grand-opening.jpg" target="_blank" rel="noopener" class="poster-zoom-btn"
+                    title="Click to view full size poster in new tab">
+                    <span>🔍 View Full Poster</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right: Event Itinerary & Key Information -->
+              <div class="unveiled-info-pane">
+
+                <div class="unveiled-info-card highlight-time">
+                  <div class="uic-icon">⏰</div>
+                  <div class="uic-text">
+                    <span class="uic-badge">Inauguration Ceremony</span>
+                    <strong>Ceremony Begins at 11:00 AM</strong>
+                    <small>Join us for the Inauguration, Live Shooting Demonstrations, &amp; High Tea.</small>
+                  </div>
+                </div>
+
+                <div class="unveiled-info-card">
+                  <div class="uic-icon">🎯</div>
+                  <div class="uic-text">
+                    <span class="uic-badge success">Admission Open</span>
+                    <strong>Come and Learn Shooting!</strong>
+                    <small>Olympic 10m Air Rifle &amp; Pistol disciplines with Swiss SIUS electronic target
+                      lines.</small>
+                  </div>
+                </div>
+
+                <div class="unveiled-info-card">
+                  <div class="uic-icon">📍</div>
+                  <div class="uic-text">
+                    <span class="uic-badge">Academy Address</span>
+                    <strong>2nd Floor, Atma Ram Bhavan, Radhe Shyam Lane, Uppar Bazzar, Ranchi</strong>
+                    <small>Landmark: Near Upper Bazar Market, Ranchi, Jharkhand – 834001</small>
+                  </div>
+                </div>
+
+                <div class="unveiled-info-card">
+                  <div class="uic-icon">📞</div>
+                  <div class="uic-text">
+                    <span class="uic-badge">Direct Contacts</span>
+                    <div class="uic-contacts-row">
+                      <a href="tel:+917070499494" class="contact-pill-link"><strong>Ph:</strong> +91 7070499494</a>
+                      <a href="mailto:patliputraguns@gmail.com" class="contact-pill-link"><strong>Email:</strong>
+                        patliputraguns@gmail.com</a>
+                    </div>
+                    <p class="uic-blessing-note">“Your presence will grace this auspicious occasion!”</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div class="unveiled-actions">
+              <a class="button whatsapp compact"
+                href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20would%20love%20to%20attend%20the%20Grand%20Opening%20of%20PGSA%20Ranchi%20on%201st%20Nov%20and%20enquire%20about%20admissions."
+                target="_blank" rel="noopener">
+                <span class="btn-icon">💬</span> RSVP on WhatsApp
+              </a>
+              <a class="button primary compact" href="tel:+917070499494">
+                <span class="btn-icon">📞</span> Call: +91 7070499494
+              </a>
+              <a class="button outline compact" href="mailto:patliputraguns@email.com">
+                <span class="btn-icon">✉️</span> Email Us
+              </a>
+              <a class="button outline compact"
+                href="https://www.google.com/maps/dir/?api=1&destination=Radhe+Shyam+Lane,+Upper+Bazar,+Ranchi,+Jharkhand+834001"
+                target="_blank" rel="noopener">
+                <span class="btn-icon">📍</span> Directions in Maps ↗
+              </a>
+              <button class="button curtain-replay-btn" id="curtain-replay-btn" type="button"
+                title="Close curtains and replay the grand unveiling">
+                <span class="btn-icon">↺</span> Close &amp; Replay
+              </button>
+            </div>
+          </div>
+
+          <!-- LEFT CURTAIN PANEL -->
+          <div class="curtain-panel curtain-left" id="curtain-left">
+            <div class="curtain-pleats"></div>
+            <div class="curtain-gold-trim"></div>
+            <div class="curtain-tieback left" aria-hidden="true">
+              <span class="tassel-rope"></span>
+              <span class="tassel-head"></span>
+            </div>
+          </div>
+
+          <!-- RIGHT CURTAIN PANEL -->
+          <div class="curtain-panel curtain-right" id="curtain-right">
+            <div class="curtain-pleats"></div>
+            <div class="curtain-gold-trim"></div>
+            <div class="curtain-tieback right" aria-hidden="true">
+              <span class="tassel-rope"></span>
+              <span class="tassel-head"></span>
+            </div>
+          </div>
+
+          <!-- CENTER PULL CORD & INTERACTIVE GOLD SEAL -->
+          <div class="curtain-center-trigger" id="curtain-center-trigger" role="button" tabindex="0"
+            aria-label="Pull to unveil Ranchi branch opening on 1st November">
+            <div class="pull-cord">
+              <span class="cord-line"></span>
+              <span class="cord-tassel"></span>
+            </div>
+            <div class="curtain-seal-medallion">
+              <div class="seal-ring outer"></div>
+              <div class="seal-ring inner"></div>
+              <div class="seal-icon">🎪</div>
+              <strong class="seal-title">RANCHI BRANCH</strong>
+              <span class="seal-date">OPENING 1ST NOV</span>
+              <span class="seal-instruction">✨ PULL OR TAP TO UNVEIL ✨</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Stage Bottom Footlights -->
+        <div class="stage-footlights" aria-hidden="true">
+          <div class="footlight-glow"></div>
+        </div>
+      </div>
     </section>
 
     <section class="about section-light" id="about">
@@ -2438,13 +2606,13 @@
 
             <button class="loc-tab" role="tab" aria-selected="false" data-loc="ranchi"
               data-map="https://www.google.com/maps?q=988F%2BX37,+Radhey+Shyam+Ln,+Upper+Bazar,+Ranchi,+Jharkhand+834001,+India&output=embed"
-              data-address="988F+X37, Radhey Shyam Ln,<br>Upper Bazar, Ranchi,<br>Jharkhand – 834001, India"
+              data-address="2nd floor, Atma Ram Bhavan,<br>Radhe shyam lane, Uppar bazzar,<br>Ranchi, Jharkhand – 834001"
               data-dir="https://www.google.com/maps/dir/?api=1&destination=Upper+Bazar,+Ranchi,+Jharkhand+834001"
               id="tab-ranchi">
               <span class="loc-pin">📍</span>
               <span class="loc-label-wrap">
                 <strong class="loc-title">Ranchi</strong>
-                <span class="loc-badge-tag">Coming Soon</span>
+                <span class="loc-badge-tag">Opens 1st Nov</span>
               </span>
             </button>
           </div>
@@ -2674,7 +2842,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.3"></script>
+  <script src="script.js?v=3.6"></script>
 </body>
 
 </html>

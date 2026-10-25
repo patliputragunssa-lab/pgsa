@@ -195,87 +195,7 @@ nav a.active::after {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile Quick Section Navigation Bar */
-.mobile-section-bar {
-  display: none;
-  background: rgba(6, 16, 14, 0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(244, 201, 92, 0.28);
-  padding: 8px 16px;
-  position: sticky;
-  top: 64px;
-  z-index: 995;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
-}
 
-.mobile-section-inner {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: var(--max);
-  margin: 0 auto;
-}
-
-.mobile-section-label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11.5px;
-  font-weight: 800;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-
-.mobile-select-wrap {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.mobile-section-select {
-  width: 100%;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(244, 201, 92, 0.4);
-  color: #ffffff;
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  font-weight: 700;
-  padding: 8px 36px 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.25s ease;
-}
-
-.mobile-section-select:focus {
-  border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 0 0 3px rgba(244, 201, 92, 0.25);
-}
-
-.mobile-section-select option {
-  background: #091514;
-  color: #ffffff;
-  padding: 10px;
-  font-size: 14px;
-}
-
-.mobile-select-arrow {
-  position: absolute;
-  right: 14px;
-  pointer-events: none;
-  color: var(--gold);
-  font-size: 13px;
-  font-weight: 800;
-  transition: transform 0.2s ease;
-}
 
 .header-cta,
 .button {
@@ -2469,16 +2389,12 @@ h3 {
 /* ===== RESPONSIVE & MOBILE FRIENDLY ENHANCEMENTS ===== */
 @media (max-width: 1240px) {
   html {
-    scroll-padding-top: 125px;
+    scroll-padding-top: 76px;
   }
 
   section[id],
   main[id] {
-    scroll-margin-top: 125px;
-  }
-
-  .mobile-section-bar {
-    display: block;
+    scroll-margin-top: 76px;
   }
 
   .site-header {
@@ -5404,4 +5320,949 @@ img, svg, video, iframe {
 iframe.modern-map-frame {
   height: 100%;
 }
+
+/* ==========================================================================
+   14. RANCHI BRANCH GRAND OPENING — INTERACTIVE CURTAIN THEATER STAGE
+   ========================================================================== */
+
+/* Nav link pill for Ranchi */
+.nav-ranchi-pill,
+nav a.nav-ranchi-pill,
+#primary-nav a.nav-ranchi-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(244, 201, 92, 0.14);
+  border: 1px solid rgba(244, 201, 92, 0.4) !important;
+  color: var(--gold, #f4c95c) !important;
+  font-size: 12.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+}
+
+.nav-ranchi-pill:hover,
+nav a.nav-ranchi-pill:hover,
+#primary-nav a.nav-ranchi-pill:hover {
+  background: var(--gold, #f4c95c) !important;
+  color: #0b1715 !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(244, 201, 92, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Strictly remove any underline or ::after pseudo-element from Ranchi launch */
+.nav-ranchi-pill::after,
+nav a.nav-ranchi-pill::after,
+nav a.nav-ranchi-pill.active::after,
+nav a.nav-ranchi-pill:hover::after,
+#primary-nav a.nav-ranchi-pill::after,
+#primary-nav a.nav-ranchi-pill.active::after,
+#primary-nav a.nav-ranchi-pill:hover::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  border: none !important;
+}
+
+#primary-nav a.nav-ranchi-pill.active {
+  border-left: 1px solid rgba(244, 201, 92, 0.4) !important;
+  border-bottom: 1px solid rgba(244, 201, 92, 0.4) !important;
+  text-decoration: none !important;
+}
+
+/* Hero announcement kicker */
+.hero-curtain-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(244, 201, 92, 0.12);
+  border: 1.5px solid rgba(244, 201, 92, 0.45);
+  margin-bottom: 16px;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  max-width: 100%;
+}
+
+.hero-curtain-kicker:hover {
+  background: rgba(244, 201, 92, 0.22);
+  border-color: var(--gold, #f4c95c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244, 201, 92, 0.3);
+}
+
+.curtain-kicker-badge {
+  background: linear-gradient(135deg, #ffd974 0%, #d99c2b 100%);
+  color: #0c1816;
+  font-size: 10.5px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.curtain-kicker-text {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 13px;
+}
+
+.curtain-kicker-text strong {
+  color: var(--gold, #f4c95c);
+}
+
+.curtain-kicker-text em {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+
+.curtain-kicker-arrow {
+  color: var(--gold, #f4c95c);
+  font-size: 14px;
+  transition: transform 0.25s ease;
+}
+
+.hero-curtain-kicker:hover .curtain-kicker-arrow {
+  transform: translateY(2px);
+}
+
+/* Curtain Reveal Section */
+.curtain-reveal-section {
+  padding: 80px 20px 95px;
+  background: radial-gradient(circle at 50% 12%, #172925 0%, #07100f 75%);
+  position: relative;
+  overflow: hidden;
+}
+
+.curtain-section-header {
+  margin-bottom: 32px;
+}
+
+.curtain-section-desc {
+  max-width: 520px;
+  font-size: 15px;
+  color: #c0d3d0;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.curtain-section-desc strong {
+  color: var(--gold, #f4c95c);
+}
+
+/* Theater Stage Proscenium Arch */
+.theater-stage {
+  max-width: 1080px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 2.5px solid rgba(244, 201, 92, 0.45);
+  background: #060e0c;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75), 0 0 50px rgba(244, 201, 92, 0.12);
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+/* Stage Pelmet (Top Valance) */
+.stage-pelmet {
+  position: relative;
+  z-index: 25;
+  background: linear-gradient(180deg, #38070d 0%, #610e19 60%, #44080f 100%);
+  border-bottom: 2px solid #f4c95c;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  padding: 12px 18px 8px;
+  text-align: center;
+}
+
+.pelmet-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pelmet-title {
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #fff2c2;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 12px rgba(244, 201, 92, 0.4);
+}
+
+.pelmet-stars {
+  color: var(--gold, #f4c95c);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.pelmet-fringe {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, #f4c95c 0px, #b7821b 4px, #f4c95c 8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Curtain Viewport Stage */
+.curtain-viewport {
+  position: relative;
+  min-height: 490px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 25%, #152d27 0%, #06100e 75%);
+  cursor: pointer;
+}
+
+/* Spotlight Beam */
+.stage-spotlight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(244, 201, 92, 0.22) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Confetti Canvas */
+.curtain-confetti-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 18;
+}
+
+/* REVEALED CONTENT BEHIND CURTAINS */
+.stage-unveiled-content {
+  display: none;
+  padding: 36px 28px 32px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px) scale(0.97);
+  transition: opacity 0.75s ease 0.35s, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+}
+
+.theater-stage.curtain-open .stage-unveiled-content {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.unveiled-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.unveiled-kicker-pill {
+  padding: 5px 14px;
+  background: rgba(244, 201, 92, 0.18);
+  border: 1px solid rgba(244, 201, 92, 0.5);
+  border-radius: 999px;
+  color: var(--gold, #f4c95c);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.unveiled-date-pill {
+  padding: 5px 14px;
+  background: linear-gradient(135deg, #ffd974 0%, #d99c2b 100%);
+  color: #0b1715;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px rgba(244, 201, 92, 0.35);
+}
+
+.unveiled-title {
+  margin: 0 0 4px;
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 3.8vw, 34px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.unveiled-subtitle {
+  margin: 0 0 20px;
+  font-size: clamp(12.5px, 1.6vw, 15px);
+  color: #c6deda;
+  max-width: 680px;
+  line-height: 1.45;
+}
+
+/* MAIN SHOWCASE: POSTER & DETAILS SIDE-BY-SIDE */
+.unveiled-stage-body {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 22px;
+  max-width: 960px;
+  width: 100%;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+/* Left: Poster Frame */
+.unveiled-poster-frame {
+  flex: 0 0 270px;
+  max-width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-inner-mat {
+  position: relative;
+  padding: 8px;
+  background: radial-gradient(circle at 50% 30%, #17384a 0%, #0d1e29 70%, #071017 100%);
+  border: 2px solid #f4c95c;
+  border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.75), 0 0 25px rgba(244, 201, 92, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ranchi-invite-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.poster-inner-mat:hover .ranchi-invite-img {
+  transform: scale(1.02);
+}
+
+.poster-zoom-btn {
+  display: block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(244, 201, 92, 0.16);
+  border: 1px solid rgba(244, 201, 92, 0.45);
+  border-radius: 6px;
+  color: var(--gold, #f4c95c);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.poster-zoom-btn:hover {
+  background: var(--gold, #f4c95c);
+  color: #0b1715;
+}
+
+/* Right: Information Pane */
+.unveiled-info-pane {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.unveiled-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(244, 201, 92, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.unveiled-info-card:hover {
+  background: rgba(244, 201, 92, 0.09);
+  border-color: rgba(244, 201, 92, 0.45);
+}
+
+.unveiled-info-card.highlight-time {
+  background: linear-gradient(135deg, rgba(244, 201, 92, 0.13) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-color: rgba(244, 201, 92, 0.55);
+  box-shadow: 0 4px 16px rgba(244, 201, 92, 0.15);
+}
+
+.uic-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.uic-text {
+  flex: 1;
+}
+
+.uic-badge {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold, #f4c95c);
+  background: rgba(244, 201, 92, 0.16);
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+}
+
+.uic-badge.success {
+  color: #64e3b1;
+  background: rgba(46, 204, 113, 0.16);
+}
+
+.uic-text strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.uic-text small {
+  display: block;
+  font-size: 11.5px;
+  color: #a8c4c0;
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.uic-contacts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.contact-pill-link {
+  font-size: 12px;
+  color: #d1eae6;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.2s ease;
+}
+
+.contact-pill-link:hover {
+  background: rgba(244, 201, 92, 0.2);
+  color: var(--gold, #f4c95c);
+  border-color: rgba(244, 201, 92, 0.5);
+}
+
+.uic-blessing-note {
+  margin: 6px 0 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #ffd974;
+  letter-spacing: 0.02em;
+}
+
+.unveiled-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.curtain-replay-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #e2f0ee !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  font-size: 12.5px !important;
+  padding: 9px 16px !important;
+  border-radius: 999px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.curtain-replay-btn:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+/* CURTAIN PANELS (Left and Right) */
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.5%;
+  z-index: 10;
+  background: linear-gradient(135deg, #3d060c 0%, #680d17 35%, #8f1422 60%, #540810 85%, #350409 100%);
+  transition: transform 1.25s cubic-bezier(0.25, 1, 0.35, 1), box-shadow 1.2s ease;
+  will-change: transform;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.7);
+}
+
+/* Velvet Vertical Pleat Illusion */
+.curtain-pleats {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.55) 0px,
+    rgba(255, 255, 255, 0.09) 14px,
+    rgba(0, 0, 0, 0.6) 28px,
+    rgba(255, 255, 255, 0.04) 42px,
+    rgba(0, 0, 0, 0.55) 56px
+  );
+  opacity: 0.85;
+}
+
+/* Golden Embroidered Seam Edge */
+.curtain-gold-trim {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: repeating-linear-gradient(180deg, #ffd974 0px, #b7821b 8px, #ffd974 16px);
+  box-shadow: 0 0 10px rgba(244, 201, 92, 0.5);
+  z-index: 2;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: 0% 50%;
+}
+
+.curtain-left .curtain-gold-trim {
+  right: 0;
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: 100% 50%;
+}
+
+.curtain-right .curtain-gold-trim {
+  left: 0;
+}
+
+/* Curtain Tieback Tassels (on left and right borders) */
+.curtain-tieback {
+  position: absolute;
+  top: 55%;
+  width: 44px;
+  height: 90px;
+  z-index: 3;
+  opacity: 0.85;
+  transition: transform 0.4s ease;
+}
+
+.curtain-tieback.left {
+  left: 14px;
+}
+
+.curtain-tieback.right {
+  right: 14px;
+}
+
+.tassel-rope {
+  display: block;
+  width: 32px;
+  height: 48px;
+  border: 3.5px solid #f4c95c;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.tassel-head {
+  display: block;
+  width: 14px;
+  height: 32px;
+  margin: -10px auto 0;
+  background: linear-gradient(180deg, #ffd974 0%, #b7821b 100%);
+  border-radius: 4px 4px 12px 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* OPEN CURTAIN ANIMATION */
+.theater-stage.curtain-open .curtain-left {
+  transform: translateX(-88%) scaleX(0.2);
+  box-shadow: 14px 0 35px rgba(0, 0, 0, 0.9);
+}
+
+.theater-stage.curtain-open .curtain-right {
+  transform: translateX(88%) scaleX(0.2);
+  box-shadow: -14px 0 35px rgba(0, 0, 0, 0.9);
+}
+
+/* CENTER PULL CORD & INTERACTIVE SEAL TRIGGER */
+.curtain-center-trigger {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.theater-stage.curtain-open .curtain-center-trigger {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-50px) scale(0.8);
+}
+
+.curtain-center-trigger:focus-visible {
+  outline: 3px solid var(--gold);
+  border-radius: 999px;
+}
+
+/* Hanging Pull Cord */
+.pull-cord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -10px;
+  z-index: 2;
+}
+
+.cord-line {
+  width: 4px;
+  height: 55px;
+  background: repeating-linear-gradient(180deg, #ffd974 0px, #b7821b 6px, #ffd974 12px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.cord-tassel {
+  width: 14px;
+  height: 24px;
+  background: linear-gradient(180deg, #f4c95c 0%, #99640c 100%);
+  border-radius: 4px 4px 10px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* 3D Embossed Royal Medallion Seal */
+.curtain-seal-medallion {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff4cf 0%, #f4c95c 35%, #b7821b 75%, #6d4b09 100%);
+  border: 4px solid #fff2c2;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.75),
+    0 0 40px rgba(244, 201, 92, 0.5),
+    inset 0 4px 8px rgba(255, 255, 255, 0.8),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  box-sizing: border-box;
+  animation: sealFloatBob 3s ease-in-out infinite, sealGlowPulse 2.5s ease-in-out infinite;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.curtain-center-trigger:hover .curtain-seal-medallion {
+  transform: scale(1.06);
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.85),
+    0 0 55px rgba(244, 201, 92, 0.75);
+}
+
+@keyframes sealFloatBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes sealGlowPulse {
+  0%, 100% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 30px rgba(244, 201, 92, 0.4);
+  }
+  50% {
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 60px rgba(244, 201, 92, 0.75);
+  }
+}
+
+.seal-icon {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.seal-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #1a1002;
+  text-transform: uppercase;
+  line-height: 1.15;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.seal-date {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #3d2303;
+  margin: 3px 0 8px;
+  text-transform: uppercase;
+}
+
+.seal-instruction {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: #111a18;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+/* Stage Footlights */
+.stage-footlights {
+  position: relative;
+  height: 10px;
+  background: #040908;
+  border-top: 1px solid rgba(244, 201, 92, 0.4);
+}
+
+.footlight-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 5%, rgba(244, 201, 92, 0.4) 50%, transparent 95%);
+}
+
+/* Mobile & Tablet Responsiveness for Curtain Feature */
+@media (max-width: 768px) {
+  .curtain-reveal-section {
+    padding: 36px 14px 44px;
+  }
+
+  .curtain-section-header {
+    margin-bottom: 18px;
+  }
+
+  .curtain-viewport {
+    min-height: 390px;
+  }
+
+  .stage-pelmet {
+    padding: 8px 12px;
+  }
+
+  .pelmet-title {
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+  }
+
+  .curtain-seal-medallion {
+    width: 155px;
+    height: 155px;
+    padding: 10px;
+  }
+
+  .seal-icon {
+    font-size: 22px;
+    margin-bottom: 3px;
+  }
+
+  .seal-title {
+    font-size: 12.5px;
+  }
+
+  .seal-date {
+    font-size: 9.5px;
+    margin: 2px 0 6px;
+  }
+
+  .seal-instruction {
+    font-size: 8px;
+    padding: 3px 8px;
+  }
+
+  .cord-line {
+    height: 26px;
+  }
+
+  .stage-unveiled-content {
+    min-height: auto;
+    padding: 22px 14px 20px;
+  }
+
+  .unveiled-title {
+    font-size: 20px;
+  }
+
+  .unveiled-subtitle {
+    font-size: 12.5px;
+    margin-bottom: 14px;
+  }
+
+  .unveiled-stage-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .unveiled-poster-frame {
+    flex: 0 0 auto;
+    max-width: 215px;
+    width: 100%;
+  }
+
+  .poster-inner-mat {
+    padding: 6px;
+  }
+
+  .poster-zoom-btn {
+    margin-top: 6px;
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .unveiled-info-pane {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .unveiled-info-card {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 8px;
+  }
+
+  .uic-icon {
+    font-size: 18px;
+  }
+
+  .uic-text strong {
+    font-size: 12px;
+  }
+
+  .uic-text small {
+    font-size: 10.5px;
+  }
+
+  .uic-contacts-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .contact-pill-link {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .uic-blessing-note {
+    font-size: 11.5px;
+  }
+
+  /* User-friendly thumb layout for action buttons on mobile */
+  .unveiled-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .unveiled-actions .button.whatsapp {
+    grid-column: 1 / -1;
+    font-size: 13.5px !important;
+    padding: 12px 16px !important;
+    font-weight: 800;
+    border-radius: 10px;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  }
+
+  .unveiled-actions .button {
+    font-size: 11px !important;
+    padding: 9px 8px !important;
+    border-radius: 8px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .unveiled-actions .curtain-replay-btn {
+    grid-column: 1 / -1;
+    font-size: 11px !important;
+    padding: 8px 12px !important;
+    border-radius: 8px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-curtain-kicker {
+    font-size: 12px;
+    padding: 6px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    border-radius: 12px;
+  }
+
+  .curtain-kicker-arrow {
+    display: none;
+  }
+}
+
 

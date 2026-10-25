@@ -1683,3 +1683,224 @@ if (document.readyState === "loading") {
   initShootingSimulator();
 }
 
+/* ---------- 14. RANCHI GRAND OPENING — INTERACTIVE CURTAIN THEATER ---------- */
+function initCurtainReveal() {
+  const stage = document.getElementById("theater-stage");
+  const trigger = document.getElementById("curtain-center-trigger");
+  const replayBtn = document.getElementById("curtain-replay-btn");
+  const heroKicker = document.getElementById("hero-curtain-kicker");
+  const canvas = document.getElementById("curtain-confetti");
+  const viewport = document.getElementById("curtain-viewport");
+
+  if (!stage || !trigger) return;
+
+  let isCurtainOpen = false;
+  let confettiAnimId = null;
+
+  // Sound: Celebration Confetti Cannon Pop & Sparkle Burst
+  function playCurtainCelebrationBurst() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      if (ctx.state === "suspended") ctx.resume();
+
+      const t0 = ctx.currentTime;
+
+      // 1. Initial Celebration POP (Confetti Cannon Pop)
+      const popOsc = ctx.createOscillator();
+      const popGain = ctx.createGain();
+      popOsc.type = "sine";
+      popOsc.frequency.setValueAtTime(260, t0);
+      popOsc.frequency.exponentialRampToValueAtTime(40, t0 + 0.08);
+
+      popGain.gain.setValueAtTime(0.3, t0);
+      popGain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.09);
+
+      popOsc.connect(popGain);
+      popGain.connect(ctx.destination);
+      popOsc.start(t0);
+      popOsc.stop(t0 + 0.1);
+
+      // 2. Confetti Ribbon Whoosh / Spray Noise Burst
+      const bufferSize = Math.floor(ctx.sampleRate * 0.25);
+      const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+      }
+      const whiteNoise = ctx.createBufferSource();
+      whiteNoise.buffer = noiseBuffer;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = "bandpass";
+      filter.frequency.setValueAtTime(1200, t0);
+      filter.Q.setValueAtTime(2.0, t0);
+
+      const noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.18, t0 + 0.01);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.25);
+
+      whiteNoise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+
+      whiteNoise.start(t0 + 0.01);
+      whiteNoise.stop(t0 + 0.26);
+
+      // 3. Gentle Celebration Shimmer (Sparkle Chimes)
+      [1568, 2093].forEach((freq, idx) => {
+        const pingOsc = ctx.createOscillator();
+        const pingGain = ctx.createGain();
+        const pingTime = t0 + 0.05 + idx * 0.04;
+
+        pingOsc.type = "sine";
+        pingOsc.frequency.setValueAtTime(freq, pingTime);
+
+        pingGain.gain.setValueAtTime(0.06, pingTime);
+        pingGain.gain.exponentialRampToValueAtTime(0.0001, pingTime + 0.3);
+
+        pingOsc.connect(pingGain);
+        pingGain.connect(ctx.destination);
+
+        pingOsc.start(pingTime);
+        pingOsc.stop(pingTime + 0.32);
+      });
+    } catch (e) {
+      // Audio autoplay policy fallback
+    }
+  }
+
+  // Launch Confetti Burst
+  function fireConfetti() {
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
+
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width || canvas.offsetWidth;
+    canvas.height = rect.height || canvas.offsetHeight;
+
+    const colors = ["#f4c95c", "#ffd974", "#e84158", "#25d366", "#ffffff", "#b7821b"];
+    const particles = [];
+    const count = window.innerWidth <= 768 ? 40 : 70;
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: canvas.width * (0.3 + Math.random() * 0.4),
+        y: canvas.height * 0.4,
+        vx: (Math.random() - 0.5) * 12,
+        vy: -Math.random() * 9 - 4,
+        size: Math.random() * 6 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * 360,
+        vRot: (Math.random() - 0.5) * 10,
+        opacity: 1,
+        gravity: 0.35 + Math.random() * 0.2
+      });
+    }
+
+    let frame = 0;
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.rotation += p.vRot;
+        p.vx *= 0.98;
+
+        if (frame > 45) {
+          p.opacity -= 0.015;
+        }
+
+        if (p.opacity > 0 && p.y < canvas.height + 20) {
+          alive = true;
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, p.opacity);
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.4);
+          ctx.restore();
+        }
+      });
+
+      frame++;
+      if (alive) {
+        confettiAnimId = requestAnimationFrame(render);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    confettiAnimId = requestAnimationFrame(render);
+  }
+
+  // Open Curtains
+  function openCurtain() {
+    if (stage.classList.contains("curtain-open")) return;
+    isCurtainOpen = true;
+    stage.classList.add("curtain-open");
+    playCurtainCelebrationBurst();
+    setTimeout(fireConfetti, 350);
+  }
+
+  // Close Curtains (Replay)
+  function closeCurtain() {
+    isCurtainOpen = false;
+    stage.classList.remove("curtain-open");
+    if (confettiAnimId && canvas) {
+      cancelAnimationFrame(confettiAnimId);
+      const ctx = canvas.getContext("2d");
+      if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  // Event Listeners
+  trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openCurtain();
+  });
+
+  trigger.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openCurtain();
+    }
+  });
+
+  if (viewport) {
+    viewport.addEventListener("click", () => {
+      if (!isCurtainOpen) openCurtain();
+    });
+  }
+
+  if (replayBtn) {
+    replayBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeCurtain();
+    });
+  }
+
+  if (heroKicker) {
+    heroKicker.addEventListener("click", (e) => {
+      setTimeout(() => {
+        openCurtain();
+      }, 500);
+    });
+  }
+}
+
+// Initialize on DOM Ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCurtainReveal);
+} else {
+  initCurtainReveal();
+}
+
+
