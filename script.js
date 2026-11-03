@@ -260,7 +260,7 @@ const mapTitleLabel  = document.getElementById("map-title-label");
 const locNames = {
   digha:      "Digha — Patna",
   kankarbagh: "Kankarbagh — Patna",
-  ranchi:     "Ranchi — Coming Soon"
+  ranchi:     "Upper Bazar — Ranchi"
 };
 
 locTabs.forEach((tab) => {
@@ -474,7 +474,7 @@ if (navToggle && primaryNav) {
 
 // 8D. ScrollSpy: Highlight active desktop link & sync mobile section dropdown
 const observedSectionIds = [
-  "home", "about", "training", "hall-of-fame", "medals", "coaches", "stats", "khojj", "alerts", "gallery", "contact", "enquiry"
+  "home", "about", "training", "simulator", "hall-of-fame", "medals", "leadership", "coaches", "stats", "khojj", "alerts", "gallery", "contact", "enquiry"
 ];
 
 function updateActiveSection(currentId) {
@@ -513,6 +513,62 @@ if ("IntersectionObserver" in window) {
     const el = document.getElementById(id);
     if (el) sectionObserver.observe(el);
   });
+}
+
+/* ---------- 8E. TEAM ACCORDION DROPDOWNS (MANAGEMENT & COACHES) ---------- */
+function initTeamAccordions() {
+  const accordionTriggers = document.querySelectorAll(".team-accordion-trigger");
+  if (!accordionTriggers.length) return;
+
+  function toggleAccordion(btn, forceOpen = null) {
+    const wrapper = btn.closest(".team-accordion-wrapper");
+    if (!wrapper) return;
+    const isCurrentlyExpanded = btn.getAttribute("aria-expanded") === "true";
+    const nextState = forceOpen !== null ? forceOpen : !isCurrentlyExpanded;
+
+    btn.setAttribute("aria-expanded", String(nextState));
+    wrapper.classList.toggle("is-open", nextState);
+
+    const actionText = btn.querySelector(".accordion-action-text");
+    if (actionText) {
+      const teamType = btn.getAttribute("data-team-type") || "Team";
+      actionText.textContent = nextState ? `Hide ${teamType}` : `View ${teamType}`;
+    }
+  }
+
+  accordionTriggers.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      toggleAccordion(btn);
+    });
+  });
+
+  // Auto-expand target accordion if URL contains hash (#coaches, #management, etc.)
+  function checkHashAndAutoExpand() {
+    const hash = window.location.hash;
+    if (hash === "#coaches" || hash === "#coaches-accordion") {
+      const coachesBtn = document.getElementById("coaches-toggle");
+      if (coachesBtn) toggleAccordion(coachesBtn, true);
+    } else if (hash === "#management" || hash === "#management-accordion") {
+      const mgmtBtn = document.getElementById("management-toggle");
+      if (mgmtBtn) toggleAccordion(mgmtBtn, true);
+    }
+  }
+
+  window.addEventListener("hashchange", checkHashAndAutoExpand);
+  checkHashAndAutoExpand();
+
+  // Also hook into clicks on links pointing to #coaches or #management
+  document.querySelectorAll('a[href="#coaches"], a[href="#management"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      setTimeout(checkHashAndAutoExpand, 80);
+    });
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initTeamAccordions);
+} else {
+  initTeamAccordions();
 }
 
 

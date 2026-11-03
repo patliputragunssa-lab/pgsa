@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4.3">
+  <link rel="stylesheet" href="styles.css?v=4.7">
 </head>
 
 <body>
@@ -25,12 +25,12 @@
     </a>
     <nav aria-label="Primary navigation" id="primary-nav">
       <a class="active" href="#home">Home</a>
-      <a href="#ranchi-opening" class="nav-ranchi-pill">🎪 Ranchi Launch</a>
       <a href="#about">About</a>
       <a href="#training">Training</a>
       <a href="#simulator">Simulator</a>
       <a href="#hall-of-fame">Hall of Fame</a>
       <a href="#medals">Medals</a>
+      <a href="#leadership">Leadership</a>
       <a href="#coaches">Coaches</a>
       <a href="#khojj">Khojj</a>
       <a href="#alerts">News</a>
@@ -55,12 +55,6 @@
   <main id="home">
     <section class="hero">
       <div class="hero-copy">
-        <a href="#ranchi-opening" class="hero-curtain-kicker" id="hero-curtain-kicker">
-          <span class="curtain-kicker-badge">🎉 GRAND OPENING</span>
-          <span class="curtain-kicker-text">Ranchi Branch Opening on <strong>1st Nov</strong> — <em>Pull Curtains to
-              Unveil</em> 🎪</span>
-          <span class="curtain-kicker-arrow" aria-hidden="true">▾</span>
-        </a>
         <p class="eyebrow">Bihar . Jharkhand</p>
         <h1>Patliputra Guns <span>Shooting Academy</span></h1>
         <p class="hero-lede">Aim Big.. Dream Bigger</p>
@@ -94,197 +88,13 @@
       </aside>
     </section>
 
-    <!-- ===== RANCHI BRANCH GRAND OPENING — INTERACTIVE CURTAIN THEATER ===== -->
-    <section class="curtain-reveal-section dark-section" id="ranchi-opening"
-      aria-label="Ranchi Branch Grand Opening Announcement">
-      <div class="curtain-section-header section-heading split">
-        <div>
-          <p class="eyebrow">Jharkhand Expansion · Landmark Announcement</p>
-          <h2>Grand Opening — Ranchi Branch</h2>
-        </div>
-        <p class="curtain-section-desc">Experience Jharkhand's premier 10m Air Rifle and Air Pistol high-performance
-          training complex, opening on <strong>1st November</strong>. Tap or pull below to unveil the new range.</p>
-      </div>
-
-      <!-- Theater Stage Proscenium -->
-      <div class="theater-stage" id="theater-stage">
-
-        <!-- Top Proscenium Pelmet (Valance) with Gold Fringe -->
-        <div class="stage-pelmet">
-          <div class="pelmet-drapes">
-            <span class="pelmet-swag"></span>
-            <span class="pelmet-swag"></span>
-            <span class="pelmet-swag"></span>
-          </div>
-          <div class="pelmet-banner">
-            <span class="pelmet-stars" aria-hidden="true">✦ ✦ ✦</span>
-            <span class="pelmet-title">PATLIPUTRA GUNS SHOOTING ACADEMY · RANCHI</span>
-            <span class="pelmet-stars" aria-hidden="true">✦ ✦ ✦</span>
-          </div>
-          <div class="pelmet-fringe"></div>
-        </div>
-
-        <!-- The Viewport with Background Content & Overlapping Left/Right Curtains -->
-        <div class="curtain-viewport" id="curtain-viewport" role="region" aria-label="Curtain reveal stage">
-
-          <!-- Spotlight Effect -->
-          <div class="stage-spotlight" aria-hidden="true"></div>
-
-          <!-- Confetti Canvas -->
-          <canvas class="curtain-confetti-canvas" id="curtain-confetti" aria-hidden="true"></canvas>
-
-          <!-- REVEALED CONTENT (Behind Curtains) -->
-          <div class="stage-unveiled-content" id="stage-unveiled-content" aria-hidden="true">
-            <div class="unveiled-badge-row">
-              <span class="unveiled-kicker-pill">🎊 YOU ARE CORDIALLY INVITED</span>
-              <span class="unveiled-date-pill">🗓️ OPENING ON 1st NOVEMBER 2026 · 11:00 AM</span>
-            </div>
-
-            <h3 class="unveiled-title">GRAND OPENING — RANCHI</h3>
-            <p class="unveiled-subtitle">Patliputra Guns Shooting Academy · Jharkhand's Premier 10m Olympic Electronic
-              Range</p>
-
-            <!-- Main Showcase: Poster & Official Ceremony Details -->
-            <div class="unveiled-stage-body">
-
-              <!-- Left: Official Invitation Card Frame -->
-              <div class="unveiled-poster-frame">
-                <div class="poster-inner-mat">
-                  <img src="assets/ranchi-grand-opening.jpg"
-                    alt="Official Grand Opening Invitation Card - Patliputra Guns Shooting Academy Ranchi"
-                    class="ranchi-invite-img" loading="eager" />
-                  <a href="assets/ranchi-grand-opening.jpg" target="_blank" rel="noopener" class="poster-zoom-btn"
-                    title="Click to view full size poster in new tab">
-                    <span>🔍 View Full Poster</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Right: Event Itinerary & Key Information -->
-              <div class="unveiled-info-pane">
-
-                <div class="unveiled-info-card highlight-time">
-                  <div class="uic-icon">⏰</div>
-                  <div class="uic-text">
-                    <span class="uic-badge">Inauguration Ceremony</span>
-                    <strong>Ceremony Begins at 11:00 AM</strong>
-                    <small>Join us for the Inauguration, Live Shooting Demonstrations, &amp; High Tea.</small>
-                  </div>
-                </div>
-
-                <div class="unveiled-info-card">
-                  <div class="uic-icon">🎯</div>
-                  <div class="uic-text">
-                    <span class="uic-badge success">Admission Open</span>
-                    <strong>Come and Learn Shooting!</strong>
-                    <small>Olympic 10m Air Rifle &amp; Pistol disciplines with Swiss SIUS electronic target
-                      lines.</small>
-                  </div>
-                </div>
-
-                <div class="unveiled-info-card">
-                  <div class="uic-icon">📍</div>
-                  <div class="uic-text">
-                    <span class="uic-badge">Academy Address</span>
-                    <strong>2nd Floor, Atma Ram Bhavan, Radhe Shyam Lane, Uppar Bazzar, Ranchi</strong>
-                    <small>Landmark: Near Upper Bazar Market, Ranchi, Jharkhand – 834001</small>
-                  </div>
-                </div>
-
-                <div class="unveiled-info-card">
-                  <div class="uic-icon">📞</div>
-                  <div class="uic-text">
-                    <span class="uic-badge">Direct Contacts</span>
-                    <div class="uic-contacts-row">
-                      <a href="tel:+917070499494" class="contact-pill-link"><strong>Ph:</strong> +91 7070499494</a>
-                      <a href="mailto:patliputraguns@gmail.com" class="contact-pill-link"><strong>Email:</strong>
-                        patliputraguns@gmail.com</a>
-                    </div>
-                    <p class="uic-blessing-note">“Your presence will grace this auspicious occasion!”</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Action Buttons Row -->
-            <div class="unveiled-actions">
-              <a class="button whatsapp compact"
-                href="https://wa.me/917070499494?text=Hi%20PGSA%2C%20I%20would%20love%20to%20attend%20the%20Grand%20Opening%20of%20PGSA%20Ranchi%20on%201st%20Nov%20and%20enquire%20about%20admissions."
-                target="_blank" rel="noopener">
-                <span class="btn-icon">💬</span> RSVP on WhatsApp
-              </a>
-              <a class="button primary compact" href="tel:+917070499494">
-                <span class="btn-icon">📞</span> Call: +91 7070499494
-              </a>
-              <a class="button outline compact" href="mailto:patliputraguns@email.com">
-                <span class="btn-icon">✉️</span> Email Us
-              </a>
-              <a class="button outline compact"
-                href="https://www.google.com/maps/dir/?api=1&destination=Radhe+Shyam+Lane,+Upper+Bazar,+Ranchi,+Jharkhand+834001"
-                target="_blank" rel="noopener">
-                <span class="btn-icon">📍</span> Directions in Maps ↗
-              </a>
-              <button class="button curtain-replay-btn" id="curtain-replay-btn" type="button"
-                title="Close curtains and replay the grand unveiling">
-                <span class="btn-icon">↺</span> Close &amp; Replay
-              </button>
-            </div>
-          </div>
-
-          <!-- LEFT CURTAIN PANEL -->
-          <div class="curtain-panel curtain-left" id="curtain-left">
-            <div class="curtain-pleats"></div>
-            <div class="curtain-gold-trim"></div>
-            <div class="curtain-tieback left" aria-hidden="true">
-              <span class="tassel-rope"></span>
-              <span class="tassel-head"></span>
-            </div>
-          </div>
-
-          <!-- RIGHT CURTAIN PANEL -->
-          <div class="curtain-panel curtain-right" id="curtain-right">
-            <div class="curtain-pleats"></div>
-            <div class="curtain-gold-trim"></div>
-            <div class="curtain-tieback right" aria-hidden="true">
-              <span class="tassel-rope"></span>
-              <span class="tassel-head"></span>
-            </div>
-          </div>
-
-          <!-- CENTER PULL CORD & INTERACTIVE GOLD SEAL -->
-          <div class="curtain-center-trigger" id="curtain-center-trigger" role="button" tabindex="0"
-            aria-label="Pull to unveil Ranchi branch opening on 1st November">
-            <div class="pull-cord">
-              <span class="cord-line"></span>
-              <span class="cord-tassel"></span>
-            </div>
-            <div class="curtain-seal-medallion">
-              <div class="seal-ring outer"></div>
-              <div class="seal-ring inner"></div>
-              <div class="seal-icon">🎪</div>
-              <strong class="seal-title">RANCHI BRANCH</strong>
-              <span class="seal-date">OPENING 1ST NOV</span>
-              <span class="seal-instruction">✨ PULL OR TAP TO UNVEIL ✨</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Stage Bottom Footlights -->
-        <div class="stage-footlights" aria-hidden="true">
-          <div class="footlight-glow"></div>
-        </div>
-      </div>
-    </section>
-
     <section class="about section-light" id="about">
       <div class="section-copy">
         <p class="eyebrow">About Us</p>
         <h2>Patliputra Guns Shooting Academy</h2>
         <p>Founded on February 24, 2022 by Chetan Anand, Patliputra Guns Shooting Academy has grown into a leading
           shooting institution across Bihar and Jharkhand. With training centres in Digha — Patna, Kankarbagh — Patna,
-          and Ranchi — Coming Soon, PGSA trains budding and seasoned shooters through disciplined coaching, safe range
+          and Upper Bazar — Ranchi, PGSA trains budding and seasoned shooters through disciplined coaching, safe range
           practices, and Olympic-standard digital target systems.</p>
         <a class="button primary compact" href="#enquiry">Know More <span aria-hidden="true">→</span></a>
       </div>
@@ -305,7 +115,7 @@
         <article>
           <span>👥</span>
           <div><strong>Our Facilities</strong>
-            <p>Digha — Patna and Kankarbagh — Patna ranges with SIUS digital targets; Ranchi — Coming Soon.</p>
+            <p>Digha — Patna, Kankarbagh — Patna, and Upper Bazar — Ranchi ranges with SIUS digital targets.</p>
           </div>
         </article>
       </div>
@@ -325,7 +135,7 @@
         </article>
         <article>
           <span class="strip-icon">▰</span>
-          <div><strong>Training Centres</strong><small>Digha — Patna · Kankarbagh — Patna · Ranchi — Coming Soon</small>
+          <div><strong>Training Centres</strong><small>Digha — Patna · Kankarbagh — Patna · Upper Bazar — Ranchi</small>
           </div>
         </article>
         <article>
@@ -1966,64 +1776,224 @@
     </section>
     <!-- ===== END MEDAL HALL OF FAME ===== -->
 
-    <section class="coaches section-light" id="coaches">
+    <!-- ===== 8. ACADEMY LEADERSHIP & MANAGEMENT ===== -->
+    <section class="leadership section-light" id="leadership">
       <div class="section-heading row">
         <div>
-          <p class="eyebrow">Our Coaches</p>
-          <h2>Leadership & PGSA Coaches</h2>
+          <p class="eyebrow">Governance &amp; Vision</p>
+          <h2>Academy Leadership</h2>
         </div>
-        <a class="button outline compact" href="#enquiry">View Full Coaches <span aria-hidden="true">→</span></a>
+        <p class="section-lead-inline">Visionary leadership and sports patrons driving Patliputra Guns Shooting Academy's athlete pathways and Olympic-standard training infrastructure.</p>
       </div>
-      <div class="coach-grid">
-        <article>
+
+      <!-- Leadership Grid: Full Size (Same as present now) -->
+      <div class="leadership-grid coach-grid">
+        <!-- 1. Chetan Anand -->
+        <article class="leadership-card">
           <img class="coach-photo" src="assets/chetan-anand.png" alt="Chetan Anand">
           <div>
             <h3>Chetan Anand</h3>
-            <p>Hon'ble MLA & Deputy Minister, Government of Bihar<br>Founder, Patliputra Guns Shooting Academy<br>Former
-              National-Level Pistol Shooter</p>
-            <small>Launched PGSA in 2022 to expand quality shooting facilities for Bihar.</small>
+            <p class="member-role">Hon'ble MLA &amp; Deputy Minister, Government of Bihar<br>Founder, Patliputra Guns Shooting Academy<br>Former National-Level Pistol Shooter</p>
+            <small>Launched PGSA in 2022 to build world-class shooting sports infrastructure, high-performance coaching, and podium pathways for Bihar and Jharkhand.</small>
           </div>
         </article>
-        <article>
+
+        <!-- 2. Bibaswan Ganguly -->
+        <article class="leadership-card">
           <img class="coach-photo" src="assets/bibaswan-ganguly.png" alt="Bibaswan Ganguly">
           <div>
             <h3>Bibaswan Ganguly</h3>
-            <p>Consultant Head Coach, Strategic Partnership</p>
-            <small>ISSF 'A' License holder and expert rifle coach supporting advanced training.</small>
+            <p class="member-role">Consultant Head Coach &amp; Strategic Technical Partner<br>ISSF 'A' License Coach</p>
+            <small>Renowned international coach and ISSF 'A' License holder directing high-performance technical curriculums, national squad pathways, and elite athlete mentoring.</small>
           </div>
         </article>
-        <article>
-          <img class="coach-photo" src="assets/v-rathore.png" alt="V. Rathore">
+
+        <!-- 3. Dr. Ayushi Singh Tomar -->
+        <article class="leadership-card">
+          <img class="coach-photo" src="assets/ayushi-singh.png" alt="Dr. Ayushi Singh Tomar">
           <div>
-            <h3>V. Rathore</h3>
-            <p>PGSA Coach</p>
-            <small>Supports athlete fundamentals, discipline, and competition-oriented training.</small>
+            <h3>Dr. Ayushi Singh Tomar</h3>
+            <p class="member-role">Academy Leadership &amp; Strategic Advisory Board</p>
+            <small>Advising the academy on athlete sports science, mental conditioning routines, institutional governance, and academic-athletic balance for student shooters.</small>
           </div>
         </article>
-        <article>
-          <img class="coach-photo" src="assets/k-sundaram.png" alt="K. Sundaram">
+
+        <!-- 4. Rajeev Ranjan -->
+        <article class="leadership-card">
+          <img class="coach-photo" src="assets/rajeev-ranjan.png" alt="Rajeev Ranjan">
           <div>
-            <h3>K. Sundaram</h3>
-            <p>PGSA Coach</p>
-            <small>Guides shooters through safe practice, technical correction, and match preparation.</small>
+            <h3>Rajeev Ranjan</h3>
+            <p class="member-role">Academy Leadership &amp; Institutional Patron</p>
+            <small>Guiding institutional partnerships, academy expansion across districts, shooting sports patron outreach, and state sports federation engagement.</small>
           </div>
         </article>
-        <article>
-          <img class="coach-photo" src="assets/a-asthana.png" alt="A. Asthana">
+
+        <!-- 5. Ambuj Kumar -->
+        <article class="leadership-card">
+          <div class="coach-photo initials-avatar large" aria-hidden="true"><span>AK</span></div>
           <div>
-            <h3>A. Asthana</h3>
-            <p>PGSA Coach</p>
-            <small>Works with students on consistency, focus, range discipline, and skill development.</small>
+            <h3>Ambuj Kumar</h3>
+            <p class="member-role">Academy Leadership &amp; Senior Athlete Advisor</p>
+            <small>Senior Bihar state championship medalist pistol shooter mentoring squad discipline, competition routine readiness, and athlete sportsmanship.</small>
           </div>
         </article>
-        <article>
-          <img class="coach-photo" src="assets/s-singh.png" alt="S. Singh">
-          <div>
-            <h3>S. Singh</h3>
-            <p>PGSA Coach</p>
-            <small>Helps athletes build technique, confidence, and readiness for competitive shooting.</small>
+      </div>
+    </section>
+
+    <!-- ===== 9. COACHES & MANAGEMENT ===== -->
+    <section class="coaches section-light" id="coaches">
+      <div class="section-heading row">
+        <div>
+          <p class="eyebrow">Mentorship &amp; Operations</p>
+          <h2>Coaches &amp; Management</h2>
+        </div>
+        <a class="button outline compact" href="#enquiry">Train With Our Coaches <span aria-hidden="true">→</span></a>
+      </div>
+
+      <!-- Coaches Sub-Section: Collapsible Dropdown (Smaller Size) -->
+      <div class="team-accordion-wrapper coaches-accordion" id="coaches-accordion">
+        <button type="button" class="team-accordion-trigger" id="coaches-toggle" aria-expanded="false" aria-controls="coaches-content" data-team-type="Coaches">
+          <div class="team-accordion-left">
+            <div class="sub-team-title-wrap">
+              <span class="sub-team-badge coach-badge">Certified Mentors</span>
+              <h3 class="team-accordion-title">Coaching Squad</h3>
+              <span class="team-count-badge">4 Coaches</span>
+            </div>
+            <p class="sub-team-desc">ISSF &amp; State medalist coaches delivering 10m Air Rifle and Air Pistol technical drills, stance calibration, and match routines.</p>
           </div>
-        </article>
+          <div class="team-accordion-right">
+            <span class="accordion-action-text">View Coaches</span>
+            <span class="accordion-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </button>
+
+        <div class="team-accordion-content" id="coaches-content" role="region" aria-labelledby="coaches-toggle">
+          <div class="team-accordion-inner">
+            <div class="coaches-compact-grid compact-team-grid">
+              <!-- 1. Kr. Sundaram Singh -->
+              <article class="compact-card coach-card">
+                <img class="compact-avatar photo" src="assets/k-sundaram.png" alt="Kr. Sundaram Singh">
+                <div class="compact-info">
+                  <h4>Kr. Sundaram Singh</h4>
+                  <span class="role-tag coach-tag">PGSA Coach</span>
+                  <small>Guides shooters through safe practice, technical diagnostics, stance calibration, and match routine drills.</small>
+                </div>
+              </article>
+
+              <!-- 2. Bablu Kumar -->
+              <article class="compact-card coach-card">
+                <img class="compact-avatar photo" src="assets/bablu-kumar.png" alt="Bablu Kumar">
+                <div class="compact-info">
+                  <h4>Bablu Kumar</h4>
+                  <span class="role-tag coach-tag">PGSA Coach</span>
+                  <small>State medalist shooter coaching precision grip, breath timing, trigger control, and 10m/50m match routines.</small>
+                </div>
+              </article>
+
+              <!-- 3. Sandhya Yadav -->
+              <article class="compact-card coach-card">
+                <div class="compact-avatar initials-avatar small" aria-hidden="true"><span>SY</span></div>
+                <div class="compact-info">
+                  <h4>Sandhya Yadav</h4>
+                  <span class="role-tag coach-tag">PGSA Coach</span>
+                  <small>Specializes in junior athlete fundamentals, posture consistency, mental focus, and match psychology.</small>
+                </div>
+              </article>
+
+              <!-- 4. Sachin Kumar Singh -->
+              <article class="compact-card coach-card">
+                <img class="compact-avatar photo" src="assets/s-singh.png" alt="Sachin Kumar Singh">
+                <div class="compact-info">
+                  <h4>Sachin Kumar Singh</h4>
+                  <span class="role-tag coach-tag">PGSA Coach</span>
+                  <small>Helps competitive athletes build decimal precision, rhythm consistency, and championship readiness.</small>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Management Sub-Section: Collapsible Dropdown (Smaller Size) -->
+      <div class="team-accordion-wrapper management-accordion" id="management">
+        <button type="button" class="team-accordion-trigger" id="management-toggle" aria-expanded="false" aria-controls="management-content" data-team-type="Management">
+          <div class="team-accordion-left">
+            <div class="sub-team-title-wrap">
+              <span class="sub-team-badge">Operations &amp; Execution</span>
+              <h3 class="team-accordion-title">Management Team</h3>
+              <span class="team-count-badge">5 Members</span>
+            </div>
+            <p class="sub-team-desc">Dedicated professionals managing range logistics, talent outreach, communications, and daily athlete support.</p>
+          </div>
+          <div class="team-accordion-right">
+            <span class="accordion-action-text">View Management</span>
+            <span class="accordion-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </button>
+
+        <div class="team-accordion-content" id="management-content" role="region" aria-labelledby="management-toggle">
+          <div class="team-accordion-inner">
+            <div class="management-grid compact-team-grid">
+              <!-- 1. Arpit Kumar (HR & PR) -->
+              <article class="compact-card">
+                <img class="compact-avatar photo" src="assets/arpit-kumar.png" alt="Arpit Kumar">
+                <div class="compact-info">
+                  <h4>Arpit Kumar</h4>
+                  <span class="role-tag">HR &amp; PR</span>
+                  <small>Human resources, public relations, press outreach, and talent communications.</small>
+                </div>
+              </article>
+
+              <!-- 2. Md. Kaif (Khojj Project) -->
+              <article class="compact-card">
+                <img class="compact-avatar photo" src="assets/md-kaif.png" alt="Md. Kaif">
+                <div class="compact-info">
+                  <h4>Md. Kaif</h4>
+                  <span class="role-tag">Khojj Project</span>
+                  <small>School/college outreach, grassroots talent hunt drives, and athlete onboarding.</small>
+                </div>
+              </article>
+
+              <!-- 3. Bittu Kumar -->
+              <article class="compact-card">
+                <img class="compact-avatar photo" src="assets/bittu-kumar.png" alt="Bittu Kumar">
+                <div class="compact-info">
+                  <h4>Bittu Kumar</h4>
+                  <span class="role-tag">Operations Lead</span>
+                  <small>Range facility readiness, target line calibration, and training equipment management.</small>
+                </div>
+              </article>
+
+              <!-- 4. Vicky Kumar -->
+              <article class="compact-card">
+                <img class="compact-avatar photo" src="assets/vicky-kumar.png" alt="Vicky Kumar">
+                <div class="compact-info">
+                  <h4>Vicky Kumar</h4>
+                  <span class="role-tag">Administration</span>
+                  <small>Range administration, event coordination, tournament logistics, and visitor support.</small>
+                </div>
+              </article>
+
+              <!-- 5. Shubham Kr. Mishra -->
+              <article class="compact-card">
+                <img class="compact-avatar photo" src="assets/shubham-mishra.png" alt="Shubham Kr. Mishra">
+                <div class="compact-info">
+                  <h4>Shubham Kr. Mishra</h4>
+                  <span class="role-tag">Coordination</span>
+                  <small>Athlete scheduling, batch management, safety compliance, and member coordination.</small>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2040,7 +2010,7 @@
           <p>Olympic-standard electronic target systems</p>
         </article>
         <article><span>▥</span><strong>Training Centres</strong>
-          <p>Digha — Patna<br>Kankarbagh — Patna<br>Ranchi — Coming Soon</p>
+          <p>Digha — Patna<br>Kankarbagh — Patna<br>Upper Bazar — Ranchi</p>
         </article>
       </div>
     </section>
@@ -2611,8 +2581,9 @@
               id="tab-ranchi">
               <span class="loc-pin">📍</span>
               <span class="loc-label-wrap">
-                <strong class="loc-title">Ranchi</strong>
-                <span class="loc-badge-tag">Opens 1st Nov</span>
+                <strong class="loc-title">Upper Bazar</strong>
+                <span class="loc-sep">—</span>
+                <span class="loc-sub">Ranchi</span>
               </span>
             </button>
           </div>
@@ -2728,6 +2699,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#training">Training</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#coaches">Coaches</a></li>
             <li><a href="#hall-of-fame">🏆 Hall of Fame</a></li>
             <li><a href="#medals">Achievements</a></li>
@@ -2763,8 +2735,8 @@
               <small>Housing Board Colony, Patna – 800020</small>
             </li>
             <li>
-              <strong>Ranchi — Coming Soon</strong>
-              <small>Upper Bazar, Ranchi, Jharkhand – 834001</small>
+              <strong>Upper Bazar — Ranchi</strong>
+              <small>2nd Floor, Atma Ram Bhavan, Upper Bazar, Ranchi – 834001</small>
             </li>
           </ul>
           <div class="footer-contact-links">
@@ -2842,7 +2814,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.6"></script>
+  <script src="script.js?v=4.0"></script>
 </body>
 
 </html>
