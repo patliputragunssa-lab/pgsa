@@ -260,7 +260,7 @@ const mapTitleLabel  = document.getElementById("map-title-label");
 const locNames = {
   digha:      "Digha — Patna",
   kankarbagh: "Kankarbagh — Patna",
-  ranchi:     "Upper Bazar — Ranchi"
+  ranchi:     "Main Road — Ranchi"
 };
 
 locTabs.forEach((tab) => {
