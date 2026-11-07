@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4.7">
+  <link rel="stylesheet" href="styles.css?v=5.5">
 </head>
 
 <body>
@@ -2084,186 +2084,176 @@
           <p class="eyebrow">Shooter Noticeboard &amp; Academy Updates</p>
           <h2>News, Articles &amp; Tournament Alerts</h2>
         </div>
-        <p>Official announcements, academy milestones, upcoming National &amp; All-India championships, and PGSA
-          internal leagues &amp; knockout tournaments.</p>
+        <p>Official announcements, academy milestones, upcoming National &amp; All-India championships, and PGSA internal leagues &amp; knockout tournaments.</p>
       </div>
 
-      <!-- Urgent alert banner ticker -->
-      <div class="alert-ticker" role="alert">
-        <span class="ticker-tag">🔔 TOURNAMENT ALERT</span>
-        <div class="ticker-content">
-          <strong>XXXV All India G.V. Mavlankar (Oct 23 – Nov 1) &amp; 69th NSCC Nationals (Dec 2026):</strong> Official
-          tournament calendar announced. Shooter registrations, pre-match weapon checks, and internal test series are
-          underway.
-        </div>
-        <a class="ticker-link" href="#enquiry">Range Desk →</a>
+      <!-- Streamlined Official Bulletin Ticker -->
+      <div class="alerts-bulletin" role="alert">
+        <span class="bulletin-pill">⚡ OFFICIAL BULLETIN</span>
+        <p class="bulletin-text">
+          <strong>Championship Calendar:</strong> Circulars released for XXXV All India G.V. Mavlankar &amp; 69th NSCC Nationals. Registrations and pre-match diagnostics are now active.
+        </p>
+        <a class="bulletin-link" href="#enquiry">Range Desk →</a>
       </div>
 
       <!-- Tournament & News category filters -->
       <div class="tournament-filters" role="tablist" aria-label="Tournament and news filters">
-        <button class="t-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Notices &amp;
-          Tournaments (6)</button>
+        <button class="t-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Updates</button>
         <button class="t-filter-btn" data-filter="news" role="tab" aria-selected="false">Academy Milestones</button>
-        <button class="t-filter-btn" data-filter="national" role="tab" aria-selected="false">National
-          Championships</button>
-        <button class="t-filter-btn" data-filter="internal" role="tab" aria-selected="false">PGSA Internal
-          Competitions</button>
+        <button class="t-filter-btn" data-filter="national" role="tab" aria-selected="false">National Championships</button>
+        <button class="t-filter-btn" data-filter="internal" role="tab" aria-selected="false">PGSA Internal Leagues</button>
       </div>
 
-      <!-- Tournament Cards Grid -->
-      <div class="tournaments-grid">
-        <!-- 1. Milestone News Card: Coach Bibaswan Ganguly ISSF 'A' License -->
-        <article class="tournament-card featured-news-card" data-category="news">
-          <div class="t-card-header">
-            <span class="t-status-badge badge-featured">🏆 Milestone</span>
-            <span class="t-category-tag">Official · ISSF Coach</span>
-          </div>
-          <div class="t-card-body">
-            <div class="news-coach-header">
-              <img class="news-coach-thumb" src="assets/bibaswan-ganguly.png" alt="Mr. Bibaswan Ganguly">
-              <div class="news-coach-meta">
-                <h4 class="news-coach-name">Mr. Bibaswan Ganguly</h4>
-                <span class="news-coach-badge">ISSF 'A' License Coach</span>
-              </div>
+      <!-- 1. Editorial Spotlight Card: Coach Bibaswan Ganguly ISSF 'A' License -->
+      <article class="tournament-card spotlight-card" data-category="news">
+        <div class="spotlight-inner">
+          <div class="spotlight-visual">
+            <div class="spotlight-avatar-wrap">
+              <img class="spotlight-avatar" src="assets/bibaswan-ganguly.png" alt="Mr. Bibaswan Ganguly">
+              <span class="spotlight-gold-ring"></span>
             </div>
-            <h3>Congratulations on Achieving Prestigious ISSF 'A' License!</h3>
-            <p class="t-desc">
-              PGSA family extends its proudest congratulations to Mr. Bibaswan Ganguly on earning the pinnacle of global
-              shooting coaching credentials.
+            <span class="spotlight-role-badge">ISSF 'A' LICENSE COACH</span>
+          </div>
+
+          <div class="spotlight-content">
+            <div class="spotlight-meta-header">
+              <span class="t-badge milestone">🏆 Academy Milestone</span>
+              <span class="spotlight-category">Global Coaching Pinnacle</span>
+            </div>
+
+            <h3 class="spotlight-title">Congratulations to Mr. Bibaswan Ganguly on Achieving the Prestigious ISSF 'A' License!</h3>
+
+            <p class="spotlight-excerpt">
+              The Patliputra Guns Shooting Academy family extends its highest congratulations to Consultant Head Coach Mr. Bibaswan Ganguly on earning the pinnacle of international shooting coaching credentials from the International Shooting Sport Federation.
             </p>
-            <div class="t-compact-meta">
-              <div class="t-meta-chip"><span class="chip-icon">🎖️</span> ISSF 'A' License</div>
-              <div class="t-meta-chip"><span class="chip-icon">🤝</span> High-Performance Head</div>
-              <div class="t-meta-chip"><span class="chip-icon">🎯</span> Athlete Pathway</div>
-              <div class="t-meta-chip"><span class="chip-icon">📱</span> Instagram Post</div>
-            </div>
-            <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="issf-a-ganguly">Read Tribute <span
-                  aria-hidden="true">→</span></button>
-              <a class="button instagram-btn compact"
-                href="https://www.instagram.com/p/Delos_JSYUg/?cplk=MWJmbXZqdmhidmlpeA==" target="_blank"
-                rel="noopener noreferrer">Instagram ↗</a>
-            </div>
-          </div>
-        </article>
 
-        <!-- 2. XXXV All India G.V. Mavlankar Shooting Championship (Pistol Events) -->
-        <article class="tournament-card" data-category="national">
-          <div class="t-card-header">
-            <span class="t-status-badge badge-upcoming">● Live / Upcoming</span>
-            <span class="t-category-tag">NRAI · Pre-National</span>
+            <div class="spotlight-highlights">
+              <span class="highlight-chip">🎖️ Global ISSF Certification</span>
+              <span class="highlight-chip">🎯 High-Performance Direction</span>
+              <span class="highlight-chip">🇮🇳 Olympic Pathway Mentorship</span>
+            </div>
+
+            <div class="spotlight-actions">
+              <button class="button primary compact open-circular-btn" data-circular="issf-a-ganguly" type="button">
+                Read Full Tribute <span aria-hidden="true">→</span>
+              </button>
+              <a class="button outline compact" href="https://www.instagram.com/p/Delos_JSYUg/?cplk=MWJmbXZqdmhidmlpeA==" target="_blank" rel="noopener noreferrer">
+                Instagram Announcement ↗
+              </a>
+            </div>
           </div>
-          <div class="t-card-body">
+        </div>
+      </article>
+
+      <!-- 2. Clean 2-Column Tournament Schedule Grid -->
+      <div class="tournaments-grid clean-schedule-grid">
+        <!-- Tournament 1: XXXV All India G.V. Mavlankar -->
+        <article class="tournament-card schedule-card" data-category="national">
+          <div class="t-card-topbar">
+            <span class="t-badge national">NRAI Pre-National</span>
+            <span class="t-date-badge">Oct 23 – Nov 1, 2026</span>
+          </div>
+          <div class="t-card-main">
             <h3>XXXV All India G.V. Mavlankar Championship (Pistol)</h3>
-            <p class="t-desc">Pre-National championship serving as the primary qualification gateway for shooters aiming
-              for 69th NSCC Nationals.</p>
-            <div class="t-compact-meta">
-              <div class="t-meta-chip"><span class="chip-icon">📅</span> Oct 23 – Nov 1, 2026</div>
-              <div class="t-meta-chip"><span class="chip-icon">📍</span> Trishul Range, Dehradun</div>
-              <div class="t-meta-chip"><span class="chip-icon">🎯</span> 10m &amp; Firearm Pistol</div>
-              <div class="t-meta-chip"><span class="chip-icon">🏛️</span> Gateway to 69th NSCC</div>
+            <p class="t-desc">Pre-National championship serving as the primary qualification gateway for shooters aiming for the 69th NSCC Nationals.</p>
+            <div class="t-meta-clean">
+              <div class="t-meta-line"><span class="meta-icon">📍</span> Trishul Range, Dehradun</div>
+              <div class="t-meta-line"><span class="meta-icon">🎯</span> 10m &amp; Firearm Pistol · Gateway to 69th NSCC</div>
             </div>
-            <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="mavlankar-35">View Notice <span
-                  aria-hidden="true">→</span></button>
-              <a class="button secondary compact" href="#enquiry">Shooter Desk →</a>
-            </div>
+          </div>
+          <div class="t-card-bottom">
+            <button class="button primary compact open-circular-btn" data-circular="mavlankar-35" type="button">
+              View Notice <span aria-hidden="true">→</span>
+            </button>
+            <a class="t-secondary-link" href="#enquiry">Shooter Desk →</a>
           </div>
         </article>
 
-        <!-- 3. 69th National Shooting Championship Competitions (NSCC) -->
-        <article class="tournament-card" data-category="national">
-          <div class="t-card-header">
-            <span class="t-status-badge badge-national">🏛️ National Apex</span>
-            <span class="t-category-tag">NRAI · Apex Championship</span>
+        <!-- Tournament 2: 69th National Shooting Championship (NSCC) -->
+        <article class="tournament-card schedule-card" data-category="national">
+          <div class="t-card-topbar">
+            <span class="t-badge apex">NRAI Apex Championship</span>
+            <span class="t-date-badge">December 2026</span>
           </div>
-          <div class="t-card-body">
+          <div class="t-card-main">
             <h3>69th National Shooting Championship (NSCC)</h3>
-            <p class="t-desc">India's premier national championship establishing national rankings, Renowned Shot
-              titles, and selection trial eligibility.</p>
-            <div class="t-compact-meta">
-              <div class="t-meta-chip"><span class="chip-icon">📅</span> Dec 2026 (Tentative)</div>
-              <div class="t-meta-chip"><span class="chip-icon">📍</span> DKSSR Ranges, New Delhi</div>
-              <div class="t-meta-chip"><span class="chip-icon">🎯</span> 10m Air Rifle &amp; Pistol</div>
-              <div class="t-meta-chip"><span class="chip-icon">⭐</span> Renowned Shot &amp; Trials</div>
+            <p class="t-desc">India's premier national championship establishing national rankings, Renowned Shot titles, and National Trial eligibility.</p>
+            <div class="t-meta-clean">
+              <div class="t-meta-line"><span class="meta-icon">📍</span> Dr. Karni Singh Shooting Ranges (DKSSR), New Delhi</div>
+              <div class="t-meta-line"><span class="meta-icon">🎯</span> 10m Air Rifle &amp; Pistol · Renowned Shot &amp; Trials</div>
             </div>
-            <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="nscc-69">View Notice <span
-                  aria-hidden="true">→</span></button>
-              <a class="button secondary compact" href="#enquiry">Prep Camp →</a>
-            </div>
+          </div>
+          <div class="t-card-bottom">
+            <button class="button primary compact open-circular-btn" data-circular="nscc-69" type="button">
+              View Notice <span aria-hidden="true">→</span>
+            </button>
+            <a class="t-secondary-link" href="#enquiry">Prep Camp →</a>
           </div>
         </article>
 
-        <!-- 4. PGSA Christmas Knockout Competition -->
-        <article class="tournament-card" data-category="internal">
-          <div class="t-card-header">
-            <span class="t-status-badge badge-internal">🎯 Knockout Cup</span>
-            <span class="t-category-tag">PGSA Internal</span>
+        <!-- Tournament 3: PGSA Christmas Knockout Competition -->
+        <article class="tournament-card schedule-card" data-category="internal">
+          <div class="t-card-topbar">
+            <span class="t-badge internal">PGSA Knockout Cup</span>
+            <span class="t-date-badge">Dec 24 &amp; 25, 2026</span>
           </div>
-          <div class="t-card-body">
+          <div class="t-card-main">
             <h3>PGSA Christmas Knockout Competition</h3>
-            <p class="t-desc">High-voltage head-to-head elimination tournament simulating sudden-death matchplay
-              pressure for academy shooters.</p>
-            <div class="t-compact-meta">
-              <div class="t-meta-chip"><span class="chip-icon">📅</span> Dec 24 &amp; 25, 2026</div>
-              <div class="t-meta-chip"><span class="chip-icon">📍</span> PGSA Ranges, Patna</div>
-              <div class="t-meta-chip"><span class="chip-icon">🎯</span> Head-to-Head Duels</div>
-              <div class="t-meta-chip"><span class="chip-icon">🏆</span> Trophies &amp; Match Pellets</div>
+            <p class="t-desc">High-voltage head-to-head elimination tournament simulating sudden-death matchplay pressure for academy shooters.</p>
+            <div class="t-meta-clean">
+              <div class="t-meta-line"><span class="meta-icon">📍</span> PGSA Ranges, Patna</div>
+              <div class="t-meta-line"><span class="meta-icon">🎯</span> Head-to-Head Duels · Trophies &amp; Match Pellets</div>
             </div>
-            <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="christmas-knockout">Rules &amp;
-                Draw <span aria-hidden="true">→</span></button>
-              <a class="button secondary compact" href="#enquiry">Book Slot →</a>
-            </div>
+          </div>
+          <div class="t-card-bottom">
+            <button class="button primary compact open-circular-btn" data-circular="christmas-knockout" type="button">
+              Rules &amp; Draw <span aria-hidden="true">→</span>
+            </button>
+            <a class="t-secondary-link" href="#enquiry">Book Slot →</a>
           </div>
         </article>
 
-        <!-- 5. PGSA Weekly Arjuna Award Test Series -->
-        <article class="tournament-card" data-category="internal">
-          <div class="t-card-header">
-            <span class="t-status-badge badge-open">⭐ Test Series</span>
-            <span class="t-category-tag">PGSA High-Performance</span>
+        <!-- Tournament 4: PGSA Weekly Arjuna Award Test Series -->
+        <article class="tournament-card schedule-card" data-category="internal">
+          <div class="t-card-topbar">
+            <span class="t-badge internal">High-Performance Series</span>
+            <span class="t-date-badge">Starts Dec 2026 (Weekly)</span>
           </div>
-          <div class="t-card-body">
+          <div class="t-card-main">
             <h3>PGSA Weekly Arjuna Award Test Series</h3>
-            <p class="t-desc">Rigorous weekly diagnostic match series designed to build championship-grade consistency,
-              decimal scoring precision, and resilience.</p>
-            <div class="t-compact-meta">
-              <div class="t-meta-chip"><span class="chip-icon">📅</span> Starts Dec 2026 (Weekly)</div>
-              <div class="t-meta-chip"><span class="chip-icon">📍</span> 10m Electronic SIUS Lines</div>
-              <div class="t-meta-chip"><span class="chip-icon">🎯</span> 60-Shot Match &amp; SCATT</div>
-              <div class="t-meta-chip"><span class="chip-icon">📈</span> Weekly Leaderboard</div>
+            <p class="t-desc">Rigorous weekly diagnostic match series designed to build championship-grade consistency, decimal precision, and resilience.</p>
+            <div class="t-meta-clean">
+              <div class="t-meta-line"><span class="meta-icon">📍</span> 10m Electronic SIUS Lines</div>
+              <div class="t-meta-line"><span class="meta-icon">🎯</span> 60-Shot Match &amp; SCATT · Weekly Leaderboard</div>
             </div>
-            <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="arjuna-series">Series Details
-                <span aria-hidden="true">→</span></button>
-              <a class="button secondary compact" href="#enquiry">Enrol Series →</a>
-            </div>
+          </div>
+          <div class="t-card-bottom">
+            <button class="button primary compact open-circular-btn" data-circular="arjuna-series" type="button">
+              Series Details <span aria-hidden="true">→</span>
+            </button>
+            <a class="t-secondary-link" href="#enquiry">Enrol Series →</a>
           </div>
         </article>
 
-        <!-- 6. PGSA League 2027 -->
-        <article class="tournament-card" data-category="internal">
-          <div class="t-card-header">
-            <span class="t-status-badge badge-upcoming">🏆 Annual League</span>
-            <span class="t-category-tag">PGSA Season 2027</span>
+        <!-- Tournament 5: PGSA League 2027 -->
+        <article class="tournament-card schedule-card" data-category="internal">
+          <div class="t-card-topbar">
+            <span class="t-badge internal">PGSA Annual League</span>
+            <span class="t-date-badge">Starts January 2027</span>
           </div>
-          <div class="t-card-body">
-            <h3>PGSA League 2027</h3>
-            <p class="t-desc">Flagship multi-stage annual league featuring cumulative points, stage rankings, and an
-              Olympic decimal grand finale.</p>
-            <div class="t-compact-meta">
-              <div class="t-meta-chip"><span class="chip-icon">📅</span> Starts January 2027</div>
-              <div class="t-meta-chip"><span class="chip-icon">📍</span> Digha &amp; Patliputra Ranges</div>
-              <div class="t-meta-chip"><span class="chip-icon">🎯</span> 10m Air Rifle &amp; Pistol</div>
-              <div class="t-meta-chip"><span class="chip-icon">🥇</span> Top 8 Decimal Finals</div>
+          <div class="t-card-main">
+            <h3>PGSA League 2027 Season</h3>
+            <p class="t-desc">Flagship multi-stage annual league featuring cumulative points, stage rankings, and an Olympic decimal grand finale.</p>
+            <div class="t-meta-clean">
+              <div class="t-meta-line"><span class="meta-icon">📍</span> Digha, Kankarbagh &amp; Main Road Ranchi Ranges</div>
+              <div class="t-meta-line"><span class="meta-icon">🎯</span> 10m Air Rifle &amp; Pistol · Top 8 Decimal Finals</div>
             </div>
-            <div class="t-card-actions">
-              <button class="button primary compact open-circular-btn" data-circular="pgsa-league">League Format <span
-                  aria-hidden="true">→</span></button>
-              <a class="button secondary compact" href="#enquiry">Join League →</a>
-            </div>
+          </div>
+          <div class="t-card-bottom">
+            <button class="button primary compact open-circular-btn" data-circular="pgsa-league" type="button">
+              League Format <span aria-hidden="true">→</span>
+            </button>
+            <a class="t-secondary-link" href="#enquiry">Join League →</a>
           </div>
         </article>
       </div>
@@ -2293,61 +2283,57 @@
         <button class="g-filter-btn" data-filter="training" role="tab" aria-selected="false">Shooter Training</button>
       </div>
 
-      <!-- Bento / Editorial Mosaic Grid -->
+      <!-- Clean Editorial Photo Grid (Decluttered & Image-Focused) -->
       <div class="gallery-bento-grid">
-        <!-- Tile 0: Featured Hero Tile (10m SIUS Lines) -->
+        <!-- Tile 0: Featured Hero Tile (10m Electronic SIUS Range) -->
         <article class="gallery-card gallery-thumb hero-tile" data-index="0" data-category="range" tabindex="0"
           role="button" aria-label="Enlarge: Air rifles on the shooting bench with SIUS targets">
           <div class="gallery-img-wrap">
             <img class="gallery-img" src="assets/gallery-1.jpeg"
               alt="Air rifles on the shooting bench with SIUS targets" loading="lazy">
-            <div class="gallery-card-gradient"></div>
+            <div class="gallery-scrim"></div>
           </div>
-          <div class="gallery-card-top">
-            <span class="gallery-badge gold-badge">★ Featured Facility</span>
-            <span class="gallery-badge glass-badge">10m Electronic SIUS Range</span>
+          <div class="gallery-topbar">
+            <span class="gallery-pill gold-pill">10m Electronic SIUS Range</span>
+            <span class="gallery-zoom-badge" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </span>
           </div>
-          <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </span>
-          <div class="gallery-card-bottom">
-            <h3>Swiss-Calibrated SIUS Electronic Target Lines</h3>
-            <p>Olympic-standard 10m firing bays equipped with instant decimal precision scoring monitors and match
-              benches.</p>
-            <span class="gallery-expand-cta">Click to enlarge shot ⤢</span>
+          <div class="gallery-caption">
+            <h3 class="gallery-title">Swiss-Calibrated SIUS Target Bays</h3>
+            <span class="gallery-view-cue">View Photo ⤢</span>
           </div>
         </article>
 
-        <!-- Tile 1: Olympic Range Bench -->
+        <!-- Tile 1: Olympic Range Weapon Stands -->
         <article class="gallery-card gallery-thumb" data-index="1" data-category="range" tabindex="0" role="button"
           aria-label="Enlarge: Air rifles at a range with Olympic logo">
           <div class="gallery-img-wrap">
             <img class="gallery-img" src="assets/gallery-2.jpeg" alt="Air rifles at a range with Olympic logo"
               loading="lazy">
-            <div class="gallery-card-gradient"></div>
+            <div class="gallery-scrim"></div>
           </div>
-          <div class="gallery-card-top">
-            <span class="gallery-badge glass-badge">Olympic Standards</span>
+          <div class="gallery-topbar">
+            <span class="gallery-pill">Olympic Weapon Stands</span>
+            <span class="gallery-zoom-badge" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </span>
           </div>
-          <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </span>
-          <div class="gallery-card-bottom">
-            <h3>Precision Weapon Firing Station</h3>
-            <p>Calibrated athlete benches, match pellets storage, and Olympic weapon stands.</p>
-            <span class="gallery-expand-cta">Click to enlarge ⤢</span>
+          <div class="gallery-caption">
+            <h3 class="gallery-title">Precision Firing Station</h3>
+            <span class="gallery-view-cue">View Photo ⤢</span>
           </div>
         </article>
 
@@ -2357,24 +2343,23 @@
           <div class="gallery-img-wrap">
             <img class="gallery-img" src="assets/gallery-3.jpeg" alt="PGSA shooter aiming an air pistol at the range"
               loading="lazy">
-            <div class="gallery-card-gradient"></div>
+            <div class="gallery-scrim"></div>
           </div>
-          <div class="gallery-card-top">
-            <span class="gallery-badge glass-badge">Precision Training</span>
+          <div class="gallery-topbar">
+            <span class="gallery-pill">Dry-Fire Diagnostics</span>
+            <span class="gallery-zoom-badge" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </span>
           </div>
-          <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </span>
-          <div class="gallery-card-bottom">
-            <h3>Air Pistol Stance &amp; Trigger Control</h3>
-            <p>PGSA shooter executing diagnostic dry-fire stability drills under coach guidance.</p>
-            <span class="gallery-expand-cta">Click to enlarge ⤢</span>
+          <div class="gallery-caption">
+            <h3 class="gallery-title">Air Pistol Stance &amp; Trigger Control</h3>
+            <span class="gallery-view-cue">View Photo ⤢</span>
           </div>
         </article>
 
@@ -2384,24 +2369,23 @@
           <div class="gallery-img-wrap">
             <img class="gallery-img" src="assets/gallery-4.jpeg"
               alt="PGSA athlete on podium at 10th East Zone Shooting Championship" loading="lazy">
-            <div class="gallery-card-gradient"></div>
+            <div class="gallery-scrim"></div>
           </div>
-          <div class="gallery-card-top">
-            <span class="gallery-badge gold-badge">East Zone Gold</span>
+          <div class="gallery-topbar">
+            <span class="gallery-pill gold-pill">East Zone Gold</span>
+            <span class="gallery-zoom-badge" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </span>
           </div>
-          <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </span>
-          <div class="gallery-card-bottom">
-            <h3>Podium Victory Ceremony</h3>
-            <p>PGSA champion athlete ascending the top podium at the 10th East Zone Championship.</p>
-            <span class="gallery-expand-cta">Click to enlarge ⤢</span>
+          <div class="gallery-caption">
+            <h3 class="gallery-title">Podium Victory Ceremony</h3>
+            <span class="gallery-view-cue">View Photo ⤢</span>
           </div>
         </article>
 
@@ -2411,24 +2395,23 @@
           <div class="gallery-img-wrap">
             <img class="gallery-img" src="assets/gallery-5.jpeg" alt="PGSA Shooting Team at the East Zone Championship"
               loading="lazy">
-            <div class="gallery-card-gradient"></div>
+            <div class="gallery-scrim"></div>
           </div>
-          <div class="gallery-card-top">
-            <span class="gallery-badge glass-badge">Championship Squad</span>
+          <div class="gallery-topbar">
+            <span class="gallery-pill">Championship Squad</span>
+            <span class="gallery-zoom-badge" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </span>
           </div>
-          <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </span>
-          <div class="gallery-card-bottom">
-            <h3>PGSA Team at East Zone</h3>
-            <p>Our medal-winning squad celebrating record gold and silver tallies for Bihar.</p>
-            <span class="gallery-expand-cta">Click to enlarge ⤢</span>
+          <div class="gallery-caption">
+            <h3 class="gallery-title">PGSA Team at East Zone</h3>
+            <span class="gallery-view-cue">View Photo ⤢</span>
           </div>
         </article>
 
@@ -2438,24 +2421,23 @@
           <div class="gallery-img-wrap">
             <img class="gallery-img" src="assets/gallery-6.jpeg"
               alt="PGSA team at XXXVI Bihar State Shooting Championship" loading="lazy">
-            <div class="gallery-card-gradient"></div>
+            <div class="gallery-scrim"></div>
           </div>
-          <div class="gallery-card-top">
-            <span class="gallery-badge glass-badge">State Champions</span>
+          <div class="gallery-topbar">
+            <span class="gallery-pill">State Champions</span>
+            <span class="gallery-zoom-badge" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </span>
           </div>
-          <span class="gallery-zoom-trigger" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </span>
-          <div class="gallery-card-bottom">
-            <h3>XXXVI Bihar State Championship Contingent</h3>
-            <p>Dominating state championship standings across 10m rifle and pistol categories.</p>
-            <span class="gallery-expand-cta">Click to enlarge ⤢</span>
+          <div class="gallery-caption">
+            <h3 class="gallery-title">XXXVI Bihar State Championship Contingent</h3>
+            <span class="gallery-view-cue">View Photo ⤢</span>
           </div>
         </article>
       </div>
